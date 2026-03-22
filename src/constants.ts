@@ -6,7 +6,7 @@ export const portfolioData: PortfolioData = {
   linkedin: "https://linkedin.com/in/maria-eduarda-martins-a42098204",
   languages: {
     pt: {
-      title: "Senior Product Manager · ML & Computer Vision",
+      title: "AI Product Manager · ML & Computer Vision",
       bio: "Product Manager com experiência liderando produtos de IA, visão computacional e expansão global de plataformas. Apaixonada por transformar modelos complexos em soluções escaláveis e centradas no usuário.",
       philosophy: "Acredito que os melhores produtos de IA nascem da combinação entre rigor técnico e empatia pelo usuário. Meu foco é criar sistemas que sejam úteis, mensuráveis e preparados para escalar.",
       skills: [
@@ -45,7 +45,7 @@ export const portfolioData: PortfolioData = {
           id: "2",
           title: "Reestruturação de Produto e Framework de Métricas",
           company: "Blu",
-          role: "Mid-level Product Manager",
+          role: "Product Manager",
           period: "Jul 2023 — Set 2025",
           description: "Liderei iniciativas de produto e dados que transformaram a performance operacional e financeira do produto core, com resultados expressivos em rentabilidade, velocidade de processos e rastreabilidade.",
           problem: "O produto não possuía métricas estruturadas, o processo de aprovação levava quase 5 dias, a taxa de migração de contas era de apenas 23% e alarmes de perda financeira eram difíceis de detectar a tempo.",
@@ -66,7 +66,7 @@ export const portfolioData: PortfolioData = {
           year: "2025–2026"
         },
         {
-          degree: "BTech in Analysis and Systems Development",
+          degree: "Associate Degree in Software Development",
           institution: "Uniamérica",
           year: "2022–2025"
         },
@@ -90,13 +90,13 @@ export const portfolioData: PortfolioData = {
       ],
       careerPath: [
         {
-          role: "Senior Product Manager — ML & Computer Vision",
+          role: "AI Product Manager — ML & Computer Vision",
           company: "Relo Metrics",
           period: "Set 2025 — Presente",
           description: "Lidero o ciclo de avaliação, melhoria e retreinamento de modelos de visão computacional para detecção de marcas patrocinadoras em mídia esportiva."
         },
         {
-          role: "Mid-level Product Manager",
+          role: "Product Manager",
           company: "Blu",
           period: "Jul 2023 — Set 2025",
           description: "Responsável por estratégia de produto, métricas e melhoria de processos no produto financeiro core, com foco em rentabilidade e escalabilidade."
@@ -106,6 +106,12 @@ export const portfolioData: PortfolioData = {
           company: "Laboratório Bravet",
           period: "Dez 2022 — Jul 2023",
           description: "Estruturei processos de qualidade e documentação para desenvolvimento de produtos, garantindo escalabilidade e conformidade com padrões regulatórios."
+        },
+        {
+          role: "Técnica em Controle de Qualidade",
+          company: "BRF",
+          period: "Jul 2021 — Dez 2022",
+          description: "Aproveitei dados e métricas de qualidade para identificar problemas, priorizar melhorias e reforçar a consistência do produto."
         }
       ],
       prdGenerator: {
@@ -129,13 +135,14 @@ export const portfolioData: PortfolioData = {
       },
       aiProcess: {
         badge: "AI-First Portfolio",
-        title: "Este website foi construído 100% via IA sob minha curadoria.",
-        description: "Como Senior AI Product Manager, acredito em \"comer a própria comida de cachorro\" (dogfooding). Utilizei ferramentas de IA Generativa para codificar, estruturar e otimizar este portfólio, demonstrando na prática como a IA pode acelerar o delivery e a criatividade.",
+        title: "Construído 100% com IA, dirigido e curado por mim.",
+        description: "Usei IA generativa e vibe coding para desenhar, desenvolver e lançar este produto — demonstrando como a IA acelera a entrega de ponta a ponta.",
+        stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel",
         items: [
           { title: "Prompt Engineering", desc: "Estruturação de prompts complexos para geração de código e design system." },
           { title: "AI-Assisted Coding", desc: "Utilização de LLMs para desenvolvimento front-end e lógica de componentes." }
         ],
-        curation: "Curadoria Humana",
+        curation: "Direção Humana",
         execution: "Execução por Inteligência Artificial"
       },
       ui: {
@@ -183,7 +190,7 @@ export const portfolioData: PortfolioData = {
           id: "1",
           title: "AI Platform Globalization for Sponsor Brand Detection",
           company: "Relo Metrics",
-          role: "Senior Product Manager — ML & Computer Vision",
+          role: "AI Product Manager — ML & Computer Vision",
           period: "Set 2025 — Presente",
           description: "Led the evolution of a computer vision platform for sponsor brand exposure detection in sports media, making it globally scalable and language-agnostic.",
           problem: "The platform was limited to English-speaking markets and relied on intensive manual operations, preventing global expansion and increasing operational costs.",
@@ -200,7 +207,7 @@ export const portfolioData: PortfolioData = {
           id: "2",
           title: "Product Restructuring and Metrics Framework",
           company: "Blu",
-          role: "Mid-level Product Manager",
+          role: "Product Manager",
           period: "Jul 2023 — Set 2025",
           description: "Led product and data initiatives that transformed the operational and financial performance of the core product, with significant results in profitability, process speed, and traceability.",
           problem: "The product lacked structured metrics, the approval process took nearly 5 days, account migration rate was only 23%, and financial loss alerts were hard to detect in time.",
@@ -221,7 +228,7 @@ export const portfolioData: PortfolioData = {
           year: "2025–2026"
         },
         {
-          degree: "BTech in Analysis and Systems Development",
+          degree: "Associate Degree in Software Development",
           institution: "Uniamérica",
           year: "2022–2025"
         },
@@ -245,13 +252,13 @@ export const portfolioData: PortfolioData = {
       ],
       careerPath: [
         {
-          role: "Senior Product Manager — ML & Computer Vision",
+          role: "AI Product Manager — ML & Computer Vision",
           company: "Relo Metrics",
           period: "Set 2025 — Presente",
           description: "I lead the evaluation, improvement, and retraining cycle of computer vision models for sponsor brand detection in sports media."
         },
         {
-          role: "Mid-level Product Manager",
+          role: "Product Manager",
           company: "Blu",
           period: "Jul 2023 — Set 2025",
           description: "Owned product strategy, metrics, and process improvement for the core financial product, focusing on profitability and scalability."
@@ -261,6 +268,12 @@ export const portfolioData: PortfolioData = {
           company: "Laboratório Bravet",
           period: "Dez 2022 — Jul 2023",
           description: "Structured quality processes and documentation for product development, ensuring scalability and compliance with regulatory standards."
+        },
+        {
+          role: "Quality Control Technician",
+          company: "BRF",
+          period: "Jul 2021 — Dec 2022",
+          description: "Leveraged data and quality metrics to identify issues, prioritize improvements, and enhance product consistency."
         }
       ],
       prdGenerator: {
@@ -284,13 +297,14 @@ export const portfolioData: PortfolioData = {
       },
       aiProcess: {
         badge: "AI-First Portfolio",
-        title: "This website was built 100% via AI under my curation.",
-        description: "As a Senior AI Product Manager, I believe in dogfooding. I used Generative AI tools to code, structure, and optimize this portfolio, demonstrating in practice how AI can accelerate delivery and creativity.",
+        title: "Built 100% with AI, directed and curated by me.",
+        description: "Used generative AI and vibe coding to design, develop, and ship this product—demonstrating how AI accelerates end-to-end delivery.",
+        stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel",
         items: [
           { title: "Prompt Engineering", desc: "Structuring complex prompts for code generation and design system." },
           { title: "AI-Assisted Coding", desc: "Using LLMs for front-end development and component logic." }
         ],
-        curation: "Human Curation",
+        curation: "Human Direction",
         execution: "AI Execution"
       },
       ui: {
@@ -316,7 +330,7 @@ export const portfolioData: PortfolioData = {
       }
     },
     es: {
-      title: "Senior Product Manager · ML & Computer Vision",
+      title: "AI Product Manager · ML & Computer Vision",
       bio: "Product Manager con experiencia liderando productos de IA, visión computacional y expansión global de plataformas. Apasionada por transformar modelos complejos en soluciones escalables y centradas en el usuario.",
       philosophy: "Los mejores productos de IA nacen de la combinación entre rigor técnico y empatía con el usuario. Mi foco es crear sistemas útiles, medibles y preparados para escalar.",
       skills: [
@@ -338,7 +352,7 @@ export const portfolioData: PortfolioData = {
           id: "1",
           title: "Globalización de Plataforma de IA para Detección de Marcas",
           company: "Relo Metrics",
-          role: "Senior Product Manager — ML & Computer Vision",
+          role: "AI Product Manager — ML & Computer Vision",
           period: "Set 2025 — Presente",
           description: "Lideré la evolución de una plataforma de visión computacional para la detección de exposición de marcas patrocinadoras en medios deportivos, haciéndola globalmente escalable y agnóstica del idioma.",
           problem: "La plataforma estaba limitada a mercados de habla inglesa y dependía de operaciones manuales intensivas, lo que impedía la expansión global y aumentaba los costos operativos.",
@@ -355,7 +369,7 @@ export const portfolioData: PortfolioData = {
           id: "2",
           title: "Reestructuración de Producto y Framework de Métricas",
           company: "Blu",
-          role: "Mid-level Product Manager",
+          role: "Product Manager",
           period: "Jul 2023 — Set 2025",
           description: "Lideré iniciativas de producto y datos que transformaron el rendimiento operativo y financiero del producto core, con resultados significativos en rentabilidad, velocidad de procesos y trazabilidad.",
           problem: "El producto carecía de métricas estructuradas, el proceso de aprobación tardaba casi 5 días, la tasa de migración de cuentas era solo del 23% y las alertas de pérdida financiera eran difíciles de detectar a tiempo.",
@@ -400,13 +414,13 @@ export const portfolioData: PortfolioData = {
       ],
       careerPath: [
         {
-          role: "Senior Product Manager — ML & Computer Vision",
+          role: "AI Product Manager — ML & Computer Vision",
           company: "Relo Metrics",
           period: "Set 2025 — Presente",
           description: "Lidero el ciclo de evaluación, mejora y reentrenamiento de modelos de visión computacional para la detección de marcas patrocinadoras en medios deportivos."
         },
         {
-          role: "Mid-level Product Manager",
+          role: "Product Manager",
           company: "Blu",
           period: "Jul 2023 — Set 2025",
           description: "Responsable de la estrategia de producto, métricas y mejora de procesos del producto financiero core, con foco en rentabilidad y escalabilidad."
@@ -416,6 +430,12 @@ export const portfolioData: PortfolioData = {
           company: "Laboratório Bravet",
           period: "Dez 2022 — Jul 2023",
           description: "Estructuré procesos de calidad y documentación para el desarrollo de productos, garantizando escalabilidad y cumplimiento de estándares regulatorios."
+        },
+        {
+          role: "Técnica en Control de Calidad",
+          company: "BRF",
+          period: "Jul 2021 — Dic 2022",
+          description: "Aproveché datos y métricas de calidad para identificar problemas, priorizar mejoras y mejorar la consistencia del producto."
         }
       ],
       prdGenerator: {
@@ -439,13 +459,14 @@ export const portfolioData: PortfolioData = {
       },
       aiProcess: {
         badge: "Portafolio AI-First",
-        title: "Este sitio web fue construido 100% mediante IA bajo mi curaduría.",
-        description: "Como Senior AI Product Manager, creo en el dogfooding. Utilicé herramientas de IA Generativa para codificar, estructurar y optimizar este portafolio, demostrando en la práctica cómo la IA puede acelerar la entrega y la creatividad.",
+        title: "Construido 100% con IA, dirigido y curado por mí.",
+        description: "Utilicé IA generativa y vibe coding para diseñar, desarrollar y lanzar este producto — demostrando cómo la IA acelera la entrega de extremo a extremo.",
+        stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel",
         items: [
           { title: "Ingeniería de Prompts", desc: "Estructuración de prompts complejos para la generación de código y el sistema de diseño." },
           { title: "Codificación Asistida por IA", desc: "Uso de LLMs para el desarrollo front-end y la lógica de componentes." }
         ],
-        curation: "Curaduría Humana",
+        curation: "Dirección Humana",
         execution: "Ejecución por IA"
       },
       ui: {

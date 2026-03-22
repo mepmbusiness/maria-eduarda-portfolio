@@ -62,6 +62,7 @@ export interface PortfolioContent {
     badge: string;
     title: string;
     description: string;
+    stack: string;
     items: { title: string; desc: string }[];
     curation: string;
     execution: string;

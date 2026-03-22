@@ -305,8 +305,11 @@ const AIProcess = ({ lang }: { lang: string }) => {
             <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
               {content.aiProcess.title}
             </h2>
-            <p className="text-indigo-100/80 text-xl leading-relaxed mb-10">
+            <p className="text-indigo-100/80 text-xl leading-relaxed mb-6">
               {content.aiProcess.description}
+            </p>
+            <p className="text-sm md:text-base font-mono text-indigo-200/90 tracking-tight mb-10 break-words">
+              {content.aiProcess.stack}
             </p>
             <div className="grid grid-cols-2 gap-6">
               {content.aiProcess.items.map((item, idx) => (
