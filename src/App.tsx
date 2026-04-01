@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail, Linkedin, ExternalLink, ChevronRight, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu } from 'lucide-react';
+import { Mail, Linkedin, ExternalLink, ChevronRight, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote } from 'lucide-react';
 import { AIToolkit } from './components/PRDGenerator';
 import { portfolioData } from './constants';
 import { cn } from './lib/utils';
@@ -16,6 +16,7 @@ const Navbar = ({ lang, setLang }: { lang: string, setLang: (l: string) => void 
         <div className="flex items-center gap-8">
           <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-500">
             <a href="#work" className="hover:text-zinc-900 transition-colors">{content.ui.work}</a>
+            <a href="#testimonials" className="hover:text-zinc-900 transition-colors">{content.ui.testimonialsTitle}</a>
             <a href="#skills" className="hover:text-zinc-900 transition-colors">{content.ui.skills}</a>
             <a href="#prd-generator" className="hover:text-zinc-900 transition-colors">{content.ui.prd}</a>
             <a href="#about" className="hover:text-zinc-900 transition-colors">{content.ui.about}</a>
@@ -176,6 +177,116 @@ const CaseStudyCard = ({ study, index, lang }: { study: any, index: number, lang
         </div>
       </div>
     </motion.div>
+  );
+};
+
+const testimonialInitials = (name: string) =>
+  name
+    .replace(/\([^)]*\)/g, '')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase() || '?';
+
+const TestimonialAvatar = ({ name, photoUrl }: { name: string; photoUrl?: string }) => {
+  const [failed, setFailed] = useState(false);
+  const ring = 'shrink-0 w-14 h-14 rounded-full border-2 border-white shadow-md ring-1 ring-zinc-200/90';
+
+  if (!photoUrl || failed) {
+    return (
+      <div
+        className={`${ring} bg-indigo-100 text-indigo-800 flex items-center justify-center text-sm font-bold tracking-tight`}
+        aria-hidden
+      >
+        {testimonialInitials(name)}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={photoUrl}
+      alt={name}
+      width={56}
+      height={56}
+      className={`${ring} object-cover bg-zinc-100`}
+      onError={() => setFailed(true)}
+    />
+  );
+};
+
+const Testimonials = ({ lang }: { lang: string }) => {
+  const content = portfolioData.languages[lang];
+
+  return (
+    <section id="testimonials" className="py-24 px-6 bg-white border-y border-zinc-100">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-14 max-w-2xl"
+        >
+          <h2 className="text-4xl font-bold text-zinc-900 mb-4 flex items-center gap-3">
+            <Quote className="text-indigo-600 shrink-0" size={32} strokeWidth={2} />
+            {content.ui.testimonialsTitle}
+          </h2>
+          <p className="text-zinc-500 text-lg leading-relaxed">{content.ui.testimonialsDesc}</p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {content.testimonials.map((t, idx) => (
+            <motion.blockquote
+              key={`${t.name}-${idx}`}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: idx * 0.08 }}
+              className="relative flex flex-col h-full p-8 rounded-3xl bg-zinc-50 border border-zinc-100 shadow-sm hover:shadow-md hover:border-indigo-100/80 transition-all duration-300"
+            >
+              <Quote className="absolute top-6 right-6 text-indigo-200" size={40} strokeWidth={1.25} aria-hidden />
+              <p className="text-zinc-600 leading-relaxed text-[15px] grow mb-8 relative z-10">
+                “{t.quote}”
+              </p>
+              <footer className="pt-6 border-t border-zinc-200/80 relative z-10">
+                {t.photoUrl ? (
+                  <div className="flex gap-4 items-start">
+                    <TestimonialAvatar name={t.name} photoUrl={t.photoUrl} />
+                    <cite className="not-italic min-w-0 flex-1">
+                      <span className="block font-bold text-zinc-900 leading-snug">{t.name}</span>
+                      <span className="block text-sm text-zinc-500 mt-1">
+                        {t.role}
+                        <span className="text-zinc-400"> · </span>
+                        {t.company}
+                      </span>
+                      {t.relationship ? (
+                        <span className="block text-xs text-zinc-400 mt-2 leading-relaxed">{t.relationship}</span>
+                      ) : null}
+                    </cite>
+                  </div>
+                ) : (
+                  <cite className="not-italic">
+                    <span className="block font-bold text-zinc-900">{t.name}</span>
+                    <span className="block text-sm text-zinc-500 mt-1">
+                      {t.role}
+                      <span className="text-zinc-400"> · </span>
+                      {t.company}
+                    </span>
+                    {t.relationship ? (
+                      <span className="block text-xs text-zinc-400 mt-2 leading-relaxed">{t.relationship}</span>
+                    ) : null}
+                  </cite>
+                )}
+              </footer>
+            </motion.blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
@@ -506,6 +617,7 @@ export default function App() {
           </div>
         </section>
 
+        <Testimonials lang={lang} />
         <Skills lang={lang} />
         <About lang={lang} />
         <AIProcess lang={lang} />

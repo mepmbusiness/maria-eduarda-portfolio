@@ -36,12 +36,24 @@ export interface CareerStep {
   description: string;
 }
 
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  /** Public URL (e.g. /avatars/name.png in `public/avatars/`) */
+  photoUrl?: string;
+  /** e.g. LinkedIn relationship line */
+  relationship?: string;
+}
+
 export interface PortfolioContent {
   title: string;
   bio: string;
   philosophy: string;
   skills: Skill[];
   caseStudies: CaseStudy[];
+  testimonials: Testimonial[];
   education: Education[];
   certifications: Certification[];
   careerPath: CareerStep[];
@@ -76,6 +88,8 @@ export interface PortfolioContent {
     viewProjects: string;
     caseStudiesTitle: string;
     caseStudiesDesc: string;
+    testimonialsTitle: string;
+    testimonialsDesc: string;
     problem: string;
     solution: string;
     impact: string;

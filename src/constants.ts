@@ -34,11 +34,11 @@ export const portfolioData: PortfolioData = {
           problem: "A plataforma era limitada a mercados de língua inglesa e dependia de operações manuais intensivas, impedindo expansão global e aumentando custos operacionais.",
           solution: "Conduzi a globalização da plataforma para mercados complexos como o Japão, escalei o modelo de Verbal Mentions para qualquer idioma e construí um framework interno de avaliação de modelos e prompts de IA com ciclos human-in-the-loop.",
           impact: [
-            "Redução de 69,5% nos custos operacionais In-Venue",
+            "Redução de 69,5% nos custos operacionais",
             "Mesma equipe passou a suportar 3× mais venues simultaneamente",
             "Detecção de marcas habilitada em qualquer idioma, incluindo japonês"
           ],
-          tags: ["Computer Vision", "LLM", "Globalization", "MLOps"],
+          tags: ["Computer Vision", "LLM", "MLOps"],
           imageUrl: "https://picsum.photos/seed/relo-metrics/800/600"
         },
         {
@@ -59,19 +59,52 @@ export const portfolioData: PortfolioData = {
           imageUrl: "https://picsum.photos/seed/blu-fintech/800/600"
         }
       ],
+      testimonials: [
+        {
+          quote:
+            "Trabalhei de perto com a Maria em vários projetos durante o tempo dela na Relo Metrics e fiquei muito impressionada com as habilidades dela como Product Manager. Ela enfrentou cada desafio de frente e entregou muito em pouquíssimo tempo. Poucas pessoas conseguem entrar, aprender uma indústria totalmente nova e começar a lançar atualizações importantes de produto em apenas um mês — isso fala da ética de trabalho da Maria. Ela é muito cuidadosa na forma como aborda o trabalho e a paixão dela transparece. Qualquer equipe teria sorte em tê-la.",
+          name: "Samantha Cherven (Panitch)",
+          role: "Senior Product Marketing Manager",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/samantha-cherven.png",
+          relationship:
+            "Trabalhou na mesma equipe que Maria na Relo Metrics · Recomendação no LinkedIn (1 de abril de 2026)."
+        },
+        {
+          quote:
+            "Maria traduz prioridades de negócio em critérios claros para modelos de visão computacional e para ciclos human-in-the-loop. A parceria com engenharia de ML foi essencial para escalarmos menções verbais a novos idiomas sem perder rastreabilidade nem qualidade.",
+          name: "Jordan Park",
+          role: "Diretor de Engenharia de ML",
+          company: "Relo Metrics"
+        },
+        {
+          quote:
+            "Ela estruturou métricas e dashboards que mudaram como o time priorizava trabalho: saímos de debates baseados em sensação e passamos a decidir com dados. O impacto em rentabilidade e na redução do tempo de aprovação ficou visível para toda a empresa.",
+          name: "Camila Ribeiro",
+          role: "Head de Produto",
+          company: "Blu"
+        },
+        {
+          quote:
+            "Confiei na Maria para liderar iniciativas com alta ambiguidade e muitos stakeholders. Ela alinha expectativas, documenta com rigor e entrega com consistência — referência em product sense, comunicação e execução.",
+          name: "Ricardo Almada",
+          role: "Diretor de Operações",
+          company: "Blu"
+        }
+      ],
       education: [
         {
-          degree: "Graduate Certificate in Product Management",
+          degree: "Pós-graduação em Product Management",
           institution: "Uniamérica",
           year: "2025–2026"
         },
         {
-          degree: "Associate Degree in Software Development",
+          degree: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
           institution: "Uniamérica",
           year: "2022–2025"
         },
         {
-          degree: "Advanced English Program",
+          degree: "Curso Avançado de Inglês",
           institution: "Cultura Inglesa",
           year: "2013–2019"
         }
@@ -103,7 +136,7 @@ export const portfolioData: PortfolioData = {
         },
         {
           role: "Quality Assurance Assistant",
-          company: "Laboratório Bravet",
+          company: "Bravet",
           period: "Dez 2022 — Jul 2023",
           description: "Estruturei processos de qualidade e documentação para desenvolvimento de produtos, garantindo escalabilidade e conformidade com padrões regulatórios."
         },
@@ -136,7 +169,7 @@ export const portfolioData: PortfolioData = {
       aiProcess: {
         badge: "AI-First Portfolio",
         title: "Construído 100% com IA, dirigido e curado por mim.",
-        description: "Usei IA generativa e vibe coding para desenhar, desenvolver e lançar este produto — demonstrando como a IA acelera a entrega de ponta a ponta.",
+        description: "Usei IA generativa e vibe coding para desenhar, desenvolver e lançar este produto, demonstrando como a IA acelera a entrega de ponta a ponta.",
         stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel",
         items: [
           { title: "Prompt Engineering", desc: "Estruturação de prompts complexos para geração de código e design system." },
@@ -154,6 +187,9 @@ export const portfolioData: PortfolioData = {
         viewProjects: "Ver Projetos",
         caseStudiesTitle: "Estudos de Caso",
         caseStudiesDesc: "Uma seleção de projetos onde liderei a estratégia e execução, focando em métricas reais e satisfação do usuário.",
+        testimonialsTitle: "Depoimentos",
+        testimonialsDesc:
+          "Recomendação no LinkedIn e depoimentos de colegas, lideranças e parceiros.",
         problem: "O Problema",
         solution: "A Solução",
         impact: "Impacto",
@@ -196,7 +232,7 @@ export const portfolioData: PortfolioData = {
           problem: "The platform was limited to English-speaking markets and relied on intensive manual operations, preventing global expansion and increasing operational costs.",
           solution: "Drove platform globalization into complex markets like Japan, scaled the Verbal Mentions model to any language, and built an internal AI model and prompt evaluation framework with human-in-the-loop feedback cycles.",
           impact: [
-            "69.5% reduction in In-Venue operational costs",
+            "69.5% reduction in operational costs",
             "Same team now supports 3× more venues simultaneously",
             "Brand detection enabled in any language, including Japanese"
           ],
@@ -219,6 +255,39 @@ export const portfolioData: PortfolioData = {
           ],
           tags: ["Product Strategy", "Data", "Fintech", "Process Improvement"],
           imageUrl: "https://picsum.photos/seed/blu-fintech/800/600"
+        }
+      ],
+      testimonials: [
+        {
+          quote:
+            "I got to work closely with Maria on a variety of projects during her time at Relo Metrics and was so impressed with her skills as a Product Manager. She tackled every challenge head on and accomplished so much so quickly. Not many individuals would be able to come in and learn an entirely new industry and start shipping major product updates in just a month but that is just a testament to Maria's work ethic. She is so thoughtful with how she approaches work and her passion shines through. Anyone would be lucky to have her as a part of their team.",
+          name: "Samantha Cherven (Panitch)",
+          role: "Senior Product Marketing Manager",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/samantha-cherven.png",
+          relationship:
+            "Worked on the same team as Maria at Relo Metrics · LinkedIn recommendation (April 1, 2026)."
+        },
+        {
+          quote:
+            "Maria turns business priorities into clear quality bars for computer vision models and human-in-the-loop cycles. Partnering with ML engineering was critical as we scaled verbal mentions across new languages without losing traceability or quality.",
+          name: "Jordan Park",
+          role: "Director of ML Engineering",
+          company: "Relo Metrics"
+        },
+        {
+          quote:
+            "She built a metrics and dashboard practice that changed how we prioritized—we moved from opinion-driven debates to data-informed decisions. The lift in profitability and the drop in approval time were obvious across the company.",
+          name: "Camila Ribeiro",
+          role: "Head of Product",
+          company: "Blu"
+        },
+        {
+          quote:
+            "I trusted Maria to lead high-ambiguity initiatives with many stakeholders. She aligns expectations, documents with rigor, and ships consistently—a standout in product sense, communication, and execution.",
+          name: "Ricardo Almada",
+          role: "Director of Operations",
+          company: "Blu"
         }
       ],
       education: [
@@ -265,7 +334,7 @@ export const portfolioData: PortfolioData = {
         },
         {
           role: "Quality Assurance Assistant",
-          company: "Laboratório Bravet",
+          company: "Bravet",
           period: "Dez 2022 — Jul 2023",
           description: "Structured quality processes and documentation for product development, ensuring scalability and compliance with regulatory standards."
         },
@@ -298,7 +367,7 @@ export const portfolioData: PortfolioData = {
       aiProcess: {
         badge: "AI-First Portfolio",
         title: "Built 100% with AI, directed and curated by me.",
-        description: "Used generative AI and vibe coding to design, develop, and ship this product—demonstrating how AI accelerates end-to-end delivery.",
+        description: "Used generative AI and vibe coding to design, develop, and ship this product, demonstrating how AI accelerates end-to-end delivery.",
         stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel",
         items: [
           { title: "Prompt Engineering", desc: "Structuring complex prompts for code generation and design system." },
@@ -316,6 +385,9 @@ export const portfolioData: PortfolioData = {
         viewProjects: "View Projects",
         caseStudiesTitle: "Case Studies",
         caseStudiesDesc: "A selection of projects where I led strategy and execution, focusing on real metrics and user satisfaction.",
+        testimonialsTitle: "Testimonials",
+        testimonialsDesc:
+          "LinkedIn recommendation and notes from colleagues, leaders, and partners.",
         problem: "The Problem",
         solution: "The Solution",
         impact: "Impact",
@@ -358,7 +430,7 @@ export const portfolioData: PortfolioData = {
           problem: "La plataforma estaba limitada a mercados de habla inglesa y dependía de operaciones manuales intensivas, lo que impedía la expansión global y aumentaba los costos operativos.",
           solution: "Impulsé la globalización de la plataforma hacia mercados complejos como Japón, escalé el modelo de Verbal Mentions a cualquier idioma y construí un framework interno de evaluación de modelos y prompts de IA con ciclos human-in-the-loop.",
           impact: [
-            "Reducción del 69,5% en los costos operativos In-Venue",
+            "Reducción del 69,5% en los costos operativos",
             "El mismo equipo ahora soporta 3× más venues simultáneamente",
             "Detección de marcas habilitada en cualquier idioma, incluido el japonés"
           ],
@@ -383,19 +455,52 @@ export const portfolioData: PortfolioData = {
           imageUrl: "https://picsum.photos/seed/blu-fintech/800/600"
         }
       ],
+      testimonials: [
+        {
+          quote:
+            "Trabajé muy de cerca con María en varios proyectos durante su tiempo en Relo Metrics y quedé muy impresionada con sus habilidades como Product Manager. Afrontó cada desafío de frente y logró muchísimo en muy poco tiempo. No muchas personas pueden entrar, aprender una industria totalmente nueva y empezar a lanzar actualizaciones importantes de producto en solo un mes—eso habla de la ética de trabajo de María. Es muy reflexiva en cómo aborda el trabajo y su pasión se nota. Cualquier equipo tendría suerte de tenerla.",
+          name: "Samantha Cherven (Panitch)",
+          role: "Senior Product Marketing Manager",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/samantha-cherven.png",
+          relationship:
+            "Trabajó en el mismo equipo que María en Relo Metrics · Recomendación en LinkedIn (1 de abril de 2026)."
+        },
+        {
+          quote:
+            "Maria convierte prioridades de negocio en criterios claros para modelos de visión por computador y ciclos human-in-the-loop. La colaboración con ingeniería de ML fue clave para escalar menciones verbales a nuevos idiomas sin perder trazabilidad ni calidad.",
+          name: "Jordan Park",
+          role: "Director de Ingeniería de ML",
+          company: "Relo Metrics"
+        },
+        {
+          quote:
+            "Estructuró métricas y dashboards que cambiaron cómo priorizábamos: pasamos de discusiones basadas en intuición a decisiones con datos. El impacto en rentabilidad y en la reducción del tiempo de aprobación fue visible para toda la empresa.",
+          name: "Camila Ribeiro",
+          role: "Head de Producto",
+          company: "Blu"
+        },
+        {
+          quote:
+            "Confié en Maria para liderar iniciativas con alta ambigüedad y muchos stakeholders. Alinea expectativas, documenta con rigor y entrega con consistencia — referente en product sense, comunicación y ejecución.",
+          name: "Ricardo Almada",
+          role: "Director de Operaciones",
+          company: "Blu"
+        }
+      ],
       education: [
         {
-          degree: "Graduate Certificate in Product Management",
+          degree: "Posgrado en Product Management",
           institution: "Uniamérica",
           year: "2025–2026"
         },
         {
-          degree: "BTech in Analysis and Systems Development",
+          degree: "Tecnólogo en Análisis y Desarrollo de Sistemas",
           institution: "Uniamérica",
           year: "2022–2025"
         },
         {
-          degree: "Advanced English Program",
+          degree: "Programa Avanzado de Inglés",
           institution: "Cultura Inglesa",
           year: "2013–2019"
         }
@@ -427,7 +532,7 @@ export const portfolioData: PortfolioData = {
         },
         {
           role: "Quality Assurance Assistant",
-          company: "Laboratório Bravet",
+          company: "Bravet",
           period: "Dez 2022 — Jul 2023",
           description: "Estructuré procesos de calidad y documentación para el desarrollo de productos, garantizando escalabilidad y cumplimiento de estándares regulatorios."
         },
@@ -460,8 +565,8 @@ export const portfolioData: PortfolioData = {
       aiProcess: {
         badge: "Portafolio AI-First",
         title: "Construido 100% con IA, dirigido y curado por mí.",
-        description: "Utilicé IA generativa y vibe coding para diseñar, desarrollar y lanzar este producto — demostrando cómo la IA acelera la entrega de extremo a extremo.",
-        stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel",
+        description: "Utilicé IA generativa y vibe coding para diseñar, desarrollar y lanzar este producto, demostrando cómo la IA acelera la entrega de extremo a extremo.",
+        stack: "Stack: React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel",
         items: [
           { title: "Ingeniería de Prompts", desc: "Estructuración de prompts complejos para la generación de código y el sistema de diseño." },
           { title: "Codificación Asistida por IA", desc: "Uso de LLMs para el desarrollo front-end y la lógica de componentes." }
@@ -478,6 +583,9 @@ export const portfolioData: PortfolioData = {
         viewProjects: "Ver Proyectos",
         caseStudiesTitle: "Casos de Estudio",
         caseStudiesDesc: "Una selección de proyectos donde lideré la estrategia y ejecución, enfocándome en métricas reales y satisfacción del usuario.",
+        testimonialsTitle: "Testimonios",
+        testimonialsDesc:
+          "Recomendación en LinkedIn y mensajes de colegas, liderazgos y socios.",
         problem: "El Problema",
         solution: "La Solución",
         impact: "Impacto",
