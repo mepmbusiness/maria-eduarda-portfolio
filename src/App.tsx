@@ -249,39 +249,24 @@ const Testimonials = ({ lang }: { lang: string }) => {
               className="relative flex flex-col h-full p-8 rounded-3xl bg-zinc-50 border border-zinc-100 shadow-sm hover:shadow-md hover:border-indigo-100/80 transition-all duration-300"
             >
               <Quote className="absolute top-6 right-6 text-indigo-200" size={40} strokeWidth={1.25} aria-hidden />
-              <p className="text-zinc-600 leading-relaxed text-[15px] grow mb-8 relative z-10">
+              <header className="relative z-10 flex gap-4 items-start mb-6">
+                <TestimonialAvatar name={t.name} photoUrl={t.photoUrl} />
+                <div className="min-w-0 flex-1">
+                  <div className="font-bold text-zinc-900 leading-snug">{t.name}</div>
+                  <div className="text-sm text-zinc-500 mt-1">
+                    {t.role}
+                    <span className="text-zinc-400"> · </span>
+                    {t.company}
+                  </div>
+                  {t.relationship ? (
+                    <div className="text-xs text-zinc-400 mt-2 leading-relaxed">{t.relationship}</div>
+                  ) : null}
+                </div>
+              </header>
+
+              <p className="text-zinc-600 leading-relaxed text-[15px] whitespace-pre-line grow relative z-10">
                 “{t.quote}”
               </p>
-              <footer className="pt-6 border-t border-zinc-200/80 relative z-10">
-                {t.photoUrl ? (
-                  <div className="flex gap-4 items-start">
-                    <TestimonialAvatar name={t.name} photoUrl={t.photoUrl} />
-                    <cite className="not-italic min-w-0 flex-1">
-                      <span className="block font-bold text-zinc-900 leading-snug">{t.name}</span>
-                      <span className="block text-sm text-zinc-500 mt-1">
-                        {t.role}
-                        <span className="text-zinc-400"> · </span>
-                        {t.company}
-                      </span>
-                      {t.relationship ? (
-                        <span className="block text-xs text-zinc-400 mt-2 leading-relaxed">{t.relationship}</span>
-                      ) : null}
-                    </cite>
-                  </div>
-                ) : (
-                  <cite className="not-italic">
-                    <span className="block font-bold text-zinc-900">{t.name}</span>
-                    <span className="block text-sm text-zinc-500 mt-1">
-                      {t.role}
-                      <span className="text-zinc-400"> · </span>
-                      {t.company}
-                    </span>
-                    {t.relationship ? (
-                      <span className="block text-xs text-zinc-400 mt-2 leading-relaxed">{t.relationship}</span>
-                    ) : null}
-                  </cite>
-                )}
-              </footer>
             </motion.blockquote>
           ))}
         </div>

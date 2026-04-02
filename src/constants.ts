@@ -72,24 +72,83 @@ export const portfolioData: PortfolioData = {
         },
         {
           quote:
-            "Maria traduz prioridades de negócio em critérios claros para modelos de visão computacional e para ciclos human-in-the-loop. A parceria com engenharia de ML foi essencial para escalarmos menções verbais a novos idiomas sem perder rastreabilidade nem qualidade.",
-          name: "Jordan Park",
-          role: "Diretor de Engenharia de ML",
-          company: "Relo Metrics"
+            "Eu não trabalhei diretamente com a Maria, mas pude ver o trabalho dela na Relo Metrics, e me deixou uma impressão muito forte.\n\nEla ajudou a expandir o projeto de “Verbal Mentions” para suportar japonês, numa época em que a plataforma ainda estava focada em inglês. Esse tipo de mudança não é simples: envolve descobrir as coisas no caminho e tomar decisões com algumas incertezas.\n\nDepois, ela migrou para trabalhos relacionados a IA e contribuiu para processos internos.\n\nO que eu valorizo na Maria é que ela não trava quando as coisas estão pouco claras. Ela segue em frente, traz estrutura para situações bagunçadas e mantém as coisas avançando.\n\nTenho certeza de que ela vai levar essa mesma mentalidade para o que vier a seguir. Te desejo o melhor neste novo capítulo, Maria.",
+          name: "Nuria Reyes",
+          role: "Senior Frontend / Product Engineer",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/nuria-reyes.png",
+          relationship:
+            "Trabalhou com Maria Eduarda na Relo Metrics (equipes diferentes) · Recomendação no LinkedIn (31 de março de 2026)."
         },
         {
           quote:
-            "Ela estruturou métricas e dashboards que mudaram como o time priorizava trabalho: saímos de debates baseados em sensação e passamos a decidir com dados. O impacto em rentabilidade e na redução do tempo de aprovação ficou visível para toda a empresa.",
-          name: "Camila Ribeiro",
-          role: "Head de Produto",
-          company: "Blu"
+            "Tive o prazer de trabalhar de perto com a Maria em um projeto particularmente complexo e desafiador in-venue, e posso dizer com confiança que ela traz uma combinação rara de pensamento estratégico, adaptabilidade e excelência na execução.\n\nDesde o início, Maria assumiu um escopo altamente ambíguo e exigente e rapidamente trouxe estrutura e clareza. Uma de suas contribuições mais impactantes foi simplificar um fluxo de trabalho excessivamente complexo, reduzindo requisitos iniciais de setup e diminuindo o tempo de implementação de vários meses para apenas 1,5–2 meses. Embora o projeto em si tenha permanecido intricado, o trabalho dela o tornou muito mais gerenciável e permitiu que times executassem de forma independente, sem grande dependência de suporte de produto.\n\nMaria também demonstrou forte habilidade de identificar pontos de dor e traduzi-los em melhorias significativas e escaláveis. Ela equilibrou de forma cuidadosa a coleta de inputs com a entrega de direção clara, ajudando a estabelecer processos mais padronizados e papéis mais bem definidos ao longo do fluxo.\n\nAlém do impacto operacional, Maria é uma parceira colaborativa e transparente. Ela aborda o trabalho com mentalidade orientada a soluções e está sempre aberta a feedback e iteração. Seu estilo de comunicação é direto e atencioso, e ela consistentemente trabalha para melhorar não apenas outcomes, mas também como os times trabalham juntos.\n\nQualquer time teria sorte em ter a Maria — ela prospera na complexidade e deixa processos, times e resultados melhores do que encontrou.",
+          name: "Kimberly Glenn",
+          role: "Director, Onboarding & Support",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/kimberly-glenn.png",
+          relationship:
+            "Trabalhou com Maria Eduarda na Relo Metrics (equipes diferentes) · Recomendação no LinkedIn (24 de março de 2026)."
         },
         {
           quote:
-            "Confiei na Maria para liderar iniciativas com alta ambiguidade e muitos stakeholders. Ela alinha expectativas, documenta com rigor e entrega com consistência — referência em product sense, comunicação e execução.",
-          name: "Ricardo Almada",
-          role: "Diretor de Operações",
-          company: "Blu"
+            "Tive o privilégio de trabalhar com a Maria em vários projetos de grande escala, e ela é simplesmente uma das melhores colegas de equipe com quem já trabalhei. O que diferencia a Maria é a capacidade de pegar projetos complexos e de alto risco e quebrá-los em planos claros e executáveis — tudo isso enquanto entrega em prazos acelerados.\n\nAlém das habilidades de execução, Maria é uma comunicadora excepcional. Ela é uma ouvinte forte e consegue traduzir informação de forma fluida entre diferentes stakeholders, garantindo que todos permaneçam alinhados independentemente de background ou função. Ela também se destaca quando o assunto é dados e dashboards no Looker. O trabalho dela é consistentemente polido, perspicaz e construído para informar decisões reais.\n\nSe você procura alguém que consiga lidar com grandes desafios com precisão, clareza e espírito colaborativo, a Maria é a pessoa certa.",
+          name: "Matthew Gragnano",
+          role: "Teammate",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/matthew-gragnano.png",
+          relationship:
+            "Trabalhou na mesma equipe que Maria Eduarda · Recomendação no LinkedIn (23 de março de 2026)."
+        },
+        {
+          quote:
+            "Recomendo muito a Maria. Tive o prazer de trabalhar com ela em projetos do Japão, onde ela navegou as complexidades de um mercado internacional com paixão e habilidade notáveis — garantindo entregas de dados de alta qualidade mesmo sob desafios operacionais significativos. Maria é muito organizada, proativa e entrega consistentemente no mais alto padrão. Qualquer equipe teria sorte em tê-la.",
+          name: "Naokazu Wakaguri",
+          role: "Exploring New Frontiers in Culture, and Economy",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/naokazu-wakaguri.png",
+          relationship:
+            "Trabalhou com Maria Eduarda (equipes diferentes) · Recomendação no LinkedIn (20 de março de 2026)."
+        },
+        {
+          quote:
+            "Tive o prazer de liderar a Maria Eduarda e posso dizer com confiança que ela é uma daquelas pessoas em quem você sempre pode contar para fazer as coisas acontecerem — e bem feitas.\n\nEla assume ownership naturalmente, é extremamente organizada e tem uma habilidade afiada de quebrar problemas complexos e impulsionar soluções. Seja trabalhando com times técnicos, stakeholders ou squads cross-functional, ela constrói relacionamentos fortes e se comunica com clareza e empatia.\n\nUma das maiores forças dela é a abertura para dar e receber feedback, sempre com mentalidade de crescimento. Ela é proativa, atenciosa e genuinamente colaborativa, sendo um ativo incrível para qualquer time de produto.\n\nEu trabalharia com ela novamente sem hesitar.",
+          name: "Rachel Gabrielli",
+          role: "Senior Product Manager",
+          company: "Fintech · AI Powered Analytics Products",
+          photoUrl: "/avatars/rachel-gabrielli.png",
+          relationship:
+            "Supervisionou Maria Eduarda diretamente · Recomendação no LinkedIn (29 de abril de 2025)."
+        },
+        {
+          quote:
+            "Tive a oportunidade de trabalhar em parceria com Maria Eduarda durante seu período na Garantia da Qualidade, no laboratório BRAVET e durante este período pude perceber sua aptidão e profissionalismo.\n\nDuda (como a chamamos carinhosamente) sempre se mostrou proativa na resolução das atividades rotineiras de seu setor. Sua facilidade com ferramentas tecnológicas foram também um diferencial para o cumprimento de suas metas. Sua postura e comportamento sempre foram maduras, apesar de sua pouca idade, na época, o que com certeza foi inspirador para mim.\n\nAlém de uma excelente profissional, Maria Eduarda sempre se apresentou como uma grande colega de trabalho (tornando-se uma amiga pessoal) e sua convivência sempre foi muito agradável, mostrando ser uma pessoa muito confiável e de caráter.\n\nCom toda a certeza eu a recomendo para qualquer oportunidade que ela almejar, e digo que sua aquisição será de grande valia para qualquer equipe!",
+          name: "Maximiliano Dias da Silva de Moraes",
+          role: "Microbiologista",
+          company: "BRAVET",
+          photoUrl: "/avatars/maximiliano-dias.png",
+          relationship:
+            "Trabalhou com Maria Eduarda no laboratório BRAVET (equipes diferentes) · Recomendação no LinkedIn (28 de abril de 2025)."
+        },
+        {
+          quote:
+            "Trabalhei com a Maria Eduarda na área de Garantia da Qualidade, ela atuava como assistente na época e posso dizer que ela foi uma peça-chave para o time. Além de ser muito dedicada e atenta aos detalhes, o que mais se destacou foi a facilidade que ela tem de se comunicar com todos, seja com colegas, líderes ou outros setores. Sempre muito clara, objetiva e respeitosa, o que facilitava muito o andamento dos processos e evitava ruídos.\n\nMaria também sempre mostrou muita iniciativa e responsabilidade no dia a dia. Sem dúvida, é uma profissional que agrega muito valor onde quer que atue.",
+          name: "Walter Dornelas",
+          role: "Farmacêutico",
+          company: "—",
+          photoUrl: "/avatars/walter-dornelas.png",
+          relationship:
+            "Respondia diretamente a Maria Eduarda · Recomendação no LinkedIn (26 de abril de 2025)."
+        },
+        {
+          quote:
+            "Maria Eduarda é uma profissional excepcional e extremamente competente. Tive a grata oportunidade de trabalhar com ela por alguns meses na tribo de B2B, período em que sua atuação foi essencial para o avanço da tribo e para o meu crescimento profissional.\n\nCom uma comunicação clara, visão estratégica de produto guiada por dados e forte orientação para resultados, Maria Eduarda se destaca pela liderança natural, capacidade de tomada de decisão em cenários complexos e colaboração com diferentes stakeholders.\n\nSua empatia, adaptabilidade e facilidade para navegar por contextos ambíguos reforçam ainda mais seu perfil completo como PM. É uma profissional que entrega valor, independentemente da organização em que esteja inserida.",
+          name: "João Lucas Vieira, CEA",
+          role: "Product | User Experience | UI/UX | Analytics",
+          company: "—",
+          photoUrl: "/avatars/joao-lucas-vieira.png",
+          relationship:
+            "Maria Eduarda era sênior em relação a João Lucas (sem supervisão direta) · Recomendação no LinkedIn (12 de abril de 2025)."
         }
       ],
       education: [
@@ -270,24 +329,83 @@ export const portfolioData: PortfolioData = {
         },
         {
           quote:
-            "Maria turns business priorities into clear quality bars for computer vision models and human-in-the-loop cycles. Partnering with ML engineering was critical as we scaled verbal mentions across new languages without losing traceability or quality.",
-          name: "Jordan Park",
-          role: "Director of ML Engineering",
-          company: "Relo Metrics"
+            "I didn't work directly with Maria, but I did get to see her work at Relometrics, and it left a strong impression.\n\nShe helped expand the “Verbal Mentions” project to support Japanese at a time when the platform was still focused on English. That kind of shift isn't straightforward, it means figuring things out as you go and making decisions with some unknowns.\n\nLater, she moved into AI-related work and contributed to internal processes.\n\nWhat I appreciate about Maria is that she doesn't get stuck when things are unclear. She moves forward, brings structure to messy situations, and keeps things progressing.\n\nI'm sure she'll bring that same mindset to whatever she takes on next. Wishing you the best in this new chapter, Maria.",
+          name: "Nuria Reyes",
+          role: "Senior Frontend / Product Engineer",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/nuria-reyes.png",
+          relationship:
+            "Worked with Maria Eduarda at Relo Metrics (different teams) · LinkedIn recommendation (March 31, 2026)."
         },
         {
           quote:
-            "She built a metrics and dashboard practice that changed how we prioritized—we moved from opinion-driven debates to data-informed decisions. The lift in profitability and the drop in approval time were obvious across the company.",
-          name: "Camila Ribeiro",
-          role: "Head of Product",
-          company: "Blu"
+            "I had the pleasure of working closely with Maria on a particularly complex and challenging in-venue project, and I can confidently say she brings a rare combination of strategic thinking, adaptability, and executional excellence.\n\nFrom the outset, Maria took on a highly ambiguous and demanding scope and quickly brought structure and clarity to it. One of her most impactful contributions was simplifying an overly complex workflow by reducing initial setup requirements and cutting implementation time from several months to just 1.5–2 months. While the project itself remained intricate, her work made it far more manageable and enabled teams to execute independently without heavy reliance on product support.\n\nMaria also demonstrated a strong ability to identify pain points and translate them into meaningful, scalable improvements. She struck a thoughtful balance between gathering input and providing clear direction, ultimately helping establish more standardized processes and better-defined roles across the workflow.\n\nBeyond her operational impact, Maria is a collaborative and transparent partner. She approaches work with a solutions-oriented mindset and is always open to feedback and iteration. Her communication style is direct and thoughtful, and she consistently works to improve not just outcomes, but the way teams work together.\n\nAny team would be fortunate to have Maria — she thrives in complexity and leaves processes, teams, and outcomes better than she found them.",
+          name: "Kimberly Glenn",
+          role: "Director, Onboarding & Support",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/kimberly-glenn.png",
+          relationship:
+            "Worked with Maria Eduarda at Relo Metrics (different teams) · LinkedIn recommendation (March 24, 2026)."
         },
         {
           quote:
-            "I trusted Maria to lead high-ambiguity initiatives with many stakeholders. She aligns expectations, documents with rigor, and ships consistently—a standout in product sense, communication, and execution.",
-          name: "Ricardo Almada",
-          role: "Director of Operations",
-          company: "Blu"
+            "I've had the privilege of working with Maria across several large-scale projects, and she is simply one of the best teammates I've worked with. What sets Maria apart is her ability to take complex, high-stakes projects and break them down into clear, executable plans — all while delivering on expedited timelines.\n\nBeyond her execution skills, Maria is an exceptional communicator. She's a strong listener who can translate information seamlessly across different stakeholders, making sure everyone stays aligned no matter their background or role. She's also a standout when it comes to data and Looker dashboards. Her work is consistently polished, insightful, and built to inform real decisions.\n\nIf you're looking for someone who can handle big challenges with precision, clarity, and a collaborative spirit, Maria is your person.",
+          name: "Matthew Gragnano",
+          role: "Teammate",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/matthew-gragnano.png",
+          relationship:
+            "Worked on the same team as Maria Eduarda · LinkedIn recommendation (March 23, 2026)."
+        },
+        {
+          quote:
+            "I highly recommend Maria. I had the pleasure of working with her on Japan projects, where she navigated the complexities of an international market with remarkable passion and skill — ensuring high-quality data delivery even under significant operational challenges. Maria is very well organized, proactive, and consistently delivers at the highest standard. Any team would be fortunate to have her.",
+          name: "Naokazu Wakaguri",
+          role: "Exploring New Frontiers in Culture, and Economy",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/naokazu-wakaguri.png",
+          relationship:
+            "Worked with Maria Eduarda (different teams) · LinkedIn recommendation (March 20, 2026)."
+        },
+        {
+          quote:
+            "I had the pleasure of leading Maria Eduarda, and I can confidently say she's one of those people you can always count on to get things done, and done well.\n\nShe takes ownership naturally, is highly organized, and has a sharp ability to break down complex problems and drive solutions forward. Whether working with tech teams, stakeholders, or cross functional squads, she builds strong relationships and communicates with clarity and empathy.\n\nOne of her greatest strengths is her openness to give and receive feedback, always with a growth mindset. She's proactive, thoughtful, and genuinely collaborative, making her an incredible asset to any product team.\n\nI'd work with her again in a heartbeat.",
+          name: "Rachel Gabrielli",
+          role: "Senior Product Manager",
+          company: "Fintech · AI Powered Analytics Products",
+          photoUrl: "/avatars/rachel-gabrielli.png",
+          relationship:
+            "Managed Maria Eduarda directly · LinkedIn recommendation (April 29, 2025)."
+        },
+        {
+          quote:
+            "I had the opportunity to work in partnership with Maria Eduarda during her time in Quality Assurance at the BRAVET laboratory, and throughout that period I was able to observe her aptitude and professionalism.\n\nDuda (as we affectionately called her) consistently proved proactive in resolving her team's day-to-day activities. Her ease with technological tools was also a differentiator in achieving goals. Her posture and behavior were always mature, despite her young age at the time, which was certainly inspiring to me.\n\nIn addition to being an excellent professional, Maria Eduarda always showed up as a great coworker (and became a personal friend). Working with her was always very pleasant—she is a very trustworthy person with strong character.\n\nI would absolutely recommend her for any opportunity she pursues, and I can say that bringing her on will add great value to any team.",
+          name: "Maximiliano Dias da Silva de Moraes",
+          role: "Microbiologista",
+          company: "BRAVET",
+          photoUrl: "/avatars/maximiliano-dias.png",
+          relationship:
+            "Worked with Maria Eduarda at BRAVET (different teams) · LinkedIn recommendation (April 28, 2025)."
+        },
+        {
+          quote:
+            "I worked with Maria Eduarda in the Quality Assurance area; at the time she worked as an assistant and I can say she was a key piece for the team. Beyond being very dedicated and detail-oriented, what stood out most was how easily she communicates with everyone—colleagues, leaders, and other departments. Always very clear, objective, and respectful, which made processes move forward smoothly and prevented misunderstandings.\n\nMaria also consistently showed strong initiative and responsibility day to day. Without a doubt, she is a professional who adds a lot of value wherever she works.",
+          name: "Walter Dornelas",
+          role: "Farmacêutico",
+          company: "—",
+          photoUrl: "/avatars/walter-dornelas.png",
+          relationship:
+            "Reported directly to Maria Eduarda · LinkedIn recommendation (April 26, 2025)."
+        },
+        {
+          quote:
+            "Maria Eduarda is an exceptional and extremely competent professional. I had the pleasure of working with her for a few months in the B2B tribe, a period in which her work was essential to the tribe's progress and to my professional growth.\n\nWith clear communication, a data-driven strategic product vision, and a strong results orientation, Maria Eduarda stands out for her natural leadership, decision-making ability in complex scenarios, and collaboration with different stakeholders.\n\nHer empathy, adaptability, and ease navigating ambiguous contexts further reinforce her well-rounded profile as a PM. She is a professional who delivers value regardless of the organization she is part of.",
+          name: "João Lucas Vieira, CEA",
+          role: "Product | User Experience | UI/UX | Analytics",
+          company: "—",
+          photoUrl: "/avatars/joao-lucas-vieira.png",
+          relationship:
+            "Maria Eduarda was senior to João Lucas (no direct management) · LinkedIn recommendation (April 12, 2025)."
         }
       ],
       education: [
@@ -468,24 +586,83 @@ export const portfolioData: PortfolioData = {
         },
         {
           quote:
-            "Maria convierte prioridades de negocio en criterios claros para modelos de visión por computador y ciclos human-in-the-loop. La colaboración con ingeniería de ML fue clave para escalar menciones verbales a nuevos idiomas sin perder trazabilidad ni calidad.",
-          name: "Jordan Park",
-          role: "Director de Ingeniería de ML",
-          company: "Relo Metrics"
+            "No trabajé directamente con María, pero sí pude ver su trabajo en Relometrics, y me dejó una impresión muy fuerte.\n\nAyudó a expandir el proyecto de “Verbal Mentions” para soportar japonés en una época en la que la plataforma aún estaba enfocada en inglés. Ese tipo de cambio no es sencillo: implica ir resolviendo sobre la marcha y tomar decisiones con algunas incógnitas.\n\nDespués, pasó a trabajo relacionado con IA y contribuyó a procesos internos.\n\nLo que valoro de María es que no se queda trabada cuando las cosas no están claras. Avanza, aporta estructura a situaciones desordenadas y mantiene el progreso.\n\nEstoy segura de que llevará esa misma mentalidad a lo que haga después. Te deseo lo mejor en este nuevo capítulo, María.",
+          name: "Nuria Reyes",
+          role: "Senior Frontend / Product Engineer",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/nuria-reyes.png",
+          relationship:
+            "Trabajó con Maria Eduarda en Relo Metrics (equipos diferentes) · Recomendación en LinkedIn (31 de marzo de 2026)."
         },
         {
           quote:
-            "Estructuró métricas y dashboards que cambiaron cómo priorizábamos: pasamos de discusiones basadas en intuición a decisiones con datos. El impacto en rentabilidad y en la reducción del tiempo de aprobación fue visible para toda la empresa.",
-          name: "Camila Ribeiro",
-          role: "Head de Producto",
-          company: "Blu"
+            "Tuve el placer de trabajar de cerca con Maria en un proyecto in-venue particularmente complejo y desafiante, y puedo decir con confianza que aporta una combinación poco común de pensamiento estratégico, adaptabilidad y excelencia en la ejecución.\n\nDesde el inicio, Maria asumió un alcance altamente ambiguo y exigente y rápidamente aportó estructura y claridad. Una de sus contribuciones más impactantes fue simplificar un flujo de trabajo excesivamente complejo, reduciendo requisitos iniciales de configuración y recortando el tiempo de implementación de varios meses a solo 1,5–2 meses. Aunque el proyecto siguió siendo intrincado, su trabajo lo hizo mucho más manejable y permitió que los equipos ejecutaran de forma independiente sin una gran dependencia del soporte de producto.\n\nMaria también demostró una fuerte capacidad para identificar puntos de dolor y traducirlos en mejoras significativas y escalables. Logró un equilibrio cuidadoso entre recopilar input y proporcionar dirección clara, ayudando a establecer procesos más estandarizados y roles mejor definidos a lo largo del flujo.\n\nMás allá del impacto operativo, Maria es una socia colaborativa y transparente. Enfrenta el trabajo con mentalidad orientada a soluciones y siempre está abierta a feedback e iteración. Su estilo de comunicación es directo y considerado, y trabaja consistentemente para mejorar no solo los outcomes, sino también la forma en que los equipos colaboran.\n\nCualquier equipo tendría suerte de tener a Maria: prospera en la complejidad y deja procesos, equipos y resultados mejores de como los encontró.",
+          name: "Kimberly Glenn",
+          role: "Director, Onboarding & Support",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/kimberly-glenn.png",
+          relationship:
+            "Trabajó con Maria Eduarda en Relo Metrics (equipos diferentes) · Recomendación en LinkedIn (24 de marzo de 2026)."
         },
         {
           quote:
-            "Confié en Maria para liderar iniciativas con alta ambigüedad y muchos stakeholders. Alinea expectativas, documenta con rigor y entrega con consistencia — referente en product sense, comunicación y ejecución.",
-          name: "Ricardo Almada",
-          role: "Director de Operaciones",
-          company: "Blu"
+            "He tenido el privilegio de trabajar con Maria en varios proyectos de gran escala, y es simplemente una de las mejores compañeras con las que he trabajado. Lo que distingue a Maria es su capacidad de tomar proyectos complejos y de alto riesgo y descomponerlos en planes claros y ejecutables, mientras entrega en plazos acelerados.\n\nAdemás de sus habilidades de ejecución, Maria es una comunicadora excepcional. Sabe escuchar y puede traducir información sin fricción entre diferentes stakeholders, asegurando que todos se mantengan alineados sin importar su background o rol. También destaca cuando se trata de datos y dashboards en Looker. Su trabajo es consistentemente pulido, perspicaz y construido para informar decisiones reales.\n\nSi estás buscando a alguien que pueda manejar grandes desafíos con precisión, claridad y espíritu colaborativo, Maria es tu persona.",
+          name: "Matthew Gragnano",
+          role: "Teammate",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/matthew-gragnano.png",
+          relationship:
+            "Trabajó en el mismo equipo que Maria Eduarda · Recomendación en LinkedIn (23 de marzo de 2026)."
+        },
+        {
+          quote:
+            "Recomiendo mucho a Maria. Tuve el placer de trabajar con ella en proyectos de Japón, donde navegó las complejidades de un mercado internacional con una pasión y habilidad notables, asegurando entregas de datos de alta calidad incluso bajo desafíos operativos significativos. Maria es muy organizada, proactiva y entrega consistentemente con el más alto estándar. Cualquier equipo tendría suerte de tenerla.",
+          name: "Naokazu Wakaguri",
+          role: "Exploring New Frontiers in Culture, and Economy",
+          company: "Relo Metrics",
+          photoUrl: "/avatars/naokazu-wakaguri.png",
+          relationship:
+            "Trabajó con Maria Eduarda (equipos diferentes) · Recomendación en LinkedIn (20 de marzo de 2026)."
+        },
+        {
+          quote:
+            "Tuve el placer de liderar a Maria Eduarda, y puedo decir con confianza que es de esas personas en las que siempre puedes confiar para que las cosas se hagan, y se hagan bien.\n\nAsume el ownership de forma natural, es muy organizada y tiene una habilidad aguda para descomponer problemas complejos y llevar soluciones adelante. Ya sea trabajando con equipos técnicos, stakeholders o squads cross-functional, construye relaciones sólidas y se comunica con claridad y empatía.\n\nUna de sus mayores fortalezas es su apertura para dar y recibir feedback, siempre con mentalidad de crecimiento. Es proactiva, considerada y genuinamente colaborativa, lo que la convierte en un activo increíble para cualquier equipo de producto.\n\nVolvería a trabajar con ella sin pensarlo.",
+          name: "Rachel Gabrielli",
+          role: "Senior Product Manager",
+          company: "Fintech · AI Powered Analytics Products",
+          photoUrl: "/avatars/rachel-gabrielli.png",
+          relationship:
+            "Supervisó a Maria Eduarda directamente · Recomendación en LinkedIn (29 de abril de 2025)."
+        },
+        {
+          quote:
+            "Tuve la oportunidad de trabajar en colaboración con Maria Eduarda durante su período en Garantía de Calidad, en el laboratorio BRAVET, y durante este tiempo pude percibir su aptitud y profesionalismo.\n\nDuda (como la llamábamos cariñosamente) siempre fue proactiva al resolver las actividades rutinarias de su sector. Su facilidad con herramientas tecnológicas también fue un diferencial para cumplir sus metas. Su postura y comportamiento siempre fueron maduros, a pesar de su corta edad en ese momento, lo cual sin duda fue inspirador para mí.\n\nAdemás de ser una excelente profesional, Maria Eduarda siempre se presentó como una gran compañera de trabajo (llegando a convertirse en una amiga personal) y su convivencia siempre fue muy agradable, demostrando ser una persona muy confiable y de carácter.\n\nCon total certeza la recomiendo para cualquier oportunidad que ella busque, y digo que su incorporación será de gran valor para cualquier equipo.",
+          name: "Maximiliano Dias da Silva de Moraes",
+          role: "Microbiologista",
+          company: "BRAVET",
+          photoUrl: "/avatars/maximiliano-dias.png",
+          relationship:
+            "Trabajó con Maria Eduarda en el laboratorio BRAVET (equipos diferentes) · Recomendación en LinkedIn (28 de abril de 2025)."
+        },
+        {
+          quote:
+            "Trabajé con Maria Eduarda en el área de Garantía de Calidad; en ese momento actuaba como asistente y puedo decir que fue una pieza clave para el equipo. Además de ser muy dedicada y atenta al detalle, lo que más destacó fue la facilidad que tiene para comunicarse con todos—colegas, líderes u otras áreas. Siempre muy clara, objetiva y respetuosa, lo que facilitaba el avance de los procesos y evitaba malentendidos.\n\nMaria también siempre demostró mucha iniciativa y responsabilidad en el día a día. Sin duda, es una profesional que aporta mucho valor dondequiera que actúe.",
+          name: "Walter Dornelas",
+          role: "Farmacêutico",
+          company: "—",
+          photoUrl: "/avatars/walter-dornelas.png",
+          relationship:
+            "Reportaba directamente a Maria Eduarda · Recomendación en LinkedIn (26 de abril de 2025)."
+        },
+        {
+          quote:
+            "Maria Eduarda es una profesional excepcional y extremadamente competente. Tuve la grata oportunidad de trabajar con ella durante algunos meses en la tribu de B2B, período en el que su actuación fue esencial para el avance de la tribu y para mi crecimiento profesional.\n\nCon una comunicación clara, visión estratégica de producto guiada por datos y fuerte orientación a resultados, Maria Eduarda se destaca por su liderazgo natural, capacidad de tomar decisiones en escenarios complejos y colaboración con diferentes stakeholders.\n\nSu empatía, adaptabilidad y facilidad para navegar contextos ambiguos refuerzan aún más su perfil completo como PM. Es una profesional que entrega valor, independientemente de la organización en la que esté.",
+          name: "João Lucas Vieira, CEA",
+          role: "Product | User Experience | UI/UX | Analytics",
+          company: "—",
+          photoUrl: "/avatars/joao-lucas-vieira.png",
+          relationship:
+            "Maria Eduarda era senior con respecto a João Lucas (sin supervisión directa) · Recomendación en LinkedIn (12 de abril de 2025)."
         }
       ],
       education: [
