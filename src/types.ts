@@ -45,6 +45,8 @@ export interface Testimonial {
   photoUrl?: string;
   /** e.g. LinkedIn relationship line */
   relationship?: string;
+  /** Logical grouping for dropdown (e.g. Relo Metrics / Blu / BRAVET) */
+  org?: string;
 }
 
 export interface PortfolioContent {
@@ -53,6 +55,8 @@ export interface PortfolioContent {
   philosophy: string;
   skills: Skill[];
   caseStudies: CaseStudy[];
+  /** Client list by company name shown in case studies */
+  companyClients?: Record<string, string[]>;
   testimonials: Testimonial[];
   education: Education[];
   certifications: Certification[];
@@ -88,6 +92,7 @@ export interface PortfolioContent {
     viewProjects: string;
     caseStudiesTitle: string;
     caseStudiesDesc: string;
+    clientsTitle: string;
     testimonialsTitle: string;
     testimonialsDesc: string;
     problem: string;

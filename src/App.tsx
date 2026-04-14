@@ -220,6 +220,15 @@ const TestimonialAvatar = ({ name, photoUrl }: { name: string; photoUrl?: string
 
 const Testimonials = ({ lang }: { lang: string }) => {
   const content = portfolioData.languages[lang];
+  const [openOrg, setOpenOrg] = useState<string | null>(null);
+
+  const orgs = ['Relo Metrics', 'Blu', 'BRAVET'] as const;
+
+  const byOrg = (org: (typeof orgs)[number]) =>
+    (content.testimonials ?? []).filter((t: any) => (t.org ?? t.company) === org);
+
+  const toggleOrg = (org: (typeof orgs)[number]) =>
+    setOpenOrg((cur) => (cur === org ? null : org));
 
   return (
     <section id="testimonials" className="py-24 px-6 bg-white border-y border-zinc-100">
@@ -238,37 +247,86 @@ const Testimonials = ({ lang }: { lang: string }) => {
           <p className="text-zinc-500 text-lg leading-relaxed">{content.ui.testimonialsDesc}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-          {content.testimonials.map((t, idx) => (
-            <motion.blockquote
-              key={`${t.name}-${idx}`}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: idx * 0.08 }}
-              className="relative flex flex-col h-full p-8 rounded-3xl bg-zinc-50 border border-zinc-100 shadow-sm hover:shadow-md hover:border-indigo-100/80 transition-all duration-300"
-            >
-              <Quote className="absolute top-6 right-6 text-indigo-200" size={40} strokeWidth={1.25} aria-hidden />
-              <header className="relative z-10 flex gap-4 items-start mb-6">
-                <TestimonialAvatar name={t.name} photoUrl={t.photoUrl} />
-                <div className="min-w-0 flex-1">
-                  <div className="font-bold text-zinc-900 leading-snug">{t.name}</div>
-                  <div className="text-sm text-zinc-500 mt-1">
-                    {t.role}
-                    <span className="text-zinc-400"> · </span>
-                    {t.company}
-                  </div>
-                  {t.relationship ? (
-                    <div className="text-xs text-zinc-400 mt-2 leading-relaxed">{t.relationship}</div>
-                  ) : null}
-                </div>
-              </header>
+        <div className="space-y-4">
+          {orgs.map((org) => {
+            const items = byOrg(org);
+            const isOpen = openOrg === org;
+            const countLabel =
+              lang === 'pt'
+                ? `${items.length} recomendação${items.length === 1 ? '' : 'ões'}`
+                : lang === 'es'
+                  ? `${items.length} recomendación${items.length === 1 ? '' : 'es'}`
+                  : `${items.length} recommendation${items.length === 1 ? '' : 's'}`;
 
-              <p className="text-zinc-600 leading-relaxed text-[15px] whitespace-pre-line grow relative z-10">
-                “{t.quote}”
-              </p>
-            </motion.blockquote>
-          ))}
+            return (
+              <div key={org} className="rounded-3xl border border-zinc-200 bg-white overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => toggleOrg(org)}
+                  className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left hover:bg-zinc-50 transition-colors"
+                  aria-expanded={isOpen}
+                  aria-controls={`testimonials-${org}`}
+                >
+                  <div className="min-w-0">
+                    <div className="text-xl md:text-2xl font-extrabold text-zinc-900 tracking-tight">
+                      {org}
+                    </div>
+                    <div className="text-sm text-zinc-500 mt-1">{countLabel}</div>
+                  </div>
+                  <div
+                    className={cn(
+                      "w-10 h-10 rounded-full bg-indigo-50 text-indigo-700 flex items-center justify-center shrink-0 transition-transform",
+                      isOpen ? "rotate-90" : "rotate-0"
+                    )}
+                    aria-hidden
+                  >
+                    <ChevronRight size={18} />
+                  </div>
+                </button>
+
+                {isOpen ? (
+                  <div id={`testimonials-${org}`} className="px-6 pb-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+                      {items.map((t: any, idx: number) => (
+                        <motion.blockquote
+                          key={`${t.name}-${idx}`}
+                          initial={{ opacity: 0, y: 16 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.35, delay: idx * 0.05 }}
+                          className="relative flex flex-col h-full p-8 rounded-3xl bg-zinc-50 border border-zinc-100 shadow-sm hover:shadow-md hover:border-indigo-100/80 transition-all duration-300"
+                        >
+                          <Quote
+                            className="absolute top-6 right-6 text-indigo-200"
+                            size={40}
+                            strokeWidth={1.25}
+                            aria-hidden
+                          />
+                          <header className="relative z-10 flex gap-4 items-start mb-6">
+                            <TestimonialAvatar name={t.name} photoUrl={t.photoUrl} />
+                            <div className="min-w-0 flex-1">
+                              <div className="font-bold text-zinc-900 leading-snug">{t.name}</div>
+                              <div className="text-sm text-zinc-500 mt-1">
+                                {t.role}
+                                <span className="text-zinc-400"> · </span>
+                                {t.company}
+                              </div>
+                              {t.relationship ? (
+                                <div className="text-xs text-zinc-400 mt-2 leading-relaxed">{t.relationship}</div>
+                              ) : null}
+                            </div>
+                          </header>
+
+                          <p className="text-zinc-600 leading-relaxed text-[15px] whitespace-pre-line grow relative z-10">
+                            “{t.quote}”
+                          </p>
+                        </motion.blockquote>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -557,6 +615,7 @@ const Footer = ({ lang }: { lang: string }) => {
 
 export default function App() {
   const [lang, setLang] = useState('pt');
+  const [openWorkCompany, setOpenWorkCompany] = useState<string | null>(null);
 
   useEffect(() => {
     const browserLang = navigator.language.split('-')[0];
@@ -568,6 +627,14 @@ export default function App() {
   }, []);
 
   const content = portfolioData.languages[lang];
+  const caseStudiesByCompany = (content.caseStudies ?? []).reduce<Record<string, any[]>>((acc, cs) => {
+    const key = cs.company ?? 'Other';
+    acc[key] = acc[key] ?? [];
+    acc[key].push(cs);
+    return acc;
+  }, {});
+
+  const workCompanies = Object.keys(caseStudiesByCompany);
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-indigo-100 selection:text-indigo-900">
@@ -594,10 +661,85 @@ export default function App() {
               </div>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-10">
-              {content.caseStudies.map((study, idx) => (
-                <CaseStudyCard key={study.id} study={study} index={idx} lang={lang} />
-              ))}
+            <div className="space-y-4">
+              {workCompanies.map((company) => {
+                const isOpen = openWorkCompany === company;
+                const clients = content.companyClients?.[company] ?? [];
+                const items = caseStudiesByCompany[company] ?? [];
+
+                return (
+                  <div key={company} className="rounded-3xl border border-zinc-200 bg-white overflow-hidden">
+                    <button
+                      type="button"
+                      onClick={() => setOpenWorkCompany((cur) => (cur === company ? null : company))}
+                      className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left hover:bg-zinc-50 transition-colors"
+                      aria-expanded={isOpen}
+                      aria-controls={`work-${company}`}
+                    >
+                      <div className="min-w-0">
+                        <div className="text-xl md:text-2xl font-extrabold text-zinc-900 tracking-tight">
+                          {company}
+                        </div>
+                        <div className="text-sm text-zinc-500 mt-1">
+                          {items.length} {lang === 'pt' ? 'estudo(s) de caso' : lang === 'es' ? 'caso(s)' : 'case study(ies)'}
+                        </div>
+                      </div>
+                      <div
+                        className={cn(
+                          "w-10 h-10 rounded-full bg-indigo-50 text-indigo-700 flex items-center justify-center shrink-0 transition-transform",
+                          isOpen ? "rotate-90" : "rotate-0"
+                        )}
+                        aria-hidden
+                      >
+                        <ChevronRight size={18} />
+                      </div>
+                    </button>
+
+                    {isOpen ? (
+                      <div id={`work-${company}`} className="px-6 pb-6">
+                        <div className="pt-4">
+                          <div className="mb-8">
+                            <div className="text-xs font-bold text-zinc-900 uppercase tracking-widest mb-3">
+                              {content.ui.clientsTitle}
+                            </div>
+                            {clients.length ? (
+                              <div className="flex flex-wrap gap-2">
+                                {clients.map((c) => (
+                                  <span
+                                    key={c}
+                                    className="px-4 py-2 bg-white border border-zinc-200 rounded-xl text-sm text-zinc-600 font-medium"
+                                  >
+                                    {c}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <div className="text-sm text-zinc-500">
+                                {lang === 'pt'
+                                  ? 'Adicione clientes em src/constants.ts'
+                                  : lang === 'es'
+                                    ? 'Agrega clientes en src/constants.ts'
+                                    : 'Add clients in src/constants.ts'}
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="grid md:grid-cols-2 gap-10">
+                            {items.map((study, idx) => (
+                              <CaseStudyCard
+                                key={study.id}
+                                study={study}
+                                index={idx}
+                                lang={lang}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
