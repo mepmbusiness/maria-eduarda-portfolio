@@ -25,42 +25,91 @@ export const portfolioData: PortfolioData = {
       ],
       caseStudies: [
         {
-          id: "1",
-          title: "Globalização de Plataforma de IA para Detecção de Marcas",
+          id: "relo-1",
+          title: "Escalabilidade de Produto e Redução de Custo Operacional",
           company: "Relo Metrics",
-          role: "Senior Product Manager - ML & Computer Vision",
-          period: "Set 2025 - Presente",
-          description: "Liderei a evolução de uma plataforma de visão computacional para detecção de exposição de marcas patrocinadoras em mídia esportiva, tornando-a globalmente escalável e agnóstica de idioma.",
-          problem: "A plataforma era limitada a mercados de língua inglesa e dependia de operações manuais intensivas, impedindo expansão global e aumentando custos operacionais.",
-          solution: "Conduzi a globalização da plataforma para mercados complexos como o Japão, escalei o modelo de Verbal Mentions para qualquer idioma e construí um framework interno de avaliação de modelos e prompts de IA com ciclos human-in-the-loop.",
+          role: "Senior Product Manager - ML & Global Expansion",
+          period: "2025 - 2026",
+          description: "Liderei a reestruturação de um produto com alta complexidade operacional, tornando-o escalável e viável comercialmente para expansão global.",
+          problem: "O produto apresentava alto custo e tempo de implementação, o que bloqueava sua venda e limitava a aquisição de novos clientes. A operação dependia de processos manuais intensivos e não era escalável para múltiplos mercados.",
+          solution: "Redesenhei a arquitetura do produto com foco em escalabilidade e redução de fricção operacional. Simplifiquei requisitos de entrada de dados, padronizei fluxos e eliminei dependências manuais.",
           impact: [
-            "Redução de 69,5% nos custos operacionais",
-            "Mesma equipe passou a suportar 3× mais venues simultaneamente",
-            "Detecção de marcas habilitada em qualquer idioma, incluindo japonês"
+            "Redução de 69% nos custos operacionais",
+            "Produto desbloqueado para vendas e expansão",
+            "Aumento significativo na capacidade de aquisição de novos clientes"
           ],
-          tags: ["Computer Vision", "LLM", "MLOps"],
-          imageUrl: "https://picsum.photos/seed/relo-metrics/800/600"
+          tags: ["Market Expansion", "Product Scaling"],
+          imageUrl: "https://picsum.photos/seed/relo-case-1/800/600"
         },
         {
-          id: "2",
-          title: "Reestruturação de Produto e Framework de Métricas",
-          company: "Blu",
-          role: "Product Manager",
-          period: "Jul 2023 - Set 2025",
-          description: "Liderei iniciativas de produto e dados que transformaram a performance operacional e financeira do produto core, com resultados expressivos em rentabilidade, velocidade de processos e rastreabilidade.",
-          problem: "O produto não possuía métricas estruturadas, o processo de aprovação levava quase 5 dias, a taxa de migração de contas era de apenas 23% e alarmes de perda financeira eram difíceis de detectar a tempo.",
-          solution: "Implementei estratégias orientadas por dados, um framework de métricas com reporting automatizado e um processo de monitoramento via dashboard para detecção rápida de problemas financeiros e operacionais.",
+          id: "relo-2",
+          title: "Expansão Global com Framework Multilíngue de IA",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - AI & Internationalization",
+          period: "2025 - 2026",
+          description: "Liderei a globalização de produtos de IA, viabilizando expansão para mercados não anglófonos, com foco no Japão.",
+          problem: "Os produtos eram limitados ao idioma inglês, impedindo a entrada em mercados internacionais estratégicos como o japonês. A ausência de suporte multilíngue restringia crescimento e geração de receita.",
+          solution: "Desenvolvi um framework de IA multilíngue capaz de suportar japonês e qualquer outro idioma. Implementei estratégias de processamento e padronização de linguagem para garantir consistência dos dados e outputs.",
           impact: [
-            "Aumento de 43,5% na rentabilidade mensal do produto core",
-            "+323% na taxa de migração de contas (23,67% → >76% sustentado)",
-            "Redução de 87,6% no tempo de aprovação (4,93 dias → <1 dia)"
+            "Expansão para mercados internacionais, incluindo Japão",
+            "Aumento de 120% no potencial de receita",
+            "Plataforma preparada para operar globalmente, independente de idioma"
           ],
-          tags: ["Product Strategy", "Data", "Fintech", "Process Improvement"],
-          imageUrl: "https://picsum.photos/seed/blu-fintech/800/600"
+          tags: ["AI", "Internationalization", "Multilingual"],
+          imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
+        },
+        {
+          id: "relo-3",
+          title: "Otimização de Modelo de Computer Vision com Human-in-the-Loop",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - Machine Learning & QA",
+          period: "2025 - 2026",
+          description: "Liderei a melhoria de performance de um modelo de visão computacional para detecção de marcas em mídia esportiva.",
+          problem: "O modelo apresentava erros recorrentes, comprometendo a confiabilidade dos dados e limitando a escalabilidade da solução.",
+          solution: "Implementei um framework de Quality Assurance com human-in-the-loop, onde outputs do modelo eram validados por humanos e utilizados em ciclos contínuos de retraining. Criei processos estruturados de feedback e priorização de erros críticos para melhoria progressiva do modelo.",
+          impact: [
+            "Redução de 82% na taxa de erro do modelo",
+            "Aumento significativo da confiabilidade da plataforma",
+            "Base estruturada para melhoria contínua e escalabilidade de IA"
+          ],
+          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
+          imageUrl: "https://picsum.photos/seed/relo-case-3/800/600"
+        },
+        {
+          id: "blu-1",
+          title: "Otimização de Rentabilidade e Eficiência Operacional em Fintech",
+          company: "Blu",
+          role: "Product Manager - Payments & Financial Products",
+          period: "2023 - 2025",
+          description: "Liderei iniciativas estratégicas para melhorar a rentabilidade e eficiência operacional de produtos financeiros.",
+          problem: "A operação apresentava ineficiências, baixa previsibilidade de resultados e processos pouco estruturados, impactando a rentabilidade e a experiência do cliente. Além disso, havia falta de visibilidade sobre métricas críticas e gargalos operacionais.",
+          solution: "Implementei uma abordagem data-driven para tomada de decisão, estruturando métricas, dashboards e processos de monitoramento. Otimizei fluxos operacionais críticos, incluindo o ciclo de aprovação até pagamento e o processo de migração de contas. Promovi alinhamento entre áreas por meio de rituais, documentação e treinamentos.",
+          impact: [
+            "Aumento de 43,5% na rentabilidade mensal baseline",
+            "Redução de 87,6% no tempo de aprovação até pagamento, de ~5 dias para <1 dia",
+            "Migração de contas aumentada de 23,67% para 100% (sustentando >76%)",
+            "Redução de 58% nos alertas de perdas financeiras",
+            "Estruturação de governança e decisões orientadas a dados"
+          ],
+          tags: ["Fintech", "Payments", "Metrics", "Operational Efficiency"],
+          imageUrl: "https://picsum.photos/seed/blu-case-1/800/600"
         }
       ],
       companyClients: {
-        "Relo Metrics": [],
+        "Relo Metrics": [
+          "Warner Brothers",
+          "Paramount",
+          "ESPN",
+          "Dell Technologies",
+          "BetMGM",
+          "New York Yankees",
+          "Golden State Warriors",
+          "Genesco",
+          "PepsiCo",
+          "PayPal",
+          "Youtube",
+          "Adidas"
+        ],
         "Blu": [],
         "BRAVET": []
       },
@@ -318,42 +367,91 @@ export const portfolioData: PortfolioData = {
       ],
       caseStudies: [
         {
-          id: "1",
-          title: "AI Platform Globalization for Sponsor Brand Detection",
+          id: "relo-1",
+          title: "Product Scalability and Operational Cost Reduction",
           company: "Relo Metrics",
-          role: "AI Product Manager - ML & Computer Vision",
-          period: "Set 2025 - Presente",
-          description: "Led the evolution of a computer vision platform for sponsor brand exposure detection in sports media, making it globally scalable and language-agnostic.",
-          problem: "The platform was limited to English-speaking markets and relied on intensive manual operations, preventing global expansion and increasing operational costs.",
-          solution: "Drove platform globalization into complex markets like Japan, scaled the Verbal Mentions model to any language, and built an internal AI model and prompt evaluation framework with human-in-the-loop feedback cycles.",
+          role: "Senior Product Manager - ML & Global Expansion",
+          period: "2025 - 2026",
+          description: "Led the restructuring of a product with high operational complexity, making it scalable and commercially viable for global expansion.",
+          problem: "The product had high implementation cost and long lead times, which blocked sales and limited new customer acquisition. Operations relied heavily on manual processes and could not scale across multiple markets.",
+          solution: "Redesigned the product architecture to improve scalability and reduce operational friction. Simplified input data requirements, standardized workflows, and removed manual dependencies.",
           impact: [
-            "69.5% reduction in operational costs",
-            "Same team now supports 3× more venues simultaneously",
-            "Brand detection enabled in any language, including Japanese"
+            "69% reduction in operational costs",
+            "Unblocked the product for sales and expansion",
+            "Significantly increased capacity to acquire new customers"
           ],
-          tags: ["Computer Vision", "LLM", "Globalization", "MLOps"],
-          imageUrl: "https://picsum.photos/seed/relo-metrics/800/600"
+          tags: ["Market Expansion", "Product Scaling"],
+          imageUrl: "https://picsum.photos/seed/relo-case-1/800/600"
         },
         {
-          id: "2",
-          title: "Product Restructuring and Metrics Framework",
-          company: "Blu",
-          role: "Product Manager",
-          period: "Jul 2023 - Set 2025",
-          description: "Led product and data initiatives that transformed the operational and financial performance of the core product, with significant results in profitability, process speed, and traceability.",
-          problem: "The product lacked structured metrics, the approval process took nearly 5 days, account migration rate was only 23%, and financial loss alerts were hard to detect in time.",
-          solution: "Implemented data-driven strategies, a metrics framework with automated reporting, and a dashboard-based monitoring process for rapid detection of financial and operational issues.",
+          id: "relo-2",
+          title: "Global Expansion with a Multilingual AI Framework",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - AI & Internationalization",
+          period: "2025 - 2026",
+          description: "Led the globalization of AI products, enabling expansion into non-English markets, with a focus on Japan.",
+          problem: "Products were limited to English, preventing entry into strategic international markets such as Japan. Lack of multilingual support constrained growth and revenue generation.",
+          solution: "Developed a multilingual AI framework capable of supporting Japanese and any other language. Implemented language processing and standardization strategies to ensure consistent data and outputs.",
           impact: [
-            "43.5% increase in core product monthly profitability",
-            "+323% improvement in account migration rate (23.67% → >76% sustained)",
-            "87.6% reduction in approval-to-payment time (4.93 days → <1 day)"
+            "Expanded into international markets, including Japan",
+            "120% increase in revenue potential",
+            "Platform ready to operate globally, regardless of language"
           ],
-          tags: ["Product Strategy", "Data", "Fintech", "Process Improvement"],
-          imageUrl: "https://picsum.photos/seed/blu-fintech/800/600"
+          tags: ["AI", "Internationalization", "Multilingual"],
+          imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
+        },
+        {
+          id: "relo-3",
+          title: "Computer Vision Model Optimization with Human-in-the-Loop",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - Machine Learning & QA",
+          period: "2025 - 2026",
+          description: "Led performance improvements for a computer vision model used to detect sponsor brands in sports media.",
+          problem: "The model had recurring errors, reducing data reliability and limiting the solution's scalability.",
+          solution: "Implemented a human-in-the-loop QA framework where model outputs were validated by humans and used in continuous retraining cycles. Built structured feedback loops and prioritized critical error categories for progressive model improvement.",
+          impact: [
+            "82% reduction in model error rate",
+            "Significant increase in platform reliability",
+            "Established a foundation for continuous AI improvement and scalability"
+          ],
+          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
+          imageUrl: "https://picsum.photos/seed/relo-case-3/800/600"
+        },
+        {
+          id: "blu-1",
+          title: "Profitability and Operational Efficiency Optimization in Fintech",
+          company: "Blu",
+          role: "Product Manager - Payments & Financial Products",
+          period: "2023 - 2025",
+          description: "Led strategic initiatives to improve profitability and operational efficiency for financial products.",
+          problem: "Operations were inefficient, outcomes were hard to predict, and processes were poorly structured, impacting profitability and customer experience. There was also limited visibility into critical metrics and operational bottlenecks.",
+          solution: "Implemented a data-driven approach to decision-making by structuring metrics, dashboards, and monitoring processes. Optimized critical operational flows, including approval-to-payment and account migration. Drove cross-functional alignment through rituals, documentation, and training.",
+          impact: [
+            "43.5% increase in baseline monthly profitability",
+            "87.6% reduction in approval-to-payment time, from ~5 days to <1 day",
+            "Account migration increased from 23.67% to 100% (sustaining >76%)",
+            "58% reduction in financial loss alerts",
+            "Established governance and data-driven decision-making"
+          ],
+          tags: ["Fintech", "Payments", "Metrics", "Operational Efficiency"],
+          imageUrl: "https://picsum.photos/seed/blu-case-1/800/600"
         }
       ],
       companyClients: {
-        "Relo Metrics": [],
+        "Relo Metrics": [
+          "Warner Brothers",
+          "Paramount",
+          "ESPN",
+          "Dell Technologies",
+          "BetMGM",
+          "New York Yankees",
+          "Golden State Warriors",
+          "Genesco",
+          "PepsiCo",
+          "PayPal",
+          "Youtube",
+          "Adidas"
+        ],
         "Blu": [],
         "BRAVET": []
       },
@@ -611,42 +709,91 @@ export const portfolioData: PortfolioData = {
       ],
       caseStudies: [
         {
-          id: "1",
-          title: "Globalización de Plataforma de IA para Detección de Marcas",
+          id: "relo-1",
+          title: "Escalabilidad de Producto y Reducción de Costo Operativo",
           company: "Relo Metrics",
-          role: "AI Product Manager - ML & Computer Vision",
-          period: "Set 2025 - Presente",
-          description: "Lideré la evolución de una plataforma de visión computacional para la detección de exposición de marcas patrocinadoras en medios deportivos, haciéndola globalmente escalable y agnóstica del idioma.",
-          problem: "La plataforma estaba limitada a mercados de habla inglesa y dependía de operaciones manuales intensivas, lo que impedía la expansión global y aumentaba los costos operativos.",
-          solution: "Impulsé la globalización de la plataforma hacia mercados complejos como Japón, escalé el modelo de Verbal Mentions a cualquier idioma y construí un framework interno de evaluación de modelos y prompts de IA con ciclos human-in-the-loop.",
+          role: "Senior Product Manager - ML & Global Expansion",
+          period: "2025 - 2026",
+          description: "Lideré la reestructuración de un producto con alta complejidad operativa, haciéndolo escalable y comercialmente viable para expansión global.",
+          problem: "El producto tenía alto costo y tiempo de implementación, lo que bloqueaba su venta y limitaba la adquisición de nuevos clientes. La operación dependía de procesos manuales intensivos y no era escalable para múltiples mercados.",
+          solution: "Rediseñé la arquitectura del producto con foco en escalabilidad y reducción de fricción operativa. Simplifiqué requisitos de entrada de datos, estandaricé flujos y eliminé dependencias manuales.",
           impact: [
-            "Reducción del 69,5% en los costos operativos",
-            "El mismo equipo ahora soporta 3× más venues simultáneamente",
-            "Detección de marcas habilitada en cualquier idioma, incluido el japonés"
+            "Reducción de 69% en los costos operativos",
+            "Producto desbloqueado para ventas y expansión",
+            "Aumento significativo en la capacidad de adquisición de nuevos clientes"
           ],
-          tags: ["Computer Vision", "LLM", "Globalization", "MLOps"],
-          imageUrl: "https://picsum.photos/seed/relo-metrics/800/600"
+          tags: ["Market Expansion", "Product Scaling"],
+          imageUrl: "https://picsum.photos/seed/relo-case-1/800/600"
         },
         {
-          id: "2",
-          title: "Reestructuración de Producto y Framework de Métricas",
-          company: "Blu",
-          role: "Product Manager",
-          period: "Jul 2023 - Set 2025",
-          description: "Lideré iniciativas de producto y datos que transformaron el rendimiento operativo y financiero del producto core, con resultados significativos en rentabilidad, velocidad de procesos y trazabilidad.",
-          problem: "El producto carecía de métricas estructuradas, el proceso de aprobación tardaba casi 5 días, la tasa de migración de cuentas era solo del 23% y las alertas de pérdida financiera eran difíciles de detectar a tiempo.",
-          solution: "Implementé estrategias basadas en datos, un framework de métricas con reportes automatizados y un proceso de monitoreo por dashboard para la detección rápida de problemas financieros y operativos.",
+          id: "relo-2",
+          title: "Expansión Global con un Framework Multilingüe de IA",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - AI & Internationalization",
+          period: "2025 - 2026",
+          description: "Lideré la globalización de productos de IA, habilitando la expansión a mercados no anglófonos, con foco en Japón.",
+          problem: "Los productos estaban limitados al inglés, lo que impedía la entrada a mercados internacionales estratégicos como Japón. La falta de soporte multilingüe restringía el crecimiento y la generación de ingresos.",
+          solution: "Desarrollé un framework de IA multilingüe capaz de soportar japonés y cualquier otro idioma. Implementé estrategias de procesamiento y estandarización de lenguaje para asegurar consistencia de datos y outputs.",
           impact: [
-            "Aumento del 43,5% en la rentabilidad mensual del producto core",
-            "+323% de mejora en la tasa de migración de cuentas (23,67% → >76% sostenido)",
-            "Reducción del 87,6% en el tiempo de aprobación (4,93 dias → <1 día)"
+            "Expansión a mercados internacionales, incluyendo Japón",
+            "Aumento de 120% en el potencial de ingresos",
+            "Plataforma lista para operar globalmente, independientemente del idioma"
           ],
-          tags: ["Product Strategy", "Data", "Fintech", "Process Improvement"],
-          imageUrl: "https://picsum.photos/seed/blu-fintech/800/600"
+          tags: ["AI", "Internationalization", "Multilingual"],
+          imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
+        },
+        {
+          id: "relo-3",
+          title: "Optimización de Modelo de Computer Vision con Human-in-the-Loop",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - Machine Learning & QA",
+          period: "2025 - 2026",
+          description: "Lideré mejoras de performance de un modelo de visión computacional para la detección de marcas en medios deportivos.",
+          problem: "El modelo presentaba errores recurrentes, comprometiendo la confiabilidad de los datos y limitando la escalabilidad de la solución.",
+          solution: "Implementé un framework de Quality Assurance con human-in-the-loop, donde los outputs del modelo eran validados por humanos y usados en ciclos continuos de retraining. Creé procesos estructurados de feedback y priorización de errores críticos para una mejora progresiva del modelo.",
+          impact: [
+            "Reducción de 82% en la tasa de error del modelo",
+            "Aumento significativo de la confiabilidad de la plataforma",
+            "Base estructurada para mejora continua y escalabilidad de IA"
+          ],
+          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
+          imageUrl: "https://picsum.photos/seed/relo-case-3/800/600"
+        },
+        {
+          id: "blu-1",
+          title: "Optimización de Rentabilidad y Eficiencia Operativa en Fintech",
+          company: "Blu",
+          role: "Product Manager - Payments & Financial Products",
+          period: "2023 - 2025",
+          description: "Lideré iniciativas estratégicas para mejorar la rentabilidad y eficiencia operativa de productos financieros.",
+          problem: "La operación tenía ineficiencias, baja previsibilidad de resultados y procesos poco estructurados, impactando la rentabilidad y la experiencia del cliente. Además, había poca visibilidad sobre métricas críticas y cuellos de botella operativos.",
+          solution: "Implementé un enfoque data-driven para la toma de decisiones, estructurando métricas, dashboards y procesos de monitoreo. Optimizé flujos operativos críticos, incluyendo el ciclo de aprobación hasta pago y el proceso de migración de cuentas. Promoví alineación entre áreas a través de rituales, documentación y entrenamientos.",
+          impact: [
+            "Aumento de 43,5% en la rentabilidad mensual baseline",
+            "Reducción de 87,6% en el tiempo de aprobación hasta pago, de ~5 días a <1 día",
+            "Migración de cuentas aumentó de 23,67% a 100% (sosteniendo >76%)",
+            "Reducción de 58% en alertas de pérdidas financieras",
+            "Estructuración de gobernanza y decisiones orientadas a datos"
+          ],
+          tags: ["Fintech", "Payments", "Metrics", "Operational Efficiency"],
+          imageUrl: "https://picsum.photos/seed/blu-case-1/800/600"
         }
       ],
       companyClients: {
-        "Relo Metrics": [],
+        "Relo Metrics": [
+          "Warner Brothers",
+          "Paramount",
+          "ESPN",
+          "Dell Technologies",
+          "BetMGM",
+          "New York Yankees",
+          "Golden State Warriors",
+          "Genesco",
+          "PepsiCo",
+          "PayPal",
+          "Youtube",
+          "Adidas"
+        ],
         "Blu": [],
         "BRAVET": []
       },

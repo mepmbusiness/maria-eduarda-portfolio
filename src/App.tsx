@@ -141,7 +141,6 @@ const CaseStudyCard = ({ study, index, lang }: { study: any, index: number, lang
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="text-2xl font-bold text-zinc-900 mb-1">{study.title}</h3>
-            <p className="text-sm text-zinc-400 font-medium">{study.company} • {study.role}</p>
           </div>
         </div>
         <p className="text-zinc-600 mb-8 line-clamp-2">
@@ -382,7 +381,7 @@ const About = ({ lang }: { lang: string }) => {
         >
           <div className="relative">
             <img
-              src="https://picsum.photos/seed/pm-profile/600/800"
+              src="/profile-about.png"
               alt="Profile"
               className="rounded-[40px] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
               referrerPolicy="no-referrer"
@@ -419,10 +418,13 @@ const About = ({ lang }: { lang: string }) => {
             ) : (
               <>
                 <p>
-                  Hello! I'm Maria. My journey in the tech world began with an insatiable curiosity about how data can predict behavior. Today, as a Senior AI Product Manager, I focus on humanizing artificial intelligence.
+                  Hello! I'm Maria. My journey in the tech world began with an insatiable curiosity—about people, questions, and technology. I’ve always been driven to understand how and why things happen. Over time, I discovered how data could answer those questions and reveal patterns in human behavior. That realization led me into the world of technology, where I started building products grounded in data and real user needs.
                 </p>
                 <p>
-                  Beyond work, I'm a marathon enthusiast and believe that the discipline of sports directly reflects in my resilience when managing complex products. I love traveling and experiencing new cultures, which helps me maintain a global and empathetic perspective on users.
+                  Today, as a Senior AI Product Manager, I focus on demystifying AI in product development—turning complex technologies into practical, scalable, and user-centered solutions.
+                </p>
+                <p>
+                  Beyond work, I love traveling and experiencing new cultures, which helps me maintain a global and empathetic perspective on users.
                 </p>
               </>
             )}
@@ -431,7 +433,7 @@ const About = ({ lang }: { lang: string }) => {
                 ? 'Foco em resultados (outcomes) em vez de apenas entregas (outputs). Acredito em ciclos rápidos de aprendizado, validação constante de hipóteses e em manter o usuário no centro de todas as decisões.' 
                 : lang === 'es'
                 ? 'Enfoque en resultados (outcomes) en lugar de solo entregas (outputs). Creo en ciclos rápidos de aprendizaje, validación constante de hipótesis y en mantener al usuario en el centro de todas las decisiones.'
-                : 'Focus on outcomes rather than just outputs. I believe in rapid learning cycles, constant hypothesis validation, and keeping the user at the center of all decisions.'}
+                : 'I believe the best products are built in environments that balance flexibility, transparency, and lightness—where trust drives both speed and quality.'}
             </p>
           </div>
         </div>
@@ -666,6 +668,7 @@ export default function App() {
                 const isOpen = openWorkCompany === company;
                 const clients = content.companyClients?.[company] ?? [];
                 const items = caseStudiesByCompany[company] ?? [];
+                const showClients = company !== 'Blu';
 
                 return (
                   <div key={company} className="rounded-3xl border border-zinc-200 bg-white overflow-hidden">
@@ -698,31 +701,33 @@ export default function App() {
                     {isOpen ? (
                       <div id={`work-${company}`} className="px-6 pb-6">
                         <div className="pt-4">
-                          <div className="mb-8">
-                            <div className="text-xs font-bold text-zinc-900 uppercase tracking-widest mb-3">
-                              {content.ui.clientsTitle}
+                          {showClients ? (
+                            <div className="mb-8">
+                              <div className="text-xs font-bold text-zinc-900 uppercase tracking-widest mb-3">
+                                {content.ui.clientsTitle}
+                              </div>
+                              {clients.length ? (
+                                <div className="flex flex-wrap gap-2">
+                                  {clients.map((c) => (
+                                    <span
+                                      key={c}
+                                      className="px-4 py-2 bg-white border border-zinc-200 rounded-xl text-sm text-zinc-600 font-medium"
+                                    >
+                                      {c}
+                                    </span>
+                                  ))}
+                                </div>
+                              ) : (
+                                <div className="text-sm text-zinc-500">
+                                  {lang === 'pt'
+                                    ? 'Adicione clientes em src/constants.ts'
+                                    : lang === 'es'
+                                      ? 'Agrega clientes en src/constants.ts'
+                                      : 'Add clients in src/constants.ts'}
+                                </div>
+                              )}
                             </div>
-                            {clients.length ? (
-                              <div className="flex flex-wrap gap-2">
-                                {clients.map((c) => (
-                                  <span
-                                    key={c}
-                                    className="px-4 py-2 bg-white border border-zinc-200 rounded-xl text-sm text-zinc-600 font-medium"
-                                  >
-                                    {c}
-                                  </span>
-                                ))}
-                              </div>
-                            ) : (
-                              <div className="text-sm text-zinc-500">
-                                {lang === 'pt'
-                                  ? 'Adicione clientes em src/constants.ts'
-                                  : lang === 'es'
-                                    ? 'Agrega clientes en src/constants.ts'
-                                    : 'Add clients in src/constants.ts'}
-                              </div>
-                            )}
-                          </div>
+                          ) : null}
 
                           <div className="grid md:grid-cols-2 gap-10">
                             {items.map((study, idx) => (
