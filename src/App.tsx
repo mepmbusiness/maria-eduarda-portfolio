@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail, Linkedin, ExternalLink, ChevronRight, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote } from 'lucide-react';
+import { Mail, Linkedin, ExternalLink, ChevronRight, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench } from 'lucide-react';
 import { AIToolkit } from './components/PRDGenerator';
 import { portfolioData } from './constants';
 import { cn } from './lib/utils';
@@ -351,6 +351,7 @@ const Skills = ({ lang }: { lang: string }) => {
                 {idx === 0 && <Target size={20} className="text-indigo-600" />}
                 {idx === 1 && <BarChart3 size={20} className="text-indigo-600" />}
                 {idx === 2 && <Users size={20} className="text-indigo-600" />}
+                {idx === 3 && <Wrench size={20} className="text-indigo-600" />}
                 {skillGroup.category}
               </h3>
               <div className="flex flex-wrap gap-2">

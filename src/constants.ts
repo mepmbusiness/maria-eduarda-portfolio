@@ -21,6 +21,10 @@ export const portfolioData: PortfolioData = {
         {
           category: "Execução & Liderança",
           items: ["Métricas & OKRs", "Agile/Scrum", "Cross-functional Teams", "Process Improvement", "Internal Training"]
+        },
+        {
+          category: "Tools",
+          items: ["Claude", "ChatGPT", "Gemini", "Google AI Studio", "Looker", "Mixpanel", "Metabase", "SQL", "Jira", "Confluence"]
         }
       ],
       caseStudies: [
@@ -363,6 +367,10 @@ export const portfolioData: PortfolioData = {
         {
           category: "Execution & Leadership",
           items: ["Metrics & OKRs", "Agile/Scrum", "Cross-functional Teams", "Process Improvement", "Internal Training"]
+        },
+        {
+          category: "Tools",
+          items: ["Claude", "ChatGPT", "Gemini", "Google AI Studio", "Looker", "Mixpanel", "Metabase", "SQL", "Jira", "Confluence"]
         }
       ],
       caseStudies: [
@@ -705,6 +713,10 @@ export const portfolioData: PortfolioData = {
         {
           category: "Ejecución & Liderazgo",
           items: ["Métricas & OKRs", "Agile/Scrum", "Cross-functional Teams", "Process Improvement", "Internal Training"]
+        },
+        {
+          category: "Tools",
+          items: ["Claude", "ChatGPT", "Gemini", "Google AI Studio", "Looker", "Mixpanel", "Metabase", "SQL", "Jira", "Confluence"]
         }
       ],
       caseStudies: [
