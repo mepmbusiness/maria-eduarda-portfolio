@@ -278,13 +278,13 @@ export const portfolioData: PortfolioData = {
           description: "Responsável por estratégia de produto, métricas e melhoria de processos no produto financeiro core, com foco em rentabilidade e escalabilidade."
         },
         {
-          role: "Quality Assurance Assistant",
+          role: "Product Analyst",
           company: "Bravet",
           period: "Dez 2022 - Jul 2023",
           description: "Estruturei processos de qualidade e documentação para desenvolvimento de produtos, garantindo escalabilidade e conformidade com padrões regulatórios."
         },
         {
-          role: "Técnica em Controle de Qualidade",
+          role: "Product Analyst",
           company: "BRF",
           period: "Jul 2021 - Dez 2022",
           description: "Aproveitei dados e métricas de qualidade para identificar problemas, priorizar melhorias e reforçar a consistência do produto."
@@ -620,13 +620,13 @@ export const portfolioData: PortfolioData = {
           description: "Owned product strategy, metrics, and process improvement for the core financial product, focusing on profitability and scalability."
         },
         {
-          role: "Quality Assurance Assistant",
+          role: "Product Analyst",
           company: "Bravet",
           period: "Dez 2022 - Jul 2023",
           description: "Structured quality processes and documentation for product development, ensuring scalability and compliance with regulatory standards."
         },
         {
-          role: "Quality Control Technician",
+          role: "Product Analyst",
           company: "BRF",
           period: "Jul 2021 - Dec 2022",
           description: "Leveraged data and quality metrics to identify issues, prioritize improvements, and enhance product consistency."
@@ -962,13 +962,13 @@ export const portfolioData: PortfolioData = {
           description: "Responsable de la estrategia de producto, métricas y mejora de procesos del producto financiero core, con foco en rentabilidad y escalabilidad."
         },
         {
-          role: "Quality Assurance Assistant",
+          role: "Product Analyst",
           company: "Bravet",
           period: "Dez 2022 - Jul 2023",
           description: "Estructuré procesos de calidad y documentación para el desarrollo de productos, garantizando escalabilidad y cumplimiento de estándares regulatorios."
         },
         {
-          role: "Técnica en Control de Calidad",
+          role: "Product Analyst",
           company: "BRF",
           period: "Jul 2021 - Dic 2022",
           description: "Aproveché datos y métricas de calidad para identificar problemas, priorizar mejoras y mejorar la consistencia del producto."
