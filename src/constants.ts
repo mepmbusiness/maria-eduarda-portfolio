@@ -81,21 +81,20 @@ export const portfolioData: PortfolioData = {
         },
         {
           id: "blu-1",
-          title: "Otimização de Rentabilidade e Eficiência Operacional em Fintech",
+          title: "Da diferenciação de mercado ao risco de rentabilidade: um redesenho de monetização",
           company: "Blu",
           role: "Product Manager - Payments & Financial Products",
           period: "2023 - 2025",
-          description: "Liderei iniciativas estratégicas para melhorar a rentabilidade e eficiência operacional de produtos financeiros.",
-          problem: "A operação apresentava ineficiências, baixa previsibilidade de resultados e processos pouco estruturados, impactando a rentabilidade e a experiência do cliente. Além disso, havia falta de visibilidade sobre métricas críticas e gargalos operacionais.",
-          solution: "Implementei uma abordagem data-driven para tomada de decisão, estruturando métricas, dashboards e processos de monitoramento. Otimizei fluxos operacionais críticos, incluindo o ciclo de aprovação até pagamento e o processo de migração de contas. Promovi alinhamento entre áreas por meio de rituais, documentação e treinamentos.",
+          description: "Redesenhei a estratégia de monetização diante de um modelo assimétrico que gerava adoção, mas distorcia incentivos e ameaçava a sustentabilidade.",
+          problem: "O produto operava sob um modelo de monetização assimétrico (taxa zero para pagadores), o que impulsionou a adoção, mas criou incentivos distorcidos ao longo do tempo. Os usuários passaram a estender planos de parcelamento além do perfil de recebíveis esperado, levando a: descompasso de fluxo de caixa, deterioração da economia unitária e uma lacuna de rentabilidade crescente que ameaçava a sustentabilidade de longo prazo.",
+          solution: "Redesenhei a estratégia de monetização com um framework dinâmico de precificação baseado em risco. Introduzi taxas condicionais acionadas apenas quando a economia unitária estava em risco. Construí lógica para comparar maturidade dos recebíveis (WAT) versus cronograma de pagamentos. Apliquei monetização de precisão sem comprometer a proposta de valor central. Aproveitei a infraestrutura existente para um rollout enxuto e escalável.",
           impact: [
-            "Aumento de 43,5% na rentabilidade mensal baseline",
-            "Redução de 87,6% no tempo de aprovação até pagamento, de ~5 dias para <1 dia",
-            "Migração de contas aumentada de 23,67% para 100% (sustentando >76%)",
-            "Redução de 58% nos alertas de perdas financeiras",
-            "Estruturação de governança e decisões orientadas a dados"
+            "+43,5% de aumento na rentabilidade baseline (piloto)",
+            "~R$ 329 mil de receita mensal incremental a partir de 3,4% dos clientes",
+            "Projeção de +R$ 2 mi/mês de upside com ~20% de adoção",
+            "Convertemos um risco estrutural em um motor de monetização escalável"
           ],
-          tags: ["Fintech", "Payments", "Metrics", "Operational Efficiency"],
+          tags: ["Fintech", "Monetization", "Payments"],
           imageUrl: "https://picsum.photos/seed/blu-case-1/800/600"
         }
       ],
@@ -427,21 +426,20 @@ export const portfolioData: PortfolioData = {
         },
         {
           id: "blu-1",
-          title: "Profitability and Operational Efficiency Optimization in Fintech",
+          title: "From Market Differentiation to Profitability Risk: A Monetization Redesign",
           company: "Blu",
           role: "Product Manager - Payments & Financial Products",
           period: "2023 - 2025",
-          description: "Led strategic initiatives to improve profitability and operational efficiency for financial products.",
-          problem: "Operations were inefficient, outcomes were hard to predict, and processes were poorly structured, impacting profitability and customer experience. There was also limited visibility into critical metrics and operational bottlenecks.",
-          solution: "Implemented a data-driven approach to decision-making by structuring metrics, dashboards, and monitoring processes. Optimized critical operational flows, including approval-to-payment and account migration. Drove cross-functional alignment through rituals, documentation, and training.",
+          description: "Led a monetization redesign addressing asymmetric pricing, distorted incentives, and long-term profitability risk.",
+          problem: "The product operated under an asymmetric monetization model (zero-fee for payers), which successfully drove adoption but created distorted incentives over time. Users began extending installment plans beyond the expected receivables profile, leading to: cash flow mismatch, deterioration of unit economics, and a growing profitability gap that threatened long-term sustainability.",
+          solution: "Redesigned the monetization strategy by implementing a dynamic, risk-based pricing framework. Introduced conditional fees triggered only when unit economics were at risk. Built logic to compare receivables maturity (WAT) vs. payout schedule. Applied precision monetization without compromising the core value proposition. Leveraged existing infrastructure for a lean and scalable rollout.",
           impact: [
-            "43.5% increase in baseline monthly profitability",
-            "87.6% reduction in approval-to-payment time, from ~5 days to <1 day",
-            "Account migration increased from 23.67% to 100% (sustaining >76%)",
-            "58% reduction in financial loss alerts",
-            "Established governance and data-driven decision-making"
+            "+43.5% uplift in baseline profitability (pilot)",
+            "~R$329K incremental monthly revenue from 3.4% of clients",
+            "Projected +R$2M/month upside at ~20% adoption",
+            "Converted a structural risk into a scalable monetization engine"
           ],
-          tags: ["Fintech", "Payments", "Metrics", "Operational Efficiency"],
+          tags: ["Fintech", "Monetization", "Payments"],
           imageUrl: "https://picsum.photos/seed/blu-case-1/800/600"
         }
       ],
@@ -773,21 +771,20 @@ export const portfolioData: PortfolioData = {
         },
         {
           id: "blu-1",
-          title: "Optimización de Rentabilidad y Eficiencia Operativa en Fintech",
+          title: "De la diferenciación de mercado al riesgo de rentabilidad: un rediseño de monetización",
           company: "Blu",
           role: "Product Manager - Payments & Financial Products",
           period: "2023 - 2025",
-          description: "Lideré iniciativas estratégicas para mejorar la rentabilidad y eficiencia operativa de productos financieros.",
-          problem: "La operación tenía ineficiencias, baja previsibilidad de resultados y procesos poco estructurados, impactando la rentabilidad y la experiencia del cliente. Además, había poca visibilidad sobre métricas críticas y cuellos de botella operativos.",
-          solution: "Implementé un enfoque data-driven para la toma de decisiones, estructurando métricas, dashboards y procesos de monitoreo. Optimizé flujos operativos críticos, incluyendo el ciclo de aprobación hasta pago y el proceso de migración de cuentas. Promoví alineación entre áreas a través de rituales, documentación y entrenamientos.",
+          description: "Rediseñé la estrategia de monetización frente a un modelo asimétrico que generaba adopción pero distorsionaba incentivos y amenazaba la sostenibilidad.",
+          problem: "El producto operaba bajo un modelo de monetización asimétrico (cero comisión para quienes pagan), lo que impulsó la adopción pero creó incentivos distorsionados con el tiempo. Los usuarios extendieron planes de cuotas más allá del perfil de cobros esperado, generando: desajuste de flujo de caja, deterioro de la economía unitaria y una brecha de rentabilidad creciente que amenazaba la sostenibilidad a largo plazo.",
+          solution: "Rediseñé la estrategia de monetización con un marco dinámico de precios basado en riesgo. Introduje comisiones condicionales activadas solo cuando la economía unitaria estaba en riesgo. Construí lógica para comparar madurez de cobros (WAT) versus calendario de pagos. Apliqué monetización de precisión sin comprometer la propuesta de valor central. Aproveché la infraestructura existente para un despliegue ágil y escalable.",
           impact: [
-            "Aumento de 43,5% en la rentabilidad mensual baseline",
-            "Reducción de 87,6% en el tiempo de aprobación hasta pago, de ~5 días a <1 día",
-            "Migración de cuentas aumentó de 23,67% a 100% (sosteniendo >76%)",
-            "Reducción de 58% en alertas de pérdidas financieras",
-            "Estructuración de gobernanza y decisiones orientadas a datos"
+            "+43,5% de aumento en la rentabilidad baseline (piloto)",
+            "~R$ 329 mil de ingresos mensuales incrementales del 3,4% de los clientes",
+            "Proyección de +R$ 2M/mes de upside con ~20% de adopción",
+            "Convertimos un riesgo estructural en un motor de monetización escalable"
           ],
-          tags: ["Fintech", "Payments", "Metrics", "Operational Efficiency"],
+          tags: ["Fintech", "Monetization", "Payments"],
           imageUrl: "https://picsum.photos/seed/blu-case-1/800/600"
         }
       ],
