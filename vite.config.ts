@@ -43,7 +43,6 @@ export default defineConfig(({mode}) => {
                 },
               };
 
-              // @ts-expect-error - serverless handler signature
               await handler(reqShim, resShim);
             } catch (err: any) {
               res.statusCode = 500;
