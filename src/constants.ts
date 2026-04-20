@@ -29,20 +29,20 @@ export const portfolioData: PortfolioData = {
       ],
       caseStudies: [
         {
-          id: "relo-1",
-          title: "Escalabilidade de Produto e Redução de Custo Operacional",
+          id: "relo-3",
+          title: "Otimização de Modelo de Computer Vision com Human-in-the-Loop",
           company: "Relo Metrics",
-          role: "Senior Product Manager - ML & Global Expansion",
+          role: "Senior Product Manager - Machine Learning & QA",
           period: "2025 - 2026",
-          description: "Liderei a reestruturação de um produto com alta complexidade operacional, tornando-o escalável e viável comercialmente para expansão global.",
-          problem: "O produto apresentava alto custo e tempo de implementação, o que bloqueava sua venda e limitava a aquisição de novos clientes. A operação dependia de processos manuais intensivos e não era escalável para múltiplos mercados.",
-          solution: "Redesenhei a arquitetura do produto com foco em escalabilidade e redução de fricção operacional. Simplifiquei requisitos de entrada de dados, padronizei fluxos e eliminei dependências manuais.",
+          description: "Liderei a melhoria de performance de um modelo de visão computacional para detecção de marcas em mídia esportiva.",
+          problem: "O modelo apresentava erros recorrentes, comprometendo a confiabilidade dos dados e limitando a escalabilidade da solução.",
+          solution: "Implementei um framework de Quality Assurance com human-in-the-loop, onde outputs do modelo eram validados por humanos e utilizados em ciclos contínuos de retraining. Criei processos estruturados de feedback e priorização de erros críticos para melhoria progressiva do modelo.",
           impact: [
-            "Redução de 69% nos custos operacionais",
-            "Produto desbloqueado para vendas e expansão",
-            "Aumento significativo na capacidade de aquisição de novos clientes"
+            "Redução de 82% na taxa de erro do modelo",
+            "Aumento significativo da confiabilidade da plataforma",
+            "Base estruturada para melhoria contínua e escalabilidade de IA"
           ],
-          tags: ["Market Expansion", "Product Scaling"],
+          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
           videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
@@ -63,20 +63,20 @@ export const portfolioData: PortfolioData = {
           imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
         },
         {
-          id: "relo-3",
-          title: "Otimização de Modelo de Computer Vision com Human-in-the-Loop",
+          id: "relo-1",
+          title: "Escalabilidade de Produto e Redução de Custo Operacional",
           company: "Relo Metrics",
-          role: "Senior Product Manager - Machine Learning & QA",
+          role: "Senior Product Manager - ML & Global Expansion",
           period: "2025 - 2026",
-          description: "Liderei a melhoria de performance de um modelo de visão computacional para detecção de marcas em mídia esportiva.",
-          problem: "O modelo apresentava erros recorrentes, comprometendo a confiabilidade dos dados e limitando a escalabilidade da solução.",
-          solution: "Implementei um framework de Quality Assurance com human-in-the-loop, onde outputs do modelo eram validados por humanos e utilizados em ciclos contínuos de retraining. Criei processos estruturados de feedback e priorização de erros críticos para melhoria progressiva do modelo.",
+          description: "Liderei a reestruturação de um produto com alta complexidade operacional, tornando-o escalável e viável comercialmente para expansão global.",
+          problem: "O produto apresentava alto custo e tempo de implementação, o que bloqueava sua venda e limitava a aquisição de novos clientes. A operação dependia de processos manuais intensivos e não era escalável para múltiplos mercados.",
+          solution: "Redesenhei a arquitetura do produto com foco em escalabilidade e redução de fricção operacional. Simplifiquei requisitos de entrada de dados, padronizei fluxos e eliminei dependências manuais.",
           impact: [
-            "Redução de 82% na taxa de erro do modelo",
-            "Aumento significativo da confiabilidade da plataforma",
-            "Base estruturada para melhoria contínua e escalabilidade de IA"
+            "Redução de 69% nos custos operacionais",
+            "Produto desbloqueado para vendas e expansão",
+            "Aumento significativo na capacidade de aquisição de novos clientes"
           ],
-          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
+          tags: ["Market Expansion", "Product Scaling"],
           imageUrl: "https://picsum.photos/seed/relo-case-3/800/600"
         },
         {
@@ -374,20 +374,20 @@ export const portfolioData: PortfolioData = {
       ],
       caseStudies: [
         {
-          id: "relo-1",
-          title: "Product Scalability and Operational Cost Reduction",
+          id: "relo-3",
+          title: "Computer Vision Model Optimization with Human-in-the-Loop",
           company: "Relo Metrics",
-          role: "Senior Product Manager - ML & Global Expansion",
+          role: "Senior Product Manager - Machine Learning & QA",
           period: "2025 - 2026",
-          description: "Led the restructuring of a product with high operational complexity, making it scalable and commercially viable for global expansion.",
-          problem: "The product had high implementation cost and long lead times, which blocked sales and limited new customer acquisition. Operations relied heavily on manual processes and could not scale across multiple markets.",
-          solution: "Redesigned the product architecture to improve scalability and reduce operational friction. Simplified input data requirements, standardized workflows, and removed manual dependencies.",
+          description: "Led performance improvements for a computer vision model used to detect sponsor brands in sports media.",
+          problem: "The model had recurring errors, reducing data reliability and limiting the solution's scalability.",
+          solution: "Implemented a human-in-the-loop QA framework where model outputs were validated by humans and used in continuous retraining cycles. Built structured feedback loops and prioritized critical error categories for progressive model improvement.",
           impact: [
-            "69% reduction in operational costs",
-            "Unblocked the product for sales and expansion",
-            "Significantly increased capacity to acquire new customers"
+            "82% reduction in model error rate",
+            "Significant increase in platform reliability",
+            "Established a foundation for continuous AI improvement and scalability"
           ],
-          tags: ["Market Expansion", "Product Scaling"],
+          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
           videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
@@ -408,20 +408,20 @@ export const portfolioData: PortfolioData = {
           imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
         },
         {
-          id: "relo-3",
-          title: "Computer Vision Model Optimization with Human-in-the-Loop",
+          id: "relo-1",
+          title: "Product Scalability and Operational Cost Reduction",
           company: "Relo Metrics",
-          role: "Senior Product Manager - Machine Learning & QA",
+          role: "Senior Product Manager - ML & Global Expansion",
           period: "2025 - 2026",
-          description: "Led performance improvements for a computer vision model used to detect sponsor brands in sports media.",
-          problem: "The model had recurring errors, reducing data reliability and limiting the solution's scalability.",
-          solution: "Implemented a human-in-the-loop QA framework where model outputs were validated by humans and used in continuous retraining cycles. Built structured feedback loops and prioritized critical error categories for progressive model improvement.",
+          description: "Led the restructuring of a product with high operational complexity, making it scalable and commercially viable for global expansion.",
+          problem: "The product had high implementation cost and long lead times, which blocked sales and limited new customer acquisition. Operations relied heavily on manual processes and could not scale across multiple markets.",
+          solution: "Redesigned the product architecture to improve scalability and reduce operational friction. Simplified input data requirements, standardized workflows, and removed manual dependencies.",
           impact: [
-            "82% reduction in model error rate",
-            "Significant increase in platform reliability",
-            "Established a foundation for continuous AI improvement and scalability"
+            "69% reduction in operational costs",
+            "Unblocked the product for sales and expansion",
+            "Significantly increased capacity to acquire new customers"
           ],
-          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
+          tags: ["Market Expansion", "Product Scaling"],
           imageUrl: "https://picsum.photos/seed/relo-case-3/800/600"
         },
         {
@@ -719,20 +719,20 @@ export const portfolioData: PortfolioData = {
       ],
       caseStudies: [
         {
-          id: "relo-1",
-          title: "Escalabilidad de Producto y Reducción de Costo Operativo",
+          id: "relo-3",
+          title: "Optimización de Modelo de Computer Vision con Human-in-the-Loop",
           company: "Relo Metrics",
-          role: "Senior Product Manager - ML & Global Expansion",
+          role: "Senior Product Manager - Machine Learning & QA",
           period: "2025 - 2026",
-          description: "Lideré la reestructuración de un producto con alta complejidad operativa, haciéndolo escalable y comercialmente viable para expansión global.",
-          problem: "El producto tenía alto costo y tiempo de implementación, lo que bloqueaba su venta y limitaba la adquisición de nuevos clientes. La operación dependía de procesos manuales intensivos y no era escalable para múltiples mercados.",
-          solution: "Rediseñé la arquitectura del producto con foco en escalabilidad y reducción de fricción operativa. Simplifiqué requisitos de entrada de datos, estandaricé flujos y eliminé dependencias manuales.",
+          description: "Lideré mejoras de performance de un modelo de visión computacional para la detección de marcas en medios deportivos.",
+          problem: "El modelo presentaba errores recurrentes, comprometiendo la confiabilidad de los datos y limitando la escalabilidad de la solución.",
+          solution: "Implementé un framework de Quality Assurance con human-in-the-loop, donde los outputs del modelo eran validados por humanos y usados en ciclos continuos de retraining. Creé procesos estructurados de feedback y priorización de errores críticos para una mejora progresiva del modelo.",
           impact: [
-            "Reducción de 69% en los costos operativos",
-            "Producto desbloqueado para ventas y expansión",
-            "Aumento significativo en la capacidad de adquisición de nuevos clientes"
+            "Reducción de 82% en la tasa de error del modelo",
+            "Aumento significativo de la confiabilidad de la plataforma",
+            "Base estructurada para mejora continua y escalabilidad de IA"
           ],
-          tags: ["Market Expansion", "Product Scaling"],
+          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
           videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
@@ -753,20 +753,20 @@ export const portfolioData: PortfolioData = {
           imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
         },
         {
-          id: "relo-3",
-          title: "Optimización de Modelo de Computer Vision con Human-in-the-Loop",
+          id: "relo-1",
+          title: "Escalabilidad de Producto y Reducción de Costo Operativo",
           company: "Relo Metrics",
-          role: "Senior Product Manager - Machine Learning & QA",
+          role: "Senior Product Manager - ML & Global Expansion",
           period: "2025 - 2026",
-          description: "Lideré mejoras de performance de un modelo de visión computacional para la detección de marcas en medios deportivos.",
-          problem: "El modelo presentaba errores recurrentes, comprometiendo la confiabilidad de los datos y limitando la escalabilidad de la solución.",
-          solution: "Implementé un framework de Quality Assurance con human-in-the-loop, donde los outputs del modelo eran validados por humanos y usados en ciclos continuos de retraining. Creé procesos estructurados de feedback y priorización de errores críticos para una mejora progresiva del modelo.",
+          description: "Lideré la reestructuración de un producto con alta complejidad operativa, haciéndolo escalable y comercialmente viable para expansión global.",
+          problem: "El producto tenía alto costo y tiempo de implementación, lo que bloqueaba su venta y limitaba la adquisición de nuevos clientes. La operación dependía de procesos manuales intensivos y no era escalable para múltiples mercados.",
+          solution: "Rediseñé la arquitectura del producto con foco en escalabilidad y reducción de fricción operativa. Simplifiqué requisitos de entrada de datos, estandaricé flujos y eliminé dependencias manuales.",
           impact: [
-            "Reducción de 82% en la tasa de error del modelo",
-            "Aumento significativo de la confiabilidad de la plataforma",
-            "Base estructurada para mejora continua y escalabilidad de IA"
+            "Reducción de 69% en los costos operativos",
+            "Producto desbloqueado para ventas y expansión",
+            "Aumento significativo en la capacidad de adquisición de nuevos clientes"
           ],
-          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
+          tags: ["Market Expansion", "Product Scaling"],
           imageUrl: "https://picsum.photos/seed/relo-case-3/800/600"
         },
         {

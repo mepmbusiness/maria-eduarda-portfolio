@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Mail, Linkedin, ExternalLink, ChevronRight, ChevronLeft, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench } from 'lucide-react';
 import { AIToolkit } from './components/PRDGenerator';
+import GlobalExpansionGlobe from './components/GlobalExpansionGlobe';
 import { portfolioData } from './constants';
 import type { CaseStudy } from './types';
 import { cn } from './lib/utils';
@@ -135,6 +136,8 @@ const CaseStudyCard = ({ study, index, lang }: { study: CaseStudy; index: number
           >
             <source src={study.videoUrl} type="video/mp4" />
           </video>
+        ) : study.id === 'relo-2' ? (
+          <GlobalExpansionGlobe />
         ) : (
           <img
             src={study.imageUrl}
