@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail, Linkedin, Github, ExternalLink, ChevronRight, ChevronLeft, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench } from 'lucide-react';
+import { Mail, Linkedin, Github, ExternalLink, ChevronRight, ChevronLeft, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench, Download } from 'lucide-react';
 import { AIToolkit } from './components/PRDGenerator';
 import GlobalExpansionGlobe from './components/GlobalExpansionGlobe';
 import { portfolioData } from './constants';
@@ -734,6 +734,16 @@ export default function Portfolio({ page }: { page: 'home' | 'about' | 'cases' |
                     <span className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-zinc-900 px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
                       GitHub
                     </span>
+                  </a>
+                </div>
+                <div className="mt-10 flex justify-center">
+                  <a
+                    href={portfolioData.resumeDocx.href}
+                    download={portfolioData.resumeDocx.downloadAs}
+                    className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-900 shadow-sm transition hover:border-indigo-200 hover:bg-indigo-50"
+                  >
+                    <Download size={18} className="shrink-0 text-indigo-600" aria-hidden />
+                    {content.ui.downloadResumeDocx}
                   </a>
                 </div>
               </div>

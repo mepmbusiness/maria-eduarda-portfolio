@@ -109,6 +109,7 @@ export interface PortfolioContent {
     certificationsTitle: string;
     footerTitle: string;
     footerDesc: string;
+    downloadResumeDocx: string;
     experienceBadge: string;
     aiBadge: string;
     builtWithAi: string;
@@ -120,6 +121,8 @@ export interface PortfolioData {
   email: string;
   linkedin: string;
   github: string;
+  /** Resume .docx in /public — served as static file */
+  resumeDocx: { href: string; downloadAs: string };
   languages: {
     [key: string]: PortfolioContent;
   };

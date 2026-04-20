@@ -5,6 +5,10 @@ export const portfolioData: PortfolioData = {
   email: "mariaemartins01@gmail.com",
   linkedin: "https://linkedin.com/in/maria-eduarda-martins-a42098204",
   github: "https://github.com/mepmbusiness",
+  resumeDocx: {
+    href: "/Maria_Eduarda_Martins_Resume-20.04.2025.docx",
+    downloadAs: "Maria_Eduarda_Martins_Resume - 20.04.2025.docx",
+  },
   languages: {
     pt: {
       title: "AI Product Manager · ML & Computer Vision",
@@ -345,6 +349,7 @@ export const portfolioData: PortfolioData = {
         certificationsTitle: "Certificações",
         footerTitle: "Vamos construir o próximo grande produto juntos?",
         footerDesc: "Estou sempre aberta a novas oportunidades, mentorias ou apenas um café virtual para falar sobre produto e IA.",
+        downloadResumeDocx: "Baixar currículo (DOCX)",
         experienceBadge: "5 Anos de Experiência",
         aiBadge: "Criado com IA",
         builtWithAi: "Desenvolvido com Inteligência Artificial sob curadoria de Maria Eduarda Martins."
@@ -689,6 +694,7 @@ export const portfolioData: PortfolioData = {
         certificationsTitle: "Certifications",
         footerTitle: "Let's build the next big product together?",
         footerDesc: "I'm always open to new opportunities, mentorships, or just a virtual coffee to talk about product and AI.",
+        downloadResumeDocx: "Download resume (DOCX)",
         experienceBadge: "5 Years of Experience",
         aiBadge: "Built with AI",
         builtWithAi: "Developed with Artificial Intelligence curated by Maria Eduarda Martins."
@@ -1033,6 +1039,7 @@ export const portfolioData: PortfolioData = {
         certificationsTitle: "Certificaciones",
         footerTitle: "¿Construimos el próximo gran producto juntos?",
         footerDesc: "Siempre estoy abierta a nuevas oportunidades, mentorías o simplemente un café virtual para hablar sobre producto e IA.",
+        downloadResumeDocx: "Descargar CV (DOCX)",
         experienceBadge: "5 Años de Experiencia",
         aiBadge: "Creado con IA",
         builtWithAi: "Desarrollado con Inteligencia Artificial bajo la curaduría de Maria Eduarda Martins."
