@@ -7,7 +7,7 @@ export const portfolioData: PortfolioData = {
   languages: {
     pt: {
       title: "AI Product Manager · ML & Computer Vision",
-      bio: "Product Manager com experiência liderando produtos de IA, visão computacional e expansão global de plataformas. Apaixonada por transformar modelos complexos em soluções escaláveis e centradas no usuário.",
+      bio: "Product Manager com experiência em fintech e adtech, reavaliação de modelos de monetização, expansão global de plataformas e liderança de produtos de IA/ML e visão computacional. Fascinada por encurtar caminhos, ganhar eficiência e fazer muito de forma simples e escalável.",
       philosophy: "Acredito que os melhores produtos de IA nascem da combinação entre rigor técnico e empatia pelo usuário. Meu foco é criar sistemas que sejam úteis, mensuráveis e preparados para escalar.",
       skills: [
         {
@@ -352,7 +352,7 @@ export const portfolioData: PortfolioData = {
     },
     en: {
       title: "Senior Product Manager · ML & Computer Vision",
-      bio: "Product Manager with experience leading AI products, computer vision, and global platform expansion. Passionate about turning complex models into scalable, user-centered solutions.",
+      bio: "Product Manager with experience in fintech and adtech, re-evaluating monetization models, global platform expansion, and leading AI/ML and computer vision products. Fascinated by shortening paths, driving efficiency, and achieving a lot in a simple, scalable way.",
       philosophy: "The best AI products are built at the intersection of technical rigor and user empathy. My focus is on creating systems that are useful, measurable, and ready to scale.",
       skills: [
         {
@@ -697,7 +697,7 @@ export const portfolioData: PortfolioData = {
     },
     es: {
       title: "AI Product Manager · ML & Computer Vision",
-      bio: "Product Manager con experiencia liderando productos de IA, visión computacional y expansión global de plataformas. Apasionada por transformar modelos complejos en soluciones escalables y centradas en el usuario.",
+      bio: "Product Manager con experiencia en fintech y adtech, reevaluación de modelos de monetización, expansión global de plataformas y liderazgo de productos de IA/ML y visión computacional. Fascinada por acortar caminos, ganar eficiencia y lograr mucho de forma simple y escalable.",
       philosophy: "Los mejores productos de IA nacen de la combinación entre rigor técnico y empatía con el usuario. Mi foco es crear sistemas útiles, medibles y preparados para escalar.",
       skills: [
         {
