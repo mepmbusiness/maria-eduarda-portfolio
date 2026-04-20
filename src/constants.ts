@@ -4,6 +4,7 @@ export const portfolioData: PortfolioData = {
   name: "Maria Eduarda Martins",
   email: "mariaemartins01@gmail.com",
   linkedin: "https://linkedin.com/in/maria-eduarda-martins-a42098204",
+  github: "https://github.com/mepmbusiness",
   languages: {
     pt: {
       title: "AI Product Manager · ML & Computer Vision",
@@ -325,9 +326,10 @@ export const portfolioData: PortfolioData = {
         execution: "Execução por Inteligência Artificial"
       },
       ui: {
+        home: "Home",
         work: "Cases",
         skills: "Habilidades",
-        about: "Sobre",
+        about: "Sobre mim",
         prd: "AI Toolkit",
         contact: "Contato",
         viewProjects: "Ver Projetos",
@@ -670,6 +672,7 @@ export const portfolioData: PortfolioData = {
         execution: "AI Execution"
       },
       ui: {
+        home: "Home",
         work: "Cases",
         skills: "Skills",
         about: "About",
@@ -1015,6 +1018,7 @@ export const portfolioData: PortfolioData = {
         execution: "Ejecución por IA"
       },
       ui: {
+        home: "Home",
         work: "Cases",
         skills: "Habilidades",
         about: "Sobre mí",

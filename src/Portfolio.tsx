@@ -1,11 +1,12 @@
 import { motion } from 'motion/react';
-import { Mail, Linkedin, ExternalLink, ChevronRight, ChevronLeft, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench } from 'lucide-react';
+import { Mail, Linkedin, Github, ExternalLink, ChevronRight, ChevronLeft, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench } from 'lucide-react';
 import { AIToolkit } from './components/PRDGenerator';
 import GlobalExpansionGlobe from './components/GlobalExpansionGlobe';
 import { portfolioData } from './constants';
 import type { CaseStudy } from './types';
 import { cn } from './lib/utils';
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ lang, setLang }: { lang: string, setLang: (l: string) => void }) => {
   const content = portfolioData.languages[lang];
@@ -17,12 +18,11 @@ const Navbar = ({ lang, setLang }: { lang: string, setLang: (l: string) => void 
         
         <div className="flex items-center gap-8">
           <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-500">
-            <a href="#work" className="hover:text-zinc-900 transition-colors">{content.ui.work}</a>
-            <a href="#testimonials" className="hover:text-zinc-900 transition-colors">{content.ui.testimonialsTitle}</a>
-            <a href="#skills" className="hover:text-zinc-900 transition-colors">{content.ui.skills}</a>
-            <a href="#prd-generator" className="hover:text-zinc-900 transition-colors">{content.ui.prd}</a>
-            <a href="#about" className="hover:text-zinc-900 transition-colors">{content.ui.about}</a>
-            <a href="#contact" className="hover:text-zinc-900 transition-colors">{content.ui.contact}</a>
+            <Link to="/" className="hover:text-zinc-900 transition-colors">{content.ui.home}</Link>
+            <Link to="/sobre-mim" className="hover:text-zinc-900 transition-colors">{content.ui.about}</Link>
+            <Link to="/cases" className="hover:text-zinc-900 transition-colors">{content.ui.work}</Link>
+            <Link to="/recommendations" className="hover:text-zinc-900 transition-colors">{content.ui.testimonialsTitle}</Link>
+            <Link to="/contato" className="hover:text-zinc-900 transition-colors">{content.ui.contact}</Link>
           </div>
           
           <div className="flex items-center gap-1 bg-zinc-100 p-1 rounded-lg">
@@ -64,8 +64,8 @@ const Hero = ({ lang }: { lang: string }) => {
   const content = portfolioData.languages[lang];
   
   return (
-    <section className="pt-32 pb-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section id="home" className="min-h-[calc(100vh-4rem)] pt-32 pb-20 px-6 flex items-center">
+      <div className="max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -80,24 +80,15 @@ const Hero = ({ lang }: { lang: string }) => {
             </span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-zinc-900 mb-8 leading-[1.1] tracking-tight max-w-4xl">
-            {lang === 'pt' ? (
-              <>Construindo produtos que <span className="text-indigo-600">geram impacto</span> e resolvem problemas reais.</>
-            ) : lang === 'es' ? (
-              <>Construyendo productos que <span className="text-indigo-600">generan impacto</span> y resuelven problemas reales.</>
-            ) : (
-              <>Building products that <span className="text-indigo-600">drive impact</span> and solve real problems.</>
-            )}
+            Construindo produtos que <span className="text-indigo-600">geram impacto</span> e resolvem problemas reais.
           </h1>
-          <p className="text-xl text-zinc-500 max-w-2xl mb-10 leading-relaxed">
-            {content.bio}
-          </p>
           <div className="flex flex-wrap gap-4">
-            <a
-              href="#work"
+            <Link
+              to="/sobre-mim"
               className="px-8 py-4 bg-zinc-900 text-white rounded-xl font-medium hover:bg-zinc-800 transition-all flex items-center gap-2"
             >
-              {content.ui.viewProjects} <ChevronRight size={18} />
-            </a>
+              {lang === 'pt' ? 'Vamos nos conhecer' : lang === 'es' ? 'Conozcámonos' : "Let's meet"} <ChevronRight size={18} />
+            </Link>
             <a
               href={portfolioData.linkedin}
               target="_blank"
@@ -349,14 +340,20 @@ const Testimonials = ({ lang }: { lang: string }) => {
   );
 };
 
-const Skills = ({ lang }: { lang: string }) => {
+const Skills = ({ lang, embedded = false }: { lang: string; embedded?: boolean }) => {
   const content = portfolioData.languages[lang];
+  const skills = embedded
+    ? content.skills.filter((g) => {
+        const c = g.category.toLowerCase();
+        return !c.includes('estratégia') && !c.includes('execução') && !c.includes('execution') && !c.includes('liderazgo') && !c.includes('strategy');
+      })
+    : content.skills;
   
   return (
-    <section id="skills" className="py-24 bg-zinc-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12">
-          {content.skills.map((skillGroup, idx) => (
+    <section id={embedded ? undefined : "skills"} className={embedded ? "" : "py-24 bg-zinc-50"}>
+      <div className={embedded ? "" : "max-w-7xl mx-auto px-6"}>
+        <div className={embedded ? "grid grid-cols-1 sm:grid-cols-2 gap-8" : "grid md:grid-cols-3 gap-12"}>
+          {skills.map((skillGroup, idx) => (
             <motion.div
               key={skillGroup.category}
               initial={{ opacity: 0, x: -20 }}
@@ -364,16 +361,16 @@ const Skills = ({ lang }: { lang: string }) => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
             >
-              <h3 className="text-lg font-bold text-zinc-900 mb-6 flex items-center gap-2">
+              <h3 className={embedded ? "text-sm font-bold text-zinc-900 mb-3 flex items-center gap-2" : "text-lg font-bold text-zinc-900 mb-6 flex items-center gap-2"}>
                 {idx === 0 && <Target size={20} className="text-indigo-600" />}
                 {idx === 1 && <BarChart3 size={20} className="text-indigo-600" />}
                 {idx === 2 && <Users size={20} className="text-indigo-600" />}
                 {idx === 3 && <Wrench size={20} className="text-indigo-600" />}
                 {skillGroup.category}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className={embedded ? "flex flex-wrap gap-1.5" : "flex flex-wrap gap-2"}>
                 {skillGroup.items.map(skill => (
-                  <span key={skill} className="px-4 py-2 bg-white border border-zinc-200 rounded-xl text-sm text-zinc-600 font-medium">
+                  <span key={skill} className={embedded ? "px-2.5 py-1.5 bg-white border border-zinc-200 rounded-lg text-xs text-zinc-600 font-medium" : "px-4 py-2 bg-white border border-zinc-200 rounded-xl text-sm text-zinc-600 font-medium"}>
                     {skill}
                   </span>
                 ))}
@@ -390,8 +387,8 @@ const About = ({ lang }: { lang: string }) => {
   const content = portfolioData.languages[lang];
   
   return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+    <section id="about" className="min-h-[calc(100vh-4rem)] px-6 py-16 flex items-center overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-10 items-start">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -401,58 +398,22 @@ const About = ({ lang }: { lang: string }) => {
             <img
               src="/profile-about.png"
               alt="Profile"
-              className="rounded-[40px] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700"
+              className="rounded-[32px] shadow-2xl w-full max-h-[520px] object-cover"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-indigo-600 rounded-full flex items-center justify-center text-white p-6 text-center text-sm font-bold leading-tight rotate-12">
+            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-indigo-600 rounded-full flex items-center justify-center text-white p-5 text-center text-xs font-bold leading-tight rotate-12">
               {content.ui.experienceBadge}
             </div>
           </div>
         </motion.div>
         <div>
-          <h2 className="text-4xl font-bold text-zinc-900 mb-6">{content.ui.about}</h2>
-          <p className="text-xl text-zinc-600 leading-relaxed mb-8 italic">
-            "{content.philosophy}"
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-5">{content.ui.about}</h2>
+          <p className="text-base md:text-lg text-zinc-600 leading-relaxed">
+            {content.bio}
           </p>
-          <div className="space-y-6 text-zinc-500">
-            {lang === 'pt' ? (
-              <>
-                <p>
-                  Olá! Eu sou a Maria. Minha jornada no mundo da tecnologia começou com uma curiosidade insaciável por como os dados podem prever comportamentos. Hoje, como Senior AI Product Manager, foco em humanizar a inteligência artificial.
-                </p>
-                <p>
-                  Além do trabalho, sou entusiasta de maratonas e acredito que a disciplina do esporte reflete diretamente na minha resiliência ao gerenciar produtos complexos. Adoro viajar e conhecer novas culturas, o que me ajuda a manter uma perspectiva global e empática sobre os usuários.
-                </p>
-              </>
-            ) : lang === 'es' ? (
-              <>
-                <p>
-                  ¡Hola! Soy Maria. Mi viaje en el mundo de la tecnología comenzó con una curiosidad insaciable por cómo los datos pueden predecir comportamientos. Hoy, como Senior AI Product Manager, me enfoco en humanizar la inteligencia artificial.
-                </p>
-                <p>
-                  Más allá del trabajo, soy entusiasta de las maratones y creo que la disciplina del deporte se refleja directamente en mi resiliencia al gestionar productos complejos. Me encanta viajar y conocer nuevas culturas, lo que me ayuda a mantener una perspectiva global y empática sobre los usuarios.
-                </p>
-              </>
-            ) : (
-              <>
-                <p>
-                  Hello! I'm Maria. My journey in the tech world began with an insatiable curiosity—about people, questions, and technology. I’ve always been driven to understand how and why things happen. Over time, I discovered how data could answer those questions and reveal patterns in human behavior. That realization led me into the world of technology, where I started building products grounded in data and real user needs.
-                </p>
-                <p>
-                  Today, as a Senior AI Product Manager, I focus on demystifying AI in product development—turning complex technologies into practical, scalable, and user-centered solutions.
-                </p>
-                <p>
-                  Beyond work, I love traveling and experiencing new cultures, which helps me maintain a global and empathetic perspective on users.
-                </p>
-              </>
-            )}
-            <p>
-              {lang === 'pt' 
-                ? 'Foco em resultados (outcomes) em vez de apenas entregas (outputs). Acredito em ciclos rápidos de aprendizado, validação constante de hipóteses e em manter o usuário no centro de todas as decisões.' 
-                : lang === 'es'
-                ? 'Enfoque en resultados (outcomes) en lugar de solo entregas (outputs). Creo en ciclos rápidos de aprendizaje, validación constante de hipótesis y en mantener al usuario en el centro de todas las decisiones.'
-                : 'I believe the best products are built in environments that balance flexibility, transparency, and lightness—where trust drives both speed and quality.'}
-            </p>
+
+          <div className="mt-10">
+            <Skills lang={lang} embedded />
           </div>
         </div>
       </div>
@@ -462,7 +423,7 @@ const About = ({ lang }: { lang: string }) => {
 
 const AIProcess = ({ lang }: { lang: string }) => {
   const content = portfolioData.languages[lang];
-  
+
   return (
     <section className="py-24 bg-indigo-900 text-white px-6 overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
@@ -621,6 +582,10 @@ const Footer = ({ lang }: { lang: string }) => {
             <Linkedin size={24} />
             <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-white text-zinc-900 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">LinkedIn</span>
           </a>
+          <a href={portfolioData.github} target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center hover:bg-indigo-600 transition-colors group relative">
+            <Github size={24} />
+            <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-white text-zinc-900 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">GitHub</span>
+          </a>
         </div>
         <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-zinc-500 text-sm">
           <p>© {new Date().getFullYear()} {portfolioData.name}. All rights reserved.</p>
@@ -633,7 +598,7 @@ const Footer = ({ lang }: { lang: string }) => {
   );
 };
 
-export default function Portfolio() {
+export default function Portfolio({ page }: { page: 'home' | 'about' | 'cases' | 'recommendations' | 'contact' | 'aiToolkit' }) {
   const [lang, setLang] = useState('pt');
   const caseStudiesScrollRef = useRef<HTMLDivElement>(null);
 
@@ -660,60 +625,143 @@ export default function Portfolio() {
     <div className="min-h-screen bg-white font-sans selection:bg-indigo-100 selection:text-indigo-900">
       <Navbar lang={lang} setLang={setLang} />
       <main>
-        <Hero lang={lang} />
-        
-        <section id="work" className="py-24 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="mb-16 max-w-3xl">
-              <h2 className="text-4xl font-bold text-zinc-900 mb-4">{content.ui.caseStudiesTitle}</h2>
-              <p className="text-zinc-500 text-lg max-w-xl">
-                {content.ui.caseStudiesDesc}
-              </p>
-            </div>
-            
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => scrollCaseStudies('left')}
-                className="absolute left-0 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-md transition hover:bg-zinc-50 md:flex"
-                aria-label={lang === 'pt' ? 'Anterior' : lang === 'es' ? 'Anterior' : 'Previous'}
-              >
-                <ChevronLeft size={22} />
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollCaseStudies('right')}
-                className="absolute right-0 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-md transition hover:bg-zinc-50 md:flex"
-                aria-label={lang === 'pt' ? 'Próximo' : lang === 'es' ? 'Siguiente' : 'Next'}
-              >
-                <ChevronRight size={22} />
-              </button>
+        {page === 'home' ? (
+          <Hero lang={lang} />
+        ) : page === 'about' ? (
+          <>
+            <About lang={lang} />
+            <EducationAndCareer lang={lang} />
 
-              <div
-                ref={caseStudiesScrollRef}
-                className="flex snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth pb-4 pl-0 pr-2 [-ms-overflow-style:none] [scrollbar-width:none] md:pl-14 md:pr-14 [&::-webkit-scrollbar]:hidden"
-              >
-                {caseStudies.map((study, idx) => (
-                  <div
-                    key={study.id}
-                    className="w-[min(100%,calc(100vw-3rem))] shrink-0 snap-center sm:w-[min(100%,420px)] md:w-[460px] lg:w-[480px]"
-                  >
-                    <CaseStudyCard study={study} index={idx} lang={lang} />
-                  </div>
-                ))}
+            <div className="px-6 pb-24">
+              <div className="max-w-7xl mx-auto flex justify-end">
+                <Link
+                  to="/cases"
+                  className="px-7 py-4 bg-zinc-900 text-white rounded-xl font-medium hover:bg-zinc-800 transition-all inline-flex items-center gap-2"
+                >
+                  {lang === 'pt' ? 'Veja meus cases' : lang === 'es' ? 'Ver mis cases' : 'See my cases'} <ChevronRight size={18} />
+                </Link>
               </div>
             </div>
-          </div>
-        </section>
+          </>
+        ) : page === 'cases' ? (
+          <>
+            <section className="py-24 px-6">
+              <div className="max-w-7xl mx-auto">
+                <div className="mb-16 max-w-3xl">
+                  <h2 className="text-4xl font-bold text-zinc-900 mb-4">{content.ui.caseStudiesTitle}</h2>
+                  <p className="text-zinc-500 text-lg max-w-xl">
+                    {content.ui.caseStudiesDesc}
+                  </p>
+                </div>
 
-        <Testimonials lang={lang} />
-        <Skills lang={lang} />
-        <About lang={lang} />
-        <AIProcess lang={lang} />
-        <AIToolkit lang={lang} />
-        <EducationAndCareer lang={lang} />
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => scrollCaseStudies('left')}
+                    className="absolute left-0 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-md transition hover:bg-zinc-50 md:flex"
+                    aria-label={lang === 'pt' ? 'Anterior' : lang === 'es' ? 'Anterior' : 'Previous'}
+                  >
+                    <ChevronLeft size={22} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => scrollCaseStudies('right')}
+                    className="absolute right-0 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-md transition hover:bg-zinc-50 md:flex"
+                    aria-label={lang === 'pt' ? 'Próximo' : lang === 'es' ? 'Siguiente' : 'Next'}
+                  >
+                    <ChevronRight size={22} />
+                  </button>
+
+                  <div
+                    ref={caseStudiesScrollRef}
+                    className="flex snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth pb-4 pl-0 pr-2 [-ms-overflow-style:none] [scrollbar-width:none] md:pl-14 md:pr-14 [&::-webkit-scrollbar]:hidden"
+                  >
+                    {caseStudies.map((study, idx) => (
+                      <div
+                        key={study.id}
+                        className="w-[min(100%,calc(100vw-3rem))] shrink-0 snap-center sm:w-[min(100%,420px)] md:w-[460px] lg:w-[480px]"
+                      >
+                        <CaseStudyCard study={study} index={idx} lang={lang} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-16 flex justify-end">
+                  <Link
+                    to="/recommendations"
+                    className="px-7 py-4 bg-zinc-900 text-white rounded-xl font-medium hover:bg-zinc-800 transition-all inline-flex items-center gap-2"
+                  >
+                    Recommendations <ChevronRight size={18} />
+                  </Link>
+                </div>
+              </div>
+            </section>
+            <AIProcess lang={lang} />
+            <AIToolkit lang={lang} />
+          </>
+        ) : page === 'aiToolkit' ? (
+          <AIToolkit lang={lang} />
+        ) : page === 'contact' ? (
+          <>
+            <section className="px-6 py-20">
+              <div className="mx-auto max-w-7xl text-center">
+                <h2 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">{content.ui.footerTitle}</h2>
+                <p className="mx-auto mb-12 max-w-2xl text-xl text-zinc-500">{content.ui.footerDesc}</p>
+                <div className="flex flex-wrap justify-center gap-6">
+                  <a
+                    href={`mailto:${portfolioData.email}`}
+                    className="group relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-white transition-colors hover:bg-indigo-600"
+                  >
+                    <Mail size={24} />
+                    <span className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-zinc-900 px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
+                      Email
+                    </span>
+                  </a>
+                  <a
+                    href={portfolioData.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-white transition-colors hover:bg-indigo-600"
+                  >
+                    <Linkedin size={24} />
+                    <span className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-zinc-900 px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
+                      LinkedIn
+                    </span>
+                  </a>
+                  <a
+                    href={portfolioData.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-white transition-colors hover:bg-indigo-600"
+                  >
+                    <Github size={24} />
+                    <span className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-zinc-900 px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
+                      GitHub
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </section>
+            <AIProcess lang={lang} />
+          </>
+        ) : (
+          <>
+            <Testimonials lang={lang} />
+            <div className="px-6 pb-24">
+              <div className="max-w-7xl mx-auto flex justify-end">
+                <Link
+                  to="/contato"
+                  className="px-7 py-4 border border-zinc-200 text-zinc-900 rounded-xl font-medium hover:bg-zinc-50 transition-all inline-flex items-center gap-2"
+                >
+                  {lang === 'pt' ? 'Contato' : lang === 'es' ? 'Contacto' : 'Contact'} <ChevronRight size={18} />
+                </Link>
+              </div>
+            </div>
+          </>
+        )}
       </main>
-      <Footer lang={lang} />
+      {page === 'home' ? <Footer lang={lang} /> : null}
     </div>
   );
 }

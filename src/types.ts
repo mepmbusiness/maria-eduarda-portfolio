@@ -87,6 +87,7 @@ export interface PortfolioContent {
     execution: string;
   };
   ui: {
+    home: string;
     work: string;
     skills: string;
     about: string;
@@ -116,6 +117,7 @@ export interface PortfolioData {
   name: string;
   email: string;
   linkedin: string;
+  github: string;
   languages: {
     [key: string]: PortfolioContent;
   };
