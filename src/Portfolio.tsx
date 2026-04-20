@@ -387,7 +387,7 @@ const About = ({ lang }: { lang: string }) => {
   const content = portfolioData.languages[lang];
   
   return (
-    <section id="about" className="min-h-[calc(100vh-4rem)] px-6 py-16 flex items-center overflow-hidden">
+    <section id="about" className="flex min-h-[calc(68vh-4rem)] items-center overflow-visible px-6 py-12 md:py-14">
       <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-10 items-start">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -443,17 +443,12 @@ const AIProcess = ({ lang }: { lang: string }) => {
             <p className="text-indigo-100/80 text-xl leading-relaxed mb-6">
               {content.aiProcess.description}
             </p>
-            <p className="text-sm md:text-base font-mono text-indigo-200/90 tracking-tight mb-10 break-words">
+            <p className="mb-2 text-xs font-bold uppercase tracking-wider text-indigo-300/90">
+              {content.aiProcess.stackLabel}
+            </p>
+            <p className="mb-10 text-sm font-mono text-indigo-200/90 tracking-tight break-words md:text-base">
               {content.aiProcess.stack}
             </p>
-            <div className="grid grid-cols-2 gap-6">
-              {content.aiProcess.items.map((item, idx) => (
-                <div key={idx} className="p-6 bg-white/5 rounded-2xl border border-white/10">
-                  <h4 className="font-bold text-white mb-2">{item.title}</h4>
-                  <p className="text-sm text-indigo-200/60">{item.desc}</p>
-                </div>
-              ))}
-            </div>
           </div>
           <div className="relative">
             <motion.div
@@ -501,12 +496,12 @@ const EducationAndCareer = ({ lang }: { lang: string }) => {
   const content = portfolioData.languages[lang];
   
   return (
-    <section className="py-24 bg-zinc-50 px-6">
+    <section className="-mt-6 rounded-t-3xl bg-zinc-50 px-6 py-20 pt-14 shadow-[0_-6px_32px_rgba(0,0,0,0.06)] md:-mt-8 md:pt-16">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16">
           {/* Trajetória Profissional */}
           <div>
-            <h2 className="text-3xl font-bold text-zinc-900 mb-10 flex items-center gap-3">
+            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold text-zinc-900 md:mb-10">
               <Briefcase className="text-indigo-600" /> {content.ui.careerTitle}
             </h2>
             <div className="space-y-8">

@@ -317,11 +317,9 @@ export const portfolioData: PortfolioData = {
         badge: "AI-First Portfolio",
         title: "Construído 100% com IA, dirigido e curado por mim.",
         description: "Usei IA generativa e vibe coding para desenhar, desenvolver e lançar este produto, demonstrando como a IA acelera a entrega de ponta a ponta.",
-        stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel",
-        items: [
-          { title: "Prompt Engineering", desc: "Estruturação de prompts complexos para geração de código e design system." },
-          { title: "AI-Assisted Coding", desc: "Utilização de LLMs para desenvolvimento front-end e lógica de componentes." }
-        ],
+        stackLabel: "Stack utilizada neste site",
+        stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel · Nano Banana",
+        items: [],
         curation: "Direção Humana",
         execution: "Execução por Inteligência Artificial"
       },
@@ -663,11 +661,9 @@ export const portfolioData: PortfolioData = {
         badge: "AI-First Portfolio",
         title: "Built 100% with AI, directed and curated by me.",
         description: "Used generative AI and vibe coding to design, develop, and ship this product, demonstrating how AI accelerates end-to-end delivery.",
-        stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel",
-        items: [
-          { title: "Prompt Engineering", desc: "Structuring complex prompts for code generation and design system." },
-          { title: "AI-Assisted Coding", desc: "Using LLMs for front-end development and component logic." }
-        ],
+        stackLabel: "Tech stack used for this site",
+        stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel · Nano Banana",
+        items: [],
         curation: "Human Direction",
         execution: "AI Execution"
       },
@@ -1009,11 +1005,9 @@ export const portfolioData: PortfolioData = {
         badge: "Portafolio AI-First",
         title: "Construido 100% con IA, dirigido y curado por mí.",
         description: "Utilicé IA generativa y vibe coding para diseñar, desarrollar y lanzar este producto, demostrando cómo la IA acelera la entrega de extremo a extremo.",
-        stack: "Stack: React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel",
-        items: [
-          { title: "Ingeniería de Prompts", desc: "Estructuración de prompts complejos para la generación de código y el sistema de diseño." },
-          { title: "Codificación Asistida por IA", desc: "Uso de LLMs para el desarrollo front-end y la lógica de componentes." }
-        ],
+        stackLabel: "Stack utilizada en este sitio",
+        stack: "React · TypeScript · Tailwind · Vite · Gemini · Google AI Studio · Vercel · Nano Banana",
+        items: [],
         curation: "Dirección Humana",
         execution: "Ejecución por IA"
       },

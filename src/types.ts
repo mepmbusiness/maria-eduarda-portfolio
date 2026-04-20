@@ -81,6 +81,8 @@ export interface PortfolioContent {
     badge: string;
     title: string;
     description: string;
+    /** Label shown above the monospace stack line */
+    stackLabel: string;
     stack: string;
     items: { title: string; desc: string }[];
     curation: string;
