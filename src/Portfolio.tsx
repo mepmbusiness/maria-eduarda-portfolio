@@ -1,9 +1,10 @@
 import { motion } from 'motion/react';
-import { Mail, Linkedin, ExternalLink, ChevronRight, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench } from 'lucide-react';
+import { Mail, Linkedin, ExternalLink, ChevronRight, ChevronLeft, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench } from 'lucide-react';
 import { AIToolkit } from './components/PRDGenerator';
 import { portfolioData } from './constants';
+import type { CaseStudy } from './types';
 import { cn } from './lib/utils';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Navbar = ({ lang, setLang }: { lang: string, setLang: (l: string) => void }) => {
   const content = portfolioData.languages[lang];
@@ -111,7 +112,7 @@ const Hero = ({ lang }: { lang: string }) => {
   );
 };
 
-const CaseStudyCard = ({ study, index, lang }: { study: any, index: number, lang: string }) => {
+const CaseStudyCard = ({ study, index, lang }: { study: CaseStudy; index: number; lang: string }) => {
   const content = portfolioData.languages[lang];
   
   return (
@@ -122,13 +123,26 @@ const CaseStudyCard = ({ study, index, lang }: { study: any, index: number, lang
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group bg-white border border-zinc-100 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-500"
     >
-      <div className="aspect-video overflow-hidden relative">
-        <img
-          src={study.imageUrl}
-          alt={study.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          referrerPolicy="no-referrer"
-        />
+      <div className="aspect-video overflow-hidden relative bg-zinc-900">
+        {study.videoUrl ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            aria-label={study.title}
+          >
+            <source src={study.videoUrl} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src={study.imageUrl}
+            alt={study.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            referrerPolicy="no-referrer"
+          />
+        )}
         <div className="absolute top-4 left-4 flex gap-2">
           {study.tags.map((tag: string) => (
             <span key={tag} className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-[10px] font-bold uppercase tracking-wider text-zinc-900">
@@ -143,7 +157,7 @@ const CaseStudyCard = ({ study, index, lang }: { study: any, index: number, lang
             <h3 className="text-2xl font-bold text-zinc-900 mb-1">{study.title}</h3>
           </div>
         </div>
-        <p className="text-zinc-600 mb-8 line-clamp-2">
+        <p className="text-base text-zinc-600 leading-relaxed mb-8">
           {study.description}
         </p>
         
@@ -618,7 +632,7 @@ const Footer = ({ lang }: { lang: string }) => {
 
 export default function Portfolio() {
   const [lang, setLang] = useState('pt');
-  const [openWorkCompany, setOpenWorkCompany] = useState<string | null>(null);
+  const caseStudiesScrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const browserLang = navigator.language.split('-')[0];
@@ -630,14 +644,14 @@ export default function Portfolio() {
   }, []);
 
   const content = portfolioData.languages[lang];
-  const caseStudiesByCompany = (content.caseStudies ?? []).reduce<Record<string, any[]>>((acc, cs) => {
-    const key = cs.company ?? 'Other';
-    acc[key] = acc[key] ?? [];
-    acc[key].push(cs);
-    return acc;
-  }, {});
+  const caseStudies = content.caseStudies ?? [];
 
-  const workCompanies = Object.keys(caseStudiesByCompany);
+  const scrollCaseStudies = (direction: 'left' | 'right') => {
+    const el = caseStudiesScrollRef.current;
+    if (!el) return;
+    const amount = Math.min(el.clientWidth * 0.85, 520);
+    el.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-indigo-100 selection:text-indigo-900">
@@ -647,105 +661,44 @@ export default function Portfolio() {
         
         <section id="work" className="py-24 px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-              <div>
-                <h2 className="text-4xl font-bold text-zinc-900 mb-4">{content.ui.caseStudiesTitle}</h2>
-                <p className="text-zinc-500 text-lg max-w-xl">
-                  {content.ui.caseStudiesDesc}
-                </p>
-              </div>
-              <div className="flex gap-4">
-                <div className="px-4 py-2 rounded-lg bg-indigo-50 text-indigo-700 text-sm font-bold">
-                  {lang === 'pt' ? 'Estratégia' : lang === 'es' ? 'Estrategia' : 'Strategy'}
-                </div>
-                <div className="px-4 py-2 rounded-lg bg-emerald-50 text-emerald-700 text-sm font-bold">
-                  {lang === 'pt' ? 'Impacto' : lang === 'es' ? 'Impacto' : 'Impact'}
-                </div>
-              </div>
+            <div className="mb-16 max-w-3xl">
+              <h2 className="text-4xl font-bold text-zinc-900 mb-4">{content.ui.caseStudiesTitle}</h2>
+              <p className="text-zinc-500 text-lg max-w-xl">
+                {content.ui.caseStudiesDesc}
+              </p>
             </div>
             
-            <div className="space-y-4">
-              {workCompanies.map((company) => {
-                const isOpen = openWorkCompany === company;
-                const clients = content.companyClients?.[company] ?? [];
-                const items = caseStudiesByCompany[company] ?? [];
-                const showClients = company !== 'Blu';
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => scrollCaseStudies('left')}
+                className="absolute left-0 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-md transition hover:bg-zinc-50 md:flex"
+                aria-label={lang === 'pt' ? 'Anterior' : lang === 'es' ? 'Anterior' : 'Previous'}
+              >
+                <ChevronLeft size={22} />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollCaseStudies('right')}
+                className="absolute right-0 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-md transition hover:bg-zinc-50 md:flex"
+                aria-label={lang === 'pt' ? 'Próximo' : lang === 'es' ? 'Siguiente' : 'Next'}
+              >
+                <ChevronRight size={22} />
+              </button>
 
-                return (
-                  <div key={company} className="rounded-3xl border border-zinc-200 bg-white overflow-hidden">
-                    <button
-                      type="button"
-                      onClick={() => setOpenWorkCompany((cur) => (cur === company ? null : company))}
-                      className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left hover:bg-zinc-50 transition-colors"
-                      aria-expanded={isOpen}
-                      aria-controls={`work-${company}`}
-                    >
-                      <div className="min-w-0">
-                        <div className="text-xl md:text-2xl font-extrabold text-zinc-900 tracking-tight">
-                          {company}
-                        </div>
-                        <div className="text-sm text-zinc-500 mt-1">
-                          {items.length} {lang === 'pt' ? 'estudo(s) de caso' : lang === 'es' ? 'caso(s)' : 'case study(ies)'}
-                        </div>
-                      </div>
-                      <div
-                        className={cn(
-                          "w-10 h-10 rounded-full bg-indigo-50 text-indigo-700 flex items-center justify-center shrink-0 transition-transform",
-                          isOpen ? "rotate-90" : "rotate-0"
-                        )}
-                        aria-hidden
-                      >
-                        <ChevronRight size={18} />
-                      </div>
-                    </button>
-
-                    {isOpen ? (
-                      <div id={`work-${company}`} className="px-6 pb-6">
-                        <div className="pt-4">
-                          {showClients ? (
-                            <div className="mb-8">
-                              <div className="text-xs font-bold text-zinc-900 uppercase tracking-widest mb-3">
-                                {content.ui.clientsTitle}
-                              </div>
-                              {clients.length ? (
-                                <div className="flex flex-wrap gap-2">
-                                  {clients.map((c) => (
-                                    <span
-                                      key={c}
-                                      className="px-4 py-2 bg-white border border-zinc-200 rounded-xl text-sm text-zinc-600 font-medium"
-                                    >
-                                      {c}
-                                    </span>
-                                  ))}
-                                </div>
-                              ) : (
-                                <div className="text-sm text-zinc-500">
-                                  {lang === 'pt'
-                                    ? 'Adicione clientes em src/constants.ts'
-                                    : lang === 'es'
-                                      ? 'Agrega clientes en src/constants.ts'
-                                      : 'Add clients in src/constants.ts'}
-                                </div>
-                              )}
-                            </div>
-                          ) : null}
-
-                          <div className="grid md:grid-cols-2 gap-10">
-                            {items.map((study, idx) => (
-                              <CaseStudyCard
-                                key={study.id}
-                                study={study}
-                                index={idx}
-                                lang={lang}
-                              />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    ) : null}
+              <div
+                ref={caseStudiesScrollRef}
+                className="flex snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth pb-4 pl-0 pr-2 [-ms-overflow-style:none] [scrollbar-width:none] md:pl-14 md:pr-14 [&::-webkit-scrollbar]:hidden"
+              >
+                {caseStudies.map((study, idx) => (
+                  <div
+                    key={study.id}
+                    className="w-[min(100%,calc(100vw-3rem))] shrink-0 snap-center sm:w-[min(100%,420px)] md:w-[460px] lg:w-[480px]"
+                  >
+                    <CaseStudyCard study={study} index={idx} lang={lang} />
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
           </div>
         </section>

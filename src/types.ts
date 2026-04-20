@@ -9,7 +9,10 @@ export interface CaseStudy {
   solution: string;
   impact: string[];
   tags: string[];
-  imageUrl: string;
+  /** Cover image; omit when `videoUrl` is used alone */
+  imageUrl?: string;
+  /** When set, shown instead of the cover image (e.g. hero loop) */
+  videoUrl?: string;
 }
 
 export interface Skill {

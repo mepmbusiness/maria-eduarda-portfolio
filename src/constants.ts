@@ -43,7 +43,7 @@ export const portfolioData: PortfolioData = {
             "Aumento significativo na capacidade de aquisição de novos clientes"
           ],
           tags: ["Market Expansion", "Product Scaling"],
-          imageUrl: "https://picsum.photos/seed/relo-case-1/800/600"
+          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
           id: "relo-2",
@@ -325,13 +325,13 @@ export const portfolioData: PortfolioData = {
         execution: "Execução por Inteligência Artificial"
       },
       ui: {
-        work: "Trabalho",
+        work: "Cases",
         skills: "Habilidades",
         about: "Sobre",
         prd: "AI Toolkit",
         contact: "Contato",
         viewProjects: "Ver Projetos",
-        caseStudiesTitle: "Estudos de Caso",
+        caseStudiesTitle: "Cases",
         caseStudiesDesc: "Uma seleção de projetos onde liderei a estratégia e execução, focando em métricas reais e satisfação do usuário.",
         clientsTitle: "Clientes",
         testimonialsTitle: "Recomendações",
@@ -388,7 +388,7 @@ export const portfolioData: PortfolioData = {
             "Significantly increased capacity to acquire new customers"
           ],
           tags: ["Market Expansion", "Product Scaling"],
-          imageUrl: "https://picsum.photos/seed/relo-case-1/800/600"
+          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
           id: "relo-2",
@@ -670,13 +670,13 @@ export const portfolioData: PortfolioData = {
         execution: "AI Execution"
       },
       ui: {
-        work: "Work",
+        work: "Cases",
         skills: "Skills",
         about: "About",
         prd: "AI Toolkit",
         contact: "Contact",
         viewProjects: "View Projects",
-        caseStudiesTitle: "Case Studies",
+        caseStudiesTitle: "Cases",
         caseStudiesDesc: "A selection of projects where I led strategy and execution, focusing on real metrics and user satisfaction.",
         clientsTitle: "Clients",
         testimonialsTitle: "Recommendations",
@@ -733,7 +733,7 @@ export const portfolioData: PortfolioData = {
             "Aumento significativo en la capacidad de adquisición de nuevos clientes"
           ],
           tags: ["Market Expansion", "Product Scaling"],
-          imageUrl: "https://picsum.photos/seed/relo-case-1/800/600"
+          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
           id: "relo-2",
@@ -1015,13 +1015,13 @@ export const portfolioData: PortfolioData = {
         execution: "Ejecución por IA"
       },
       ui: {
-        work: "Trabajo",
+        work: "Cases",
         skills: "Habilidades",
         about: "Sobre mí",
         prd: "AI Toolkit",
         contact: "Contacto",
         viewProjects: "Ver Proyectos",
-        caseStudiesTitle: "Casos de Estudio",
+        caseStudiesTitle: "Cases",
         caseStudiesDesc: "Una selección de proyectos donde lideré la estrategia y ejecución, enfocándome en métricas reales y satisfacción del usuario.",
         clientsTitle: "Clientes",
         testimonialsTitle: "Recomendaciones",
