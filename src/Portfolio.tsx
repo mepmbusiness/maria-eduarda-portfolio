@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail, Linkedin, Github, ExternalLink, ChevronRight, ChevronLeft, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench, Download } from 'lucide-react';
+import { Mail, Linkedin, Github, ChevronRight, ChevronLeft, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench, Download } from 'lucide-react';
 import { AIToolkit } from './components/PRDGenerator';
 import GlobalExpansionGlobe from './components/GlobalExpansionGlobe';
 import { portfolioData } from './constants';
@@ -82,21 +82,13 @@ const Hero = ({ lang }: { lang: string }) => {
           <h1 className="text-5xl md:text-7xl font-bold text-zinc-900 mb-8 leading-[1.1] tracking-tight max-w-4xl">
             Construindo produtos que <span className="text-indigo-600">geram impacto</span> e resolvem problemas reais.
           </h1>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap justify-end gap-4">
             <Link
               to="/sobre-mim"
-              className="px-8 py-4 bg-zinc-900 text-white rounded-xl font-medium hover:bg-zinc-800 transition-all flex items-center gap-2"
+              className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-8 py-4 font-medium text-white transition-all hover:bg-zinc-800"
             >
               {lang === 'pt' ? 'Vamos nos conhecer' : lang === 'es' ? 'Conozcámonos' : "Let's meet"} <ChevronRight size={18} />
             </Link>
-            <a
-              href={portfolioData.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 border border-zinc-200 text-zinc-900 rounded-xl font-medium hover:bg-zinc-50 transition-all flex items-center gap-2"
-            >
-              LinkedIn <ExternalLink size={18} />
-            </a>
           </div>
         </motion.div>
       </div>
@@ -387,18 +379,22 @@ const About = ({ lang }: { lang: string }) => {
   const content = portfolioData.languages[lang];
   
   return (
-    <section id="about" className="flex min-h-[calc(68vh-4rem)] items-center overflow-visible px-6 py-12 md:py-14">
-      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-10 items-start">
+    <section
+      id="about"
+      className="scroll-mt-24 flex min-h-[calc(68vh-4rem)] items-center overflow-visible px-6 pb-12 pt-24 md:pb-14 md:pt-28"
+    >
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-10 md:grid-cols-2 md:gap-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
+          className="flex w-full justify-center"
         >
-          <div className="relative">
+          <div className="relative w-full max-w-[440px]">
             <img
               src="/profile-about.png"
               alt="Profile"
-              className="rounded-[32px] shadow-2xl w-full max-h-[520px] object-cover"
+              className="mx-auto block h-auto w-full max-h-[min(520px,62vh)] rounded-[32px] object-contain object-center shadow-2xl"
               referrerPolicy="no-referrer"
             />
             <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-indigo-600 rounded-full flex items-center justify-center text-white p-5 text-center text-xs font-bold leading-tight rotate-12">
