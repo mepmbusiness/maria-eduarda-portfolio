@@ -13,11 +13,20 @@ const CASE_BASE = "/veriff-business-case/case";
 export default function VeriffInterviewIntro() {
   const en = portfolioData.languages.en;
 
-  const impacts = [
-    { label: "Computer vision QA / retraining cycle", detail: "82% reduction in model error rate (Relo)" },
-    { label: "Global AI product expansion", detail: "~120% revenue potential uplift from internationalisation track (Relo)" },
-    { label: "Monetisation & profitability", detail: "+43.5% baseline profitability uplift pilot (Blu payments)" },
-  ] as const;
+  const impactSource = en.caseStudies ?? [];
+  const impactCards = [
+    { id: "relo-3", impactIndex: 0 },
+    { id: "relo-2", impactIndex: 1 },
+    { id: "relo-1", impactIndex: 0 },
+    { id: "blu-1", impactIndex: 1 },
+  ].map(({ id, impactIndex }) => {
+    const cs = impactSource.find((c) => c.id === id);
+    return {
+      id,
+      title: cs?.title ?? id,
+      metric: cs?.impact?.[impactIndex] ?? "",
+    };
+  });
 
   useEffect(() => {
     document.title = `${portfolioData.name} · Veriff case intro`;
@@ -156,12 +165,19 @@ export default function VeriffInterviewIntro() {
       <section className="px-6 py-16 md:px-12 md:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-display-md">Recent impact snapshots</h2>
-          <p className="mt-4 text-on-surface-variant">High-level indicators only — deeper narrative lives in each case inside the dossier journey.</p>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {impacts.map((row) => (
-              <div key={row.label} className="rounded-3xl border border-outline-variant/20 bg-surface-low p-6">
-                <p className="text-sm font-semibold text-on-surface">{row.label}</p>
-                <p className="mt-2 text-sm leading-relaxed text-on-surface-variant">{row.detail}</p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {impactCards.map((row) => (
+              <div
+                key={row.id}
+                className="min-w-0 rounded-3xl border border-outline-variant/20 bg-surface-low p-6"
+              >
+                <p
+                  className="text-sm font-semibold text-on-surface whitespace-nowrap overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  title={row.title}
+                >
+                  {row.title}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-on-surface-variant">{row.metric}</p>
               </div>
             ))}
           </div>
@@ -173,9 +189,6 @@ export default function VeriffInterviewIntro() {
               Continue to Business Case <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
-          <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-on-surface-variant">
-            Mock data appears only inside the interactive demo section of the assignment. Portfolio figures here reference real case narratives summarized for speed of reading.
-          </p>
         </div>
       </section>
     </div>

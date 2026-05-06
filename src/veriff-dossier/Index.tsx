@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import PhoneDemo from "./PhoneDemo";
 
@@ -51,6 +51,37 @@ export default function DossierIndex() {
   const { section } = useParams();
   const location = useLocation();
   const [active, setActive] = useState("brief");
+  const briefCarouselRef = useRef<HTMLDivElement | null>(null);
+  const [briefCanLeft, setBriefCanLeft] = useState(false);
+  const [briefCanRight, setBriefCanRight] = useState(false);
+
+  const scrollBriefCarousel = (dir: "left" | "right") => {
+    const el = briefCarouselRef.current;
+    if (!el) return;
+    const delta = Math.max(280, Math.floor(el.clientWidth * 0.85));
+    el.scrollBy({ left: dir === "left" ? -delta : delta, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const el = briefCarouselRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const maxScrollLeft = el.scrollWidth - el.clientWidth;
+      // Small epsilon to avoid flicker from subpixel rounding.
+      const eps = 2;
+      setBriefCanLeft(el.scrollLeft > eps);
+      setBriefCanRight(el.scrollLeft < maxScrollLeft - eps);
+    };
+
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      el.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   // Keep active state in sync with scroll position.
   useEffect(() => {
@@ -154,27 +185,125 @@ export default function DossierIndex() {
 
       <section id="brief" className="bg-surface-low px-6 py-28 md:px-12">
         <div className="mx-auto max-w-6xl">
-          <SectionLabel chapter="01 · Assignment Brief" title="From discovery to product execution and roll-out." />
-          <div className="grid gap-4 md:grid-cols-3">
+          <SectionLabel chapter="01 · Brief" title="First steps to validate the request." />
+          <div className="relative">
+            {briefCanLeft && (
+              <button
+                type="button"
+                onClick={() => scrollBriefCarousel("left")}
+                aria-label="Scroll left"
+                className="absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 rounded-full bg-surface-highest/90 p-3 text-on-surface shadow-[var(--shadow-float)] backdrop-blur transition hover:bg-surface-highest md:inline-flex"
+              >
+                <span aria-hidden className="text-lg leading-none">
+                  ←
+                </span>
+              </button>
+            )}
+            {briefCanRight && (
+              <button
+                type="button"
+                onClick={() => scrollBriefCarousel("right")}
+                aria-label="Scroll right"
+                className="absolute right-0 top-1/2 z-10 hidden translate-x-1/2 -translate-y-1/2 rounded-full bg-surface-highest/90 p-3 text-on-surface shadow-[var(--shadow-float)] backdrop-blur transition hover:bg-surface-highest md:inline-flex"
+              >
+                <span aria-hidden className="text-lg leading-none">
+                  →
+                </span>
+              </button>
+            )}
+
+          <div
+            ref={briefCarouselRef}
+            className="-mx-6 mt-8 overflow-x-auto px-6 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0"
+          >
+            <div className="flex snap-x snap-mandatory gap-6">
             {[
               {
-                n: "a",
-                t: "Identify & evaluate",
-                d: "Map the opportunity space for phone-based verification within Veriff's Database Verifications portfolio.",
+                n: "1",
+                t: "Clarify the problem",
+                d: [
+                  "Current onboarding flow",
+                  "Highest drop-off points",
+                  "Affected user volume",
+                  "Priority regions",
+                  "Global mobility user profile",
+                  "Expected balance between risk and friction",
+                ],
               },
               {
-                n: "b",
-                t: "Implementation paths",
-                d: "Compare technical and product paths with explicit trade-offs across cost, accuracy, latency and coverage.",
+                n: "2",
+                t: "Define the Hypothesis",
+                d: "By adding phone number verification for global mobility users in top-of-funnel onboarding, we can reduce initial friction and increase conversion without compromising verification trust.",
               },
-              { n: "c", t: "Delivery & rollout", d: "Phased delivery, pilot strategy, success metrics, and orchestration positioning." },
+              {
+                n: "3",
+                t: "Evaluate Strategic Fit",
+                d: [
+                  "Before building, assess:",
+                  "Why is solving this problem for this client strategically valuable for Veriff?",
+                  "Does this align with the product vision?",
+                  "Can it scale beyond one client?",
+                  "Is there broader market demand?",
+                  "Which countries have viable coverage?",
+                  "Does this create competitive advantage?",
+                ],
+              },
+              {
+                n: "4",
+                t: "Assess Feasibility",
+                d: [
+                  "Start technical discovery around:",
+                  "Phone intelligence vendors",
+                  "Available signals (SIM ownership, carrier data, tenure, risk score, disposable numbers, etc.)",
+                  "Country coverage",
+                  "Compliance and regulatory constraints",
+                  "Verification cost",
+                  "Data quality and reliability",
+                ],
+              },
+              {
+                n: "5",
+                t: "Define Success Metrics",
+                d: [
+                  "Before rollout, define:",
+                  "Onboarding conversion",
+                  "Completion rate",
+                  "Fraud rate",
+                  "False positive rate",
+                  "Verification latency",
+                  "Cost per verification",
+                ],
+              },
             ].map((c) => (
-              <div key={c.n} className="rounded-3xl bg-surface-lowest p-8">
+              <div
+                key={c.n}
+                className="flex min-h-[260px] w-[84vw] shrink-0 snap-start flex-col rounded-3xl bg-surface-lowest p-6 sm:w-[420px] lg:min-h-[320px] lg:w-[440px]"
+              >
                 <p className="text-display-md gradient-text">{c.n}</p>
-                <h3 className="mt-2 text-headline">{c.t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-on-surface-variant">{c.d}</p>
+                <h3 className="mt-2 overflow-x-auto whitespace-nowrap text-headline [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                  {c.t}
+                </h3>
+                <div className="mt-3 min-w-0 flex-1 overflow-y-auto overflow-x-hidden pr-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                  {Array.isArray(c.d) ? (
+                    <>
+                      <p className="break-words text-sm font-medium text-on-surface-variant">{c.d[0]}</p>
+                      <ul className="mt-3 space-y-2 text-sm leading-relaxed text-on-surface-variant">
+                        {c.d.slice(1).map((item) => (
+                          <li key={item} className="flex gap-3">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                            <span className="min-w-0 break-words">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <p className="break-words text-sm leading-relaxed text-on-surface-variant">{c.d}</p>
+                  )}
+                </div>
               </div>
             ))}
+            </div>
+          </div>
           </div>
         </div>
       </section>
