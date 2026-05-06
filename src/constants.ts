@@ -43,7 +43,7 @@ export const portfolioData: PortfolioData = {
           problem: "O modelo apresentava erros recorrentes, comprometendo a confiabilidade dos dados e limitando a escalabilidade da solução.",
           solution: "Implementei um framework de Quality Assurance com human-in-the-loop, onde outputs do modelo eram validados por humanos e utilizados em ciclos contínuos de retraining. Criei processos estruturados de feedback e priorização de erros críticos para melhoria progressiva do modelo.",
           impact: [
-            "Redução de 82% na taxa de erro do modelo",
+            "Aumentei o recall do modelo de 62% para 89%, reduzindo significativamente as marcas não detectadas.",
             "Aumento significativo da confiabilidade da plataforma",
             "Base estruturada para melhoria contínua e escalabilidade de IA"
           ],
@@ -388,7 +388,7 @@ export const portfolioData: PortfolioData = {
           problem: "The model had recurring errors, reducing data reliability and limiting the solution's scalability.",
           solution: "Implemented a human-in-the-loop QA framework where model outputs were validated by humans and used in continuous retraining cycles. Built structured feedback loops and prioritized critical error categories for progressive model improvement.",
           impact: [
-            "82% reduction in model error rate",
+            "Increased model recall from 62% to 89%, significantly reducing missed brand detections.",
             "Significant increase in platform reliability",
             "Established a foundation for continuous AI improvement and scalability"
           ],
@@ -590,7 +590,7 @@ export const portfolioData: PortfolioData = {
       ],
       education: [
         {
-          degree: "Graduate Certificate in Product Management",
+          degree: "Postgraduate Degree in Product Management",
           institution: "Uniamérica",
           year: "2025–2026"
         },
@@ -621,25 +621,25 @@ export const portfolioData: PortfolioData = {
         {
           role: "AI Product Manager - ML & Computer Vision",
           company: "Relo Metrics",
-          period: "Set 2025 - Presente",
+          period: "Sep 2025 – Present",
           description: "I lead the evaluation, improvement, and retraining cycle of computer vision models for sponsor brand detection in sports media."
         },
         {
           role: "Product Manager",
           company: "Blu",
-          period: "Jul 2023 - Set 2025",
+          period: "Jul 2023 – Sep 2025",
           description: "Owned product strategy, metrics, and process improvement for the core financial product, focusing on profitability and scalability."
         },
         {
           role: "Product Analyst",
           company: "Bravet",
-          period: "Dez 2022 - Jul 2023",
+          period: "Dec 2022 – Jul 2023",
           description: "Structured quality processes and documentation for product development, ensuring scalability and compliance with regulatory standards."
         },
         {
           role: "Product Analyst",
           company: "BRF",
-          period: "Jul 2021 - Dec 2022",
+          period: "Jul 2021 – Dec 2022",
           description: "Leveraged data and quality metrics to identify issues, prioritize improvements, and enhance product consistency."
         }
       ],
@@ -733,7 +733,7 @@ export const portfolioData: PortfolioData = {
           problem: "El modelo presentaba errores recurrentes, comprometiendo la confiabilidad de los datos y limitando la escalabilidad de la solución.",
           solution: "Implementé un framework de Quality Assurance con human-in-the-loop, donde los outputs del modelo eran validados por humanos y usados en ciclos continuos de retraining. Creé procesos estructurados de feedback y priorización de errores críticos para una mejora progresiva del modelo.",
           impact: [
-            "Reducción de 82% en la tasa de error del modelo",
+            "Aumenté el recall del modelo de 62% a 89%, reduciendo significativamente las marcas no detectadas.",
             "Aumento significativo de la confiabilidad de la plataforma",
             "Base estructurada para mejora continua y escalabilidad de IA"
           ],

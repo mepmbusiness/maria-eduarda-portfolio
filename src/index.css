@@ -22,6 +22,18 @@
   --color-on-tertiary-container: #9e2f00;
   --color-secondary-container: #c6e9ee;
   --color-on-secondary-container: #496a6e;
+
+  /* Aliases used by the Veriff dossier mini-site */
+  --color-surface: var(--color-surface);
+  --color-surface-low: var(--color-surface-container-low);
+  --color-surface-lowest: var(--color-surface-container-lowest);
+  --color-surface-container: var(--color-surface-container);
+  --color-surface-high: var(--color-surface-container-high);
+  --color-surface-highest: var(--color-surface-container-highest);
+  --color-tertiary: #ac3400;
+  --color-tertiary-on-container: var(--color-on-tertiary-container);
+  --color-primary-foreground: var(--color-on-primary);
+  --color-outline-variant: #bacac4;
 }
 
 @layer base {
