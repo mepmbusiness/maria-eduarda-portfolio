@@ -6,7 +6,7 @@ const BASE = "/veriff-business-case/case";
 const INTRO = "/veriff-business-case";
 
 const SECTIONS = [
-  { id: "brief", label: "Brief" },
+  { id: "brief", label: "Discovery" },
   { id: "problem", label: "Problem" },
   { id: "opportunity", label: "Opportunity" },
   { id: "segment", label: "Segment" },
@@ -183,41 +183,69 @@ export default function DossierIndex() {
         </div>
       </section>
 
-      <section id="brief" className="bg-surface-low px-6 py-28 md:px-12">
+      <section id="brief" className="bg-surface-low px-6 py-16 md:px-12 md:py-20">
         <div className="mx-auto max-w-6xl">
-          <SectionLabel chapter="01 · Brief" title="First steps to validate the request." />
-          <div className="relative">
-            {briefCanLeft && (
-              <button
-                type="button"
-                onClick={() => scrollBriefCarousel("left")}
-                aria-label="Scroll left"
-                className="absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 rounded-full bg-surface-highest/90 p-3 text-on-surface shadow-[var(--shadow-float)] backdrop-blur transition hover:bg-surface-highest md:inline-flex"
-              >
-                <span aria-hidden className="text-lg leading-none">
-                  ←
-                </span>
-              </button>
-            )}
-            {briefCanRight && (
-              <button
-                type="button"
-                onClick={() => scrollBriefCarousel("right")}
-                aria-label="Scroll right"
-                className="absolute right-0 top-1/2 z-10 hidden translate-x-1/2 -translate-y-1/2 rounded-full bg-surface-highest/90 p-3 text-on-surface shadow-[var(--shadow-float)] backdrop-blur transition hover:bg-surface-highest md:inline-flex"
-              >
-                <span aria-hidden className="text-lg leading-none">
-                  →
-                </span>
-              </button>
-            )}
+          <SectionLabel chapter="01 · Discovery" title="First steps to validate the request." />
+          <div className="mt-8 grid gap-8 md:grid-cols-12 md:items-start">
+            <div className="md:col-span-5">
+              <p className="text-label text-on-surface-variant">Brief</p>
+              <div className="relative mt-4 flex h-[260px] flex-col rounded-3xl bg-surface-lowest p-6 lg:h-[320px]">
+                <img
+                  src="/veriff-logo.png"
+                  alt="Veriff logo"
+                  className="absolute bottom-6 right-6 h-7 w-auto object-contain"
+                  loading="lazy"
+                />
+                <div className="flex items-center justify-between gap-4">
+                  <p className="text-headline">The Context</p>
+                </div>
+                <div className="mt-4 space-y-4 text-sm leading-relaxed text-on-surface-variant">
+                  <p>
+                    Veriff&apos;s Database Verifications product cross-checks identity attributes (name, DOB, address, document
+                    number) against authoritative data sources. No document scan required.
+                  </p>
+                  <p>
+                    A global mobility client has formally requested adding phone number based verification to execute low
+                    friction user data validation in top-of-funnel onboarding.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-          <div
-            ref={briefCarouselRef}
-            className="-mx-6 mt-8 overflow-x-auto px-6 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0"
-          >
-            <div className="flex snap-x snap-mandatory gap-6">
-            {[
+            <div className="md:col-span-7">
+              <p className="text-label text-on-surface-variant">Next steps</p>
+              <div className="relative mt-4">
+                {briefCanLeft && (
+                  <button
+                    type="button"
+                    onClick={() => scrollBriefCarousel("left")}
+                    aria-label="Scroll left"
+                    className="absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 rounded-full bg-surface-highest/90 p-3 text-on-surface shadow-[var(--shadow-float)] backdrop-blur transition hover:bg-surface-highest md:inline-flex"
+                  >
+                    <span aria-hidden className="text-lg leading-none">
+                      ←
+                    </span>
+                  </button>
+                )}
+                {briefCanRight && (
+                  <button
+                    type="button"
+                    onClick={() => scrollBriefCarousel("right")}
+                    aria-label="Scroll right"
+                    className="absolute right-0 top-1/2 z-10 hidden translate-x-1/2 -translate-y-1/2 rounded-full bg-surface-highest/90 p-3 text-on-surface shadow-[var(--shadow-float)] backdrop-blur transition hover:bg-surface-highest md:inline-flex"
+                  >
+                    <span aria-hidden className="text-lg leading-none">
+                      →
+                    </span>
+                  </button>
+                )}
+
+                <div
+                  ref={briefCarouselRef}
+                  className="-mx-6 overflow-x-auto px-6 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0"
+                >
+                  <div className="flex snap-x snap-mandatory gap-6">
+                    {[
               {
                 n: "1",
                 t: "Clarify the problem",
@@ -274,15 +302,17 @@ export default function DossierIndex() {
                   "Cost per verification",
                 ],
               },
-            ].map((c) => (
+                    ].map((c) => (
               <div
                 key={c.n}
                 className="flex min-h-[260px] w-[84vw] shrink-0 snap-start flex-col rounded-3xl bg-surface-lowest p-6 sm:w-[420px] lg:min-h-[320px] lg:w-[440px]"
               >
-                <p className="text-display-md gradient-text">{c.n}</p>
-                <h3 className="mt-2 overflow-x-auto whitespace-nowrap text-headline [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                  {c.t}
-                </h3>
+                <div className="flex min-w-0 items-center gap-4">
+                  <p className="text-headline gradient-text">{c.n}</p>
+                  <h3 className="min-w-0 flex-1 overflow-x-auto whitespace-nowrap text-headline [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                    {c.t}
+                  </h3>
+                </div>
                 <div className="mt-3 min-w-0 flex-1 overflow-y-auto overflow-x-hidden pr-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                   {Array.isArray(c.d) ? (
                     <>
@@ -297,13 +327,26 @@ export default function DossierIndex() {
                       </ul>
                     </>
                   ) : (
-                    <p className="break-words text-sm leading-relaxed text-on-surface-variant">{c.d}</p>
+                    <>
+                      {c.n === "2" ? (
+                        <>
+                          <p className="break-words text-sm font-medium text-on-surface-variant">
+                            Translate the request into a product hypothesis.
+                          </p>
+                          <p className="mt-3 break-words text-sm leading-relaxed text-on-surface-variant">{`“${c.d}”`}</p>
+                        </>
+                      ) : (
+                        <p className="break-words text-sm leading-relaxed text-on-surface-variant">{c.d}</p>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
-            ))}
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </section>
