@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import PhoneDemo from "./PhoneDemo";
 
@@ -7,8 +7,8 @@ const INTRO = "/veriff-business-case";
 
 const SECTIONS = [
   { id: "brief", label: "Discovery" },
-  { id: "problem", label: "Problem" },
-  { id: "opportunity", label: "Opportunity" },
+  { id: "problem", label: "Problem Definition" },
+  { id: "opportunity", label: "Opportunity / Risks" },
   { id: "segment", label: "Segment" },
   { id: "discovery", label: "Discovery" },
   { id: "solution", label: "Solution" },
@@ -21,15 +21,110 @@ const SECTIONS = [
   { id: "recommendation", label: "Recommendation" },
 ];
 
-const SectionLabel = ({ chapter, title }: { chapter: string; title: string }) => (
+const SectionLabel = ({
+  chapter,
+  title,
+  titleClassName,
+}: {
+  chapter: string;
+  title: string;
+  titleClassName?: string;
+}) => (
   <div className="mb-10">
     <p className="text-label flex items-center gap-3 text-on-surface-variant">
       <span className="inline-block h-px w-8 bg-on-surface-variant/40" />
       {chapter}
     </p>
-    <h2 className="text-display-md mt-4 max-w-3xl">{title}</h2>
+    <h2 className={`text-display-md mt-4 ${titleClassName ?? "max-w-3xl"}`}>{title}</h2>
   </div>
 );
+
+const FlowHorizontalArrow = () => (
+  <span className="flex w-[14px] shrink-0 items-center justify-center self-center text-sm font-semibold text-primary" aria-hidden>
+    →
+  </span>
+);
+
+const flowCardTones = {
+  default: "border-outline-variant/10 bg-surface-low text-on-surface",
+  start: "border-primary/45 bg-primary/12 font-semibold text-primary",
+  end: "border-tertiary/35 bg-tertiary-container/55 font-semibold text-tertiary-on-container",
+} as const;
+
+const FlowHorizontalCard = ({
+  center,
+  wide,
+  narrow,
+  tone = "default",
+  children,
+}: {
+  center?: boolean;
+  wide?: boolean;
+  narrow?: boolean;
+  tone?: keyof typeof flowCardTones;
+  children: React.ReactNode;
+}) => (
+  <div
+    className={`flex shrink-0 flex-col justify-center rounded-xl border px-2 py-2 text-[11px] leading-tight break-words ${flowCardTones[tone]} ${
+      wide ? "w-[218px] min-h-[88px]" : narrow ? "w-[92px] min-h-[72px]" : "w-[138px] min-h-[88px]"
+    } ${center ? "text-center" : "text-left"}`}
+  >
+    {children}
+  </div>
+);
+
+/** Shrinks one horizontal row (no wrap, no horizontal scroll) to fit the container width. */
+function ScaledFitRow({ children }: { children: React.ReactNode }) {
+  const outerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [{ scale, height }, setLayout] = useState({ scale: 1, height: 0 });
+
+  useLayoutEffect(() => {
+    const outer = outerRef.current;
+    const inner = innerRef.current;
+    if (!outer || !inner) return;
+
+    const update = () => {
+      const ow = outer.clientWidth;
+      const iw = inner.scrollWidth;
+      const ih = inner.offsetHeight;
+      if (iw <= 0 || ow <= 0 || ih <= 0) return;
+      const s = Math.min(1, (ow - 1) / iw);
+      setLayout({ scale: s, height: ih * s });
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(outer);
+    ro.observe(inner);
+    window.addEventListener("resize", update);
+    const id = requestAnimationFrame(update);
+    void document.fonts?.ready?.then(() => update());
+    return () => {
+      cancelAnimationFrame(id);
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
+    // Row content is static; intrinsic width updates via ResizeObserver / fonts / resize only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <div
+      ref={outerRef}
+      className="mt-8 w-full min-w-0 overflow-hidden"
+      style={{ height: height > 0 ? height : undefined, minHeight: height > 0 ? undefined : "5rem" }}
+    >
+      <div
+        ref={innerRef}
+        style={{ transform: `scale(${scale})`, transformOrigin: "top left" }}
+        className="flex w-max flex-nowrap items-stretch gap-1"
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
 
 const Pill = ({
   children,
@@ -352,34 +447,111 @@ export default function DossierIndex() {
       </section>
 
       <section id="problem" className="px-6 py-28 md:px-12">
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <SectionLabel chapter="02 · Problem framing" title="Optimized for certainty. Not for early conversion." />
-          </div>
-          <div className="space-y-4 md:col-span-7">
-            <p className="text-lg leading-relaxed text-on-surface-variant">
-              Today, Veriff&apos;s database verifications are a high-trust instrument: deeply localized, regulation-aware, and tightly bound to authoritative national sources.
-              That precision comes at a price — checks are <strong className="text-on-surface">country-specific</strong>, sometimes{" "}
-              <strong className="text-on-surface">costly</strong>, and often <strong className="text-on-surface">too heavy</strong> to run on every visitor at the very top of the funnel.
-            </p>
-            <div className="mt-6 rounded-3xl bg-surface-low p-8">
-              <p className="text-label text-tertiary">Critical insight</p>
-              <p className="mt-3 text-2xl leading-snug tracking-tight">
-                &quot;The current flow is optimized for <span className="gradient-text">certainty</span>, not for <span className="gradient-text">early conversion</span>.&quot;
-              </p>
+        <div className="mx-auto max-w-6xl">
+          <SectionLabel
+            chapter="02 · Problem Definition"
+            title="Optimized for certainty. Not for early conversion."
+            titleClassName="max-w-none whitespace-nowrap overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          />
+          <div className="mt-2 max-w-6xl space-y-4">
+            <div className="rounded-3xl border border-outline-variant/15 bg-surface-lowest p-6 sm:p-8">
+              <h3 className="text-headline text-on-surface">Current Flow</h3>
+              {(() => {
+                const steps = [
+                  "Start onboarding",
+                  "Enter First Name",
+                  "Enter Last Name",
+                  "Enter Document Number",
+                  "Check authoritative databases",
+                  "Verification result\n(match / no match / insufficient data)",
+                ] as const;
+                const lines = (text: string) =>
+                  text.split("\n").map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ));
+                return (
+                  <ScaledFitRow>
+                    {steps.flatMap((text, i) => [
+                      <FlowHorizontalCard center tone={i === 0 ? "start" : "default"} key={`cur-${i}`}>
+                        {lines(text)}
+                      </FlowHorizontalCard>,
+                      <FlowHorizontalArrow key={`cur-a-${i}`} />,
+                    ])}
+                    <FlowHorizontalCard center tone="end" key="cur-out">
+                      <p>Continue onboarding</p>
+                    </FlowHorizontalCard>
+                  </ScaledFitRow>
+                );
+              })()}
             </div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {[
-                ["Country-specific", "Coverage gaps for cross-border users"],
-                ["Costly per-call", "Unsustainable on anonymous traffic"],
-                ["Latency-sensitive", "Friction added before intent is proven"],
-                ["Single-step", "Limited room for progressive assurance"],
-              ].map(([k, v]) => (
-                <div key={k} className="rounded-2xl bg-surface-lowest p-5">
-                  <p className="font-semibold">{k}</p>
-                  <p className="mt-1 text-sm text-on-surface-variant">{v}</p>
-                </div>
-              ))}
+
+            <div className="rounded-3xl border border-outline-variant/15 bg-surface-lowest p-6 sm:p-8">
+              <h3 className="text-headline text-on-surface">Expected Flow</h3>
+              {(() => {
+                type ExpectedFlowStep =
+                  | string
+                  | { strikethroughTop: string; title: string };
+
+                const steps: ExpectedFlowStep[] = [
+                  "Start onboarding",
+                  "Enter First Name",
+                  "Enter Last Name",
+                  {
+                    strikethroughTop: "Enter Document Number",
+                    title: "Enter phone number",
+                  },
+                  "Check authoritative databases",
+                  "Verification result\n(match / no match / insufficient data)",
+                ];
+                const lines = (text: string) =>
+                  text.split("\n").map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ));
+                const stepBody = (step: ExpectedFlowStep) =>
+                  typeof step === "string" ? (
+                    lines(step)
+                  ) : (
+                    <>
+                      <span className="mb-1 block text-[10px] leading-tight text-on-surface-variant line-through opacity-80">
+                        {step.strikethroughTop}
+                      </span>
+                      <span className="block">{step.title}</span>
+                    </>
+                  );
+                return (
+                  <ScaledFitRow>
+                    {steps.flatMap((step, i) => [
+                      <FlowHorizontalCard center tone={i === 0 ? "start" : "default"} key={`exp-${i}`}>
+                        {stepBody(step)}
+                      </FlowHorizontalCard>,
+                      <FlowHorizontalArrow key={`exp-a-${i}`} />,
+                    ])}
+                    <FlowHorizontalCard center tone="end" key="exp-end">
+                      <p>Continue onboarding</p>
+                    </FlowHorizontalCard>
+                  </ScaledFitRow>
+                );
+              })()}
+            </div>
+
+            <div className="rounded-3xl border border-outline-variant/15 bg-surface-lowest p-6 sm:p-8">
+              <h3 className="text-headline text-on-surface">Current Pain Points</h3>
+              <ul className="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-on-surface-variant">
+                {[
+                  "Difficult to pre-qualify users quickly",
+                  "Database checks may require more fields than users are willing to provide initially",
+                  "Some users may not have documents ready immediately",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -387,7 +559,7 @@ export default function DossierIndex() {
 
       <section id="opportunity" className="bg-surface-low px-6 py-28 md:px-12">
         <div className="mx-auto max-w-6xl">
-          <SectionLabel chapter="03 · Opportunity" title="Phone as an early-stage external signal." />
+          <SectionLabel chapter="03 · Opportunity / Risks" title="Phone as an early-stage external signal." />
           <div className="grid gap-4 md:grid-cols-5">
             {[
               { t: "Top-of-funnel conversion", d: "Validate intent without scans or doc uploads.", k: "+ conv" },
