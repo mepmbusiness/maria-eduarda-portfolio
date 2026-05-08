@@ -11,8 +11,7 @@ const SECTIONS = [
   { id: "discovery", label: "Planning" },
   { id: "solution", label: "Development" },
   { id: "delivery", label: "Delivery" },
-  { id: "metrics", label: "Metrics" },
-  { id: "recommendation", label: "Recommendation" },
+  { id: "recommendation", label: "Conclusion" },
 ];
 
 const SectionLabel = ({
@@ -193,7 +192,9 @@ export default function DossierIndex() {
               key={s.id}
               to={s.id === "brief" ? BASE : `${BASE}/${s.id}`}
               className={`shrink-0 rounded-full px-2 py-1.5 text-[11px] transition-all sm:px-3 sm:text-xs ${
-                active === s.id ? "bg-on-surface text-surface" : "text-on-surface-variant hover:text-on-surface"
+                active === s.id
+                  ? "bg-[image:var(--gradient-primary)] text-primary-foreground shadow-[var(--shadow-ambient)]"
+                  : "text-on-surface-variant hover:text-on-surface"
               }`}
             >
               {s.label}
@@ -224,7 +225,7 @@ export default function DossierIndex() {
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
-              to={BASE}
+              to={`${BASE}/brief`}
               className="rounded-full bg-[image:var(--gradient-primary)] px-6 py-3.5 font-medium text-primary-foreground shadow-[var(--shadow-float)] transition hover:brightness-110"
             >
               Explore strategy
@@ -233,6 +234,8 @@ export default function DossierIndex() {
         </div>
       </section>
 
+      {section ? (
+      <>
       <section id="brief" className="bg-surface-low px-6 py-16 md:px-12 md:py-20">
         <div className="mx-auto max-w-6xl">
           <SectionLabel chapter="00 · Summary" title="First steps to validate the request." />
@@ -411,7 +414,7 @@ export default function DossierIndex() {
                   <div className="rounded-3xl bg-[image:var(--gradient-primary)] p-6 text-primary-foreground">
                     <p className="text-label opacity-80">↑ overall conversion rate</p>
                     <p className="mt-3 font-semibold">Lower friction</p>
-                    <p className="mt-2 text-sm leading-relaxed opacity-90">Light checks before heavy KYC.</p>
+                    <p className="mt-2 text-sm leading-relaxed opacity-90">Facilitate entry into the funnel</p>
                   </div>
                 </div>
               </div>
@@ -557,11 +560,10 @@ export default function DossierIndex() {
                 {[
                   ["Accuracy", "Low", "Medium", "High"],
                   ["Cost", "Low", "Medium", "High"],
-                  ["Coverage", "High", "High", "Medium"],
                   ["Latency", "Fast", "Fast", "Medium"],
                   ["Fraud prevention", "Low", "Medium", "High"],
                   ["Compliance risk", "Low", "Low", "Medium"],
-                  ["User friction", "Low", "Low", "Low"],
+                  ["User friction", "High", "Low", "Low"],
                 ].map((row, i) => (
                   <div
                     key={row[0]}
@@ -582,10 +584,6 @@ export default function DossierIndex() {
                   </div>
                 ))}
               </div>
-              <p className="mt-8 max-w-3xl text-2xl tracking-tight">
-                &quot;We trade some <span className="gradient-text">certainty</span> for speed and coverage — then compensate with{" "}
-                <span className="gradient-text">orchestration</span>.&quot;
-              </p>
             </div>
           </div>
         </div>
@@ -710,21 +708,22 @@ export default function DossierIndex() {
         </div>
       </section>
 
-      <section id="metrics" className="px-6 py-28 md:px-12">
+      <section id="metrics" className="px-6 py-28 md:px-12 pb-44 md:pb-56">
         <div className="mx-auto max-w-6xl">
           <SectionLabel chapter="06 · Post Delivery" title="Post Delivery" />
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
             {[
               ["Conversion target", "+10–15%"],
               ["Fraud rate", "<2%"],
               ["Failure rate", "-35%"],
               ["Latency", "<800ms"],
             ].map(([k, sub]) => (
-              <div key={k} className="flex items-start justify-between gap-3 rounded-2xl bg-surface-low p-5">
-                <div className="min-w-0">
-                  <p className="text-sm font-medium">{k}</p>
-                  <p className="mt-1 text-label text-on-surface-variant">{sub}</p>
-                </div>
+              <div
+                key={k}
+                className="flex min-h-[180px] flex-col justify-between rounded-3xl bg-surface-low p-8 shadow-[var(--shadow-ambient)] md:min-h-[220px]"
+              >
+                <p className="text-label text-on-surface-variant">{k}</p>
+                <p className="mt-6 text-display-lg font-semibold tracking-tight text-on-surface">{sub}</p>
               </div>
             ))}
           </div>
@@ -734,13 +733,12 @@ export default function DossierIndex() {
       <section id="recommendation" className="px-6 py-28 md:px-12">
         <div className="grain relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-[image:var(--gradient-primary)] p-10 text-primary-foreground shadow-[var(--shadow-float)] md:p-16">
           <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-primary-foreground/10 blur-3xl" />
-          <p className="text-label opacity-80">Final recommendation</p>
+          <p className="text-label opacity-80">Conclusion</p>
           <h2 className="text-display-md mt-4 max-w-3xl">
             Prioritize Path 2 — <span className="opacity-90">OTP + phone intelligence</span> — as the low-friction external signal for top-of-funnel onboarding.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed opacity-90">
-            Start with the global mobility segment. Validate in BR, MX, CO, and US. Then expand through Veriff&apos;s orchestration engine
-            across customers and verticals.
+            Start with the global mobility segment. Validate in BR, MX, CO, and US. Then expand across customers and verticals.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link to={BASE} className="rounded-full bg-surface px-6 py-3.5 font-medium text-on-surface transition hover:bg-surface-lowest">
@@ -749,6 +747,8 @@ export default function DossierIndex() {
           </div>
         </div>
       </section>
+      </>
+      ) : null}
 
       <footer className="px-6 py-12 text-center text-sm text-on-surface-variant md:px-12">
         Crafted as an interactive PM dossier · Veriff External Signals home assignment · Mock data only.
