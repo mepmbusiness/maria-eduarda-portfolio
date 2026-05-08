@@ -303,6 +303,25 @@ export default function DossierIndex() {
             </div>
             <div className="grid gap-4 md:grid-cols-2">
               <div className="rounded-3xl bg-surface-low p-6 sm:p-8">
+                <p className="text-label text-on-surface-variant">Customer perspective</p>
+                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-on-surface-variant lg:text-base">
+                  <li className="flex gap-2">
+                    <span className="text-on-surface-variant/50">-</span>
+                    <span>Global mobility clients need faster onboarding with less friction.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-on-surface-variant/50">-</span>
+                    <span>
+                      Today, Veriff&apos;s current verification flow does not offer a lightweight trust signal early in the journey.
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-on-surface-variant/50">-</span>
+                    <span>Unnecessary friction, user drop-off, and higher verification costs.</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="rounded-3xl bg-surface-low p-6 sm:p-8">
                 <p className="text-label text-on-surface-variant">Business Perspective</p>
                 <ul className="mt-4 space-y-2 text-sm leading-relaxed text-on-surface-variant lg:text-base">
                   <li className="flex gap-2">
@@ -321,25 +340,6 @@ export default function DossierIndex() {
                     <span>
                       A successful rollout creates a natural expansion vector into other countries and Veriff products.
                     </span>
-                  </li>
-                </ul>
-              </div>
-              <div className="rounded-3xl bg-surface-low p-6 sm:p-8">
-                <p className="text-label text-on-surface-variant">Customer perspective</p>
-                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-on-surface-variant lg:text-base">
-                  <li className="flex gap-2">
-                    <span className="text-on-surface-variant/50">-</span>
-                    <span>Global mobility clients need faster onboarding with less friction.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-on-surface-variant/50">-</span>
-                    <span>
-                      Today, Veriff&apos;s current verification flow does not offer a lightweight trust signal early in the journey.
-                    </span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-on-surface-variant/50">-</span>
-                    <span>Unnecessary friction, user drop-off, and higher verification costs.</span>
                   </li>
                 </ul>
               </div>
