@@ -129,16 +129,15 @@ function ScaledFitRow({
 
 const Pill = ({
   children,
-  tone = "neutral" as "neutral" | "primary" | "alert" | "success",
+  tone = "neutral" as "neutral" | "primary" | "alert",
 }: {
   children: React.ReactNode;
-  tone?: "neutral" | "primary" | "alert" | "success";
+  tone?: "neutral" | "primary" | "alert";
 }) => {
   const tones = {
     neutral: "bg-surface-highest text-on-surface",
     primary: "bg-primary/10 text-primary",
     alert: "bg-tertiary-container text-tertiary-on-container",
-    success: "bg-primary text-primary-foreground",
   } as const;
   return <span className={`text-label rounded-full px-2.5 py-1 ${tones[tone]}`}>{children}</span>;
 };
@@ -184,8 +183,6 @@ export default function DossierIndex() {
           <Link to={INTRO} className="text-label shrink-0 px-2 text-primary hover:opacity-90 sm:px-3">
             Intro
           </Link>
-          <span className="mx-1 h-5 w-px shrink-0 bg-outline-variant/50" />
-          <span className="text-label shrink-0 px-2 text-on-surface-variant sm:px-3">Veriff dossier</span>
           <span className="mx-1 h-5 w-px shrink-0 bg-outline-variant/50" />
           {SECTIONS.map((s) => (
             <Link
@@ -307,20 +304,44 @@ export default function DossierIndex() {
             <div className="grid gap-4 md:grid-cols-2">
               <div className="rounded-3xl bg-surface-low p-6 sm:p-8">
                 <p className="text-label text-on-surface-variant">Business Perspective</p>
-                <p className="mt-4 text-sm leading-relaxed text-on-surface-variant lg:text-base">
-                  Phone-based verification creates an opportunity to improve onboarding conversion while reducing unnecessary
-                  verification costs. This specific customer is a high-volume buyer of identity infrastructure, operates
-                  across dozens of markets at the same time, and a successful rollout creates a natural expansion vector
-                  into other countries and Veriff products.
-                </p>
+                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-on-surface-variant lg:text-base">
+                  <li className="flex gap-2">
+                    <span className="text-on-surface-variant/50">-</span>
+                    <span>
+                      Phone-based verification creates an opportunity to improve onboarding conversion while reducing unnecessary
+                      verification costs.
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-on-surface-variant/50">-</span>
+                    <span>This specific customer operates across dozens of markets at the same time</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-on-surface-variant/50">-</span>
+                    <span>
+                      A successful rollout creates a natural expansion vector into other countries and Veriff products.
+                    </span>
+                  </li>
+                </ul>
               </div>
               <div className="rounded-3xl bg-surface-low p-6 sm:p-8">
                 <p className="text-label text-on-surface-variant">Customer perspective</p>
-                <p className="mt-4 text-sm leading-relaxed text-on-surface-variant lg:text-base">
-                  Global mobility clients need faster onboarding with less friction. Today, Veriff&apos;s current verification
-                  flow does not offer a lightweight trust signal early in the journey, which can create unnecessary friction,
-                  user drop-off, and higher verification costs.
-                </p>
+                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-on-surface-variant lg:text-base">
+                  <li className="flex gap-2">
+                    <span className="text-on-surface-variant/50">-</span>
+                    <span>Global mobility clients need faster onboarding with less friction.</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-on-surface-variant/50">-</span>
+                    <span>
+                      Today, Veriff&apos;s current verification flow does not offer a lightweight trust signal early in the journey.
+                    </span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-on-surface-variant/50">-</span>
+                    <span>Unnecessary friction, user drop-off, and higher verification costs.</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -389,32 +410,53 @@ export default function DossierIndex() {
             <div className="grid gap-10 md:grid-cols-2 md:gap-8 lg:gap-10">
               <div className="min-w-0">
                 <h3 className="text-headline text-on-surface">Problems</h3>
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {[
-                    ["52.9%", "Overall conversion rate"],
-                    ["↑35%", "Failure rate on Global Mobility Client vs. Local Client"],
-                  ].map(([k, v]) => (
-                    <div key={v} className="rounded-2xl bg-surface-low p-5">
-                      <p className="text-display-md gradient-text">{k}</p>
-                      <p className="mt-1 text-sm leading-relaxed text-on-surface-variant">{v}</p>
-                    </div>
-                  ))}
+                <div className="mt-6 grid gap-3 sm:grid-cols-2 sm:grid-rows-2 sm:gap-4">
+                  <div className="rounded-2xl bg-surface-low p-5 sm:col-start-1 sm:row-start-1">
+                    <p className="text-display-md gradient-text">52.9%</p>
+                    <p className="mt-1 text-sm leading-relaxed text-on-surface-variant">Overall conversion rate</p>
+                  </div>
+                  <div className="rounded-2xl bg-surface-low p-5 sm:col-start-2 sm:row-start-2">
+                    <p className="text-display-md gradient-text">↑35%</p>
+                    <p className="mt-1 text-sm leading-relaxed text-on-surface-variant">
+                      Failure rate on Global Mobility Client vs. Local Client
+                    </p>
+                  </div>
                 </div>
               </div>
               <div className="min-w-0">
                 <h3 className="text-headline text-on-surface">Opportunities</h3>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <div className="rounded-3xl bg-[image:var(--gradient-primary)] p-6 text-primary-foreground">
-                    <p className="text-label opacity-80">↓ failure rate</p>
-                    <p className="mt-3 font-semibold">Higher coverage</p>
-                    <p className="mt-2 text-sm leading-relaxed opacity-90">
-                      Reduced insufficient data and false-negative rate
-                    </p>
+                    <p className="mt-1 font-semibold">Improve verification success</p>
+                    <div className="mt-4 space-y-2 text-sm leading-relaxed opacity-90">
+                      <p>↓ failure rate</p>
+                      <p>- Higher coverage</p>
+                      <p>- Reduced insufficient data and false-negative rate</p>
+                    </div>
                   </div>
                   <div className="rounded-3xl bg-[image:var(--gradient-primary)] p-6 text-primary-foreground">
-                    <p className="text-label opacity-80">↑ overall conversion rate</p>
-                    <p className="mt-3 font-semibold">Lower friction</p>
-                    <p className="mt-2 text-sm leading-relaxed opacity-90">Facilitate entry into the funnel</p>
+                    <p className="mt-1 font-semibold">Increase funnel conversion</p>
+                    <div className="mt-4 space-y-2 text-sm leading-relaxed opacity-90">
+                      <p>↑ overall conversion rate</p>
+                      <p>- Lower top-of-funnel friction</p>
+                      <p>- Easier onboarding entry point</p>
+                    </div>
+                  </div>
+                  <div className="rounded-3xl bg-[image:var(--gradient-primary)] p-6 text-primary-foreground">
+                    <p className="mt-1 font-semibold">Reduce verification cost</p>
+                    <div className="mt-4 space-y-2 text-sm leading-relaxed opacity-90">
+                      <p>↓ cost per verification</p>
+                      <p>- Replace document-number checks with a lighter phone-based check</p>
+                      <p>- Reduce dependency on expensive authoritative databases</p>
+                    </div>
+                  </div>
+                  <div className="rounded-3xl bg-[image:var(--gradient-primary)] p-6 text-primary-foreground">
+                    <p className="mt-1 font-semibold">Expand market coverage</p>
+                    <div className="mt-4 space-y-2 text-sm leading-relaxed opacity-90">
+                      <p>↑ addressable market</p>
+                      <p>- Support users without easy access to document data</p>
+                      <p>- Unlock countries/segments where phone data has stronger coverage</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -491,13 +533,13 @@ export default function DossierIndex() {
                   n: "Path 1",
                   t: "OTP only",
                   pros: ["Simple", "Cheap", "Fast to ship"],
-                  cons: ["Weak identity signal", "No fraud insight"],
+                  cons: ["Low Fraud Prevention", "Introduces user friction"],
                   rec: false,
                 },
                 {
                   n: "Path 2",
                   t: "OTP + phone intelligence",
-                  pros: ["Best balance: speed, cost, coverage", "Clear orchestration signal", "Vendor-leverageable"],
+                  pros: ["Best balance: speed, cost, coverage", "Additional fraude checks", "Vendor-leverageable"],
                   cons: ["Vendor integration required", "Rules definition needed"],
                   rec: true,
                 },
@@ -560,10 +602,10 @@ export default function DossierIndex() {
                 {[
                   ["Accuracy", "Low", "Medium", "High"],
                   ["Cost", "Low", "Medium", "High"],
-                  ["Latency", "Fast", "Fast", "Medium"],
+                  ["Latency", "Low", "Low", "Medium"],
                   ["Fraud prevention", "Low", "Medium", "High"],
-                  ["Compliance risk", "Low", "Low", "Medium"],
-                  ["User friction", "High", "Low", "Low"],
+                  ["Compliance risk", "Low", "Medium", "High"],
+                  ["User friction", "Medium", "Medium", "Low"],
                 ].map((row, i) => (
                   <div
                     key={row[0]}
@@ -572,12 +614,29 @@ export default function DossierIndex() {
                     <div className="font-medium">{row[0]}</div>
                     {row.slice(1).map((cell, idx) => {
                       const dim = row[0];
-                      let tone: "neutral" | "primary" | "alert" | "success" = "neutral";
-                      if (cell === "Medium") tone = "alert";
-                      else if (cell === "High" || cell === "Fast" || (cell === "Low" && dim === "Cost")) tone = "primary";
+                  let tone: "neutral" | "primary" | "alert" = "neutral";
+                  if (dim === "Accuracy") {
+                    if (cell === "Low") tone = "alert";
+                    else if (cell === "Medium") tone = "neutral";
+                    else tone = "primary";
+                  } else if (dim === "User friction") {
+                    if (cell === "Low") tone = "primary";
+                    else if (cell === "Medium") tone = "neutral";
+                    else tone = "alert";
+                  } else if (dim === "Fraud prevention") {
+                    if (cell === "Low") tone = "alert";
+                    else if (cell === "Medium") tone = "neutral";
+                    else tone = "primary";
+                  } else if (dim === "Cost" || dim === "Latency" || dim === "Compliance risk") {
+                    // Only 3 colors: green / red / gray
+                    if (cell === "Low") tone = "primary";
+                    else if (cell === "High") tone = "alert";
+                    else tone = "neutral";
+                  } else if (cell === "Medium") tone = "alert";
+                  else if (cell === "High" || cell === "Fast" || (cell === "Low" && dim === "Cost")) tone = "primary";
                       return (
                         <div key={idx} className="text-center">
-                          <Pill tone={idx === 1 ? "primary" : tone}>{cell}</Pill>
+                      <Pill tone={tone}>{cell}</Pill>
                         </div>
                       );
                     })}
@@ -607,8 +666,7 @@ export default function DossierIndex() {
                   "Non-functional",
                   [
                     "p95 latency <800ms.",
-                    "99.9% uptime SLA.",
-                    "Graceful degradation if vendor unavailable.",
+                    "Use fallback providers when the primary vendor is unavailable.",
                     "No phone number storage beyond 24h (data minimisation).",
                     "Full audit log per check.",
                   ],
@@ -626,10 +684,10 @@ export default function DossierIndex() {
                 [
                   "Compliance and privacy",
                   [
-                    "Phone numbers processed under GDPR Article 6(1)(b) (contract performance) or (f) (legitimate interests) — legal basis to be confirmed per market.",
-                    "Data minimisation: only carrier, line type, and risk score stored. Raw phone number hashed after check completion.",
+                    "Phone numbers processed under GDPR Article 6(1)(b) — legal basis to be confirmed per market.",
+                    "Convert the phone number into a protected format after verification.",
                     "No cross-client data sharing of phone intelligence results.",
-                    "OTP flow requires explicit user-facing disclosure in consent language provided by client.",
+                    "Clearly inform users when phone verification is part of onboarding.",
                     "Data Processing Agreement update required with new vendor(s).",
                   ],
                 ],

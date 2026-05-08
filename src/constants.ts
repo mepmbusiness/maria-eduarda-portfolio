@@ -357,7 +357,7 @@ export const portfolioData: PortfolioData = {
     },
     en: {
       title: "Senior Product Manager · ML & Computer Vision",
-      bio: "Product Manager with experience in fintech and adtech, re-evaluating monetization models, global platform expansion, and leading AI/ML and computer vision products. Fascinated by shortening paths, driving efficiency, and achieving a lot in a simple, scalable way.",
+      bio: "Product Manager with 5 years of experience across global companies and startups, with a background in fintech and adtech\n\nI have worked on challenges such as re-evaluating monetization models, expanding into new markets, and implementing AI/ML-powered functionalities.\n\nI’m especially motivated by by shortening paths, driving efficiency, and achieving a lot in a simple, scalable way.",
       philosophy: "The best AI products are built at the intersection of technical rigor and user empathy. My focus is on creating systems that are useful, measurable, and ready to scale.",
       skills: [
         {

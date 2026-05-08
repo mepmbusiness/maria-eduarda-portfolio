@@ -172,7 +172,7 @@ export default function VeriffInterviewIntro() {
                 className="min-w-0 rounded-3xl border border-outline-variant/20 bg-surface-low p-6"
               >
                 <p
-                  className="text-sm font-semibold text-on-surface whitespace-nowrap overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  className="text-sm font-semibold leading-snug text-on-surface whitespace-normal break-words"
                   title={row.title}
                 >
                   {row.title}
