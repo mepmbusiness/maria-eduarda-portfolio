@@ -16,7 +16,7 @@ export const portfolioData: PortfolioData = {
       philosophy: "Acredito que os melhores produtos de IA nascem da combinação entre rigor técnico e empatia pelo usuário. Meu foco é criar sistemas que sejam úteis, mensuráveis e preparados para escalar.",
       skills: [
         {
-          category: "IA & Machine Learning",
+          category: "Artificial Intelligence",
           items: ["Computer Vision", "LLM & Prompt Engineering", "Model Evaluation", "Human-in-the-Loop", "AI Frameworks"]
         },
         {
