@@ -147,7 +147,6 @@ const CaseStudyCard = ({ study, index, lang }: { study: CaseStudy; index: number
             {[
               [content.ui.aboutCompany, study.about.company],
               [content.ui.aboutProduct, study.about.product],
-              [content.ui.aboutTeam, study.about.team],
             ]
               .filter(([, text]) => text)
               .map(([label, text]) => (

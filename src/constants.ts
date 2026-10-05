@@ -56,6 +56,23 @@ export const portfolioData: PortfolioData = {
           ]
         },
         {
+          id: "relo-3",
+          title: "Otimização de Modelo de Computer Vision com Human-on-the-Loop",
+          company: "Relo Metrics",
+          role: "Senior Product Manager",
+          period: "2025 - 2026",
+          about: { company: "Adtech dos EUA (Santa Monica, Califórnia) que vende dados de patrocínio esportivo como serviço, com IA no centro.", product: "Modelos de visão computacional que detectam marcas patrocinadoras em mídia esportiva, o produto central da empresa." },
+          problem: "O modelo apresentava erros recorrentes, comprometendo a confiabilidade dos dados e limitando a escalabilidade da solução.",
+          solution: "Implementei um framework de Quality Assurance com human-on-the-loop: o modelo roda sozinho, e pessoas supervisionam os outputs e corrigem os erros, que alimentam ciclos contínuos de retraining. Criei processos estruturados de feedback e priorização de erros críticos para melhoria progressiva do modelo. Para medir a evolução, definimos métricas de qualidade (precision, recall, F1) e dashboards que separam erro do modelo de erro humano.",
+          impact: [
+            "Aumentei o recall do modelo de 62% para 89%, reduzindo significativamente as marcas não detectadas.",
+            "Aumento significativo da confiabilidade da plataforma",
+            "Base estruturada para melhoria contínua e escalabilidade de IA"
+          ],
+          tags: ["Computer Vision", "Human-on-the-Loop", "Machine Learning"],
+          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
+        },
+        {
           id: "hfts-1",
           title: "Evals e Grounding num Gerador de Cardápio com IA",
           company: "Hot for the Summer",
@@ -78,23 +95,6 @@ export const portfolioData: PortfolioData = {
           ],
           imageUrl: "/cases/hot-for-the-summer.png",
           link: {"href": "https://www.hotforthesummer.com/", "label": "Conhecer o produto"}
-        },
-        {
-          id: "relo-3",
-          title: "Otimização de Modelo de Computer Vision com Human-on-the-Loop",
-          company: "Relo Metrics",
-          role: "Senior Product Manager",
-          period: "2025 - 2026",
-          about: { company: "Adtech dos EUA (Santa Monica, Califórnia) que vende dados de patrocínio esportivo como serviço, com IA no centro.", product: "Modelos de visão computacional que detectam marcas patrocinadoras em mídia esportiva, o produto central da empresa." },
-          problem: "O modelo apresentava erros recorrentes, comprometendo a confiabilidade dos dados e limitando a escalabilidade da solução.",
-          solution: "Implementei um framework de Quality Assurance com human-on-the-loop: o modelo roda sozinho, e pessoas supervisionam os outputs e corrigem os erros, que alimentam ciclos contínuos de retraining. Criei processos estruturados de feedback e priorização de erros críticos para melhoria progressiva do modelo. Para medir a evolução, definimos métricas de qualidade (precision, recall, F1) e dashboards que separam erro do modelo de erro humano.",
-          impact: [
-            "Aumentei o recall do modelo de 62% para 89%, reduzindo significativamente as marcas não detectadas.",
-            "Aumento significativo da confiabilidade da plataforma",
-            "Base estruturada para melhoria contínua e escalabilidade de IA"
-          ],
-          tags: ["Computer Vision", "Human-on-the-Loop", "Machine Learning"],
-          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
           id: "blu-1",
@@ -149,10 +149,10 @@ export const portfolioData: PortfolioData = {
           company: "Blu",
           role: "Product Manager",
           period: "2023 - 2025",
-          about: { company: "Fintech brasileira (Rio de Janeiro) de soluções de pagamento entre varejistas e seus distribuidores.", product: "O varejista paga o distribuidor com seus recebíveis futuros, e a BLU antecipa esse pagamento ao distribuidor.", team: "Até 7 engenheiros, um tech lead, uma pessoa de design, 2 de dados e um technical writer, em sprints Scrum de 2 semanas." },
-          problem: "Vendas, Suporte, Marketing e diretoria disputavam o mesmo time de engenharia. Às vezes o trabalho travava em code review, e não havia dashboard para os riscos de perda financeira, então o time só os via quando os alarmes disparavam.",
+          about: { company: "Fintech brasileira (Rio de Janeiro) de soluções de pagamento entre varejistas e seus distribuidores.", product: "O varejista paga o distribuidor com seus recebíveis futuros, e a BLU antecipa esse pagamento ao distribuidor." },
+          problem: "Vendas, Suporte, Marketing e diretoria disputavam o mesmo time: até 7 engenheiros, tech lead, design, dados e um technical writer. Às vezes o trabalho travava em code review, e não havia dashboard para os riscos de perda financeira, então o time só os via quando os alarmes disparavam.",
           keyDecision: "Proteger o foco do time. Ser a porta de entrada única das demandas, filtrar e diagnosticar problemas antes de chegarem à engenharia, e dar visibilidade ao time em vez de mais ruído.",
-          solution: "Implementei PRDs com o porquê e as métricas de sucesso definidos de antemão. Levava ao refinamento tickets com critérios de aceite, já alinhados com o tech lead, e planejava as sprints pela capacidade. Conduzia uma triagem semanal de bugs com o Suporte, diagnosticando muitos problemas eu mesma antes de escalar. Montei alarmes com a engenharia e o SRE e organizei quem respondia. Quando uma retro mostrou trabalho travando em code review, criei uma automação no Jira que avisava os revisores assim que um card ficava pronto. Releases faseadas com feature flags, com cenários de teste gerados com IA antes da aprovação.",
+          solution: "Implementei PRDs com o porquê e as métricas de sucesso definidos de antemão. Levava ao refinamento tickets com critérios de aceite, já alinhados com o tech lead, e planejava as sprints de 2 semanas pela capacidade. Conduzia uma triagem semanal de bugs com o Suporte, diagnosticando muitos problemas eu mesma antes de escalar. Montei alarmes com a engenharia e o SRE e organizei quem respondia. Quando uma retro mostrou trabalho travando em code review, criei uma automação no Jira que avisava os revisores assim que um card ficava pronto. Releases faseadas com feature flags, com cenários de teste gerados com IA antes da aprovação.",
           impact: [
             "Alarmes de perda financeira caíram mais de 58% depois do dashboard de monitoramento que construí",
             "Gargalo de code review eliminado",
@@ -408,7 +408,6 @@ export const portfolioData: PortfolioData = {
         keyDecision: "Decisão-chave",
         aboutCompany: "Empresa",
         aboutProduct: "Produto",
-        aboutTeam: "Time",
         solution: "A Solução",
         impact: "Impacto",
         careerTitle: "Trajetória",
@@ -468,6 +467,23 @@ export const portfolioData: PortfolioData = {
           ]
         },
         {
+          id: "relo-3",
+          title: "Computer Vision Model Optimization with Human-on-the-Loop",
+          company: "Relo Metrics",
+          role: "Senior Product Manager",
+          period: "2025 - 2026",
+          about: { company: "US adtech company (Santa Monica, CA) selling AI-powered sports sponsorship data as a service.", product: "Computer vision models that detect sponsor brands in sports media, the company's core product." },
+          problem: "The model had recurring errors, reducing data reliability and limiting the solution's scalability.",
+          solution: "Implemented a human-on-the-loop QA framework: the model runs on its own, and people supervise its outputs and correct errors, which feed continuous retraining cycles. Built structured feedback loops and prioritized critical error categories for progressive model improvement. To measure progress, we defined quality metrics (precision, recall, F1) and dashboards that separate model errors from human errors.",
+          impact: [
+            "Increased model recall from 62% to 89%, significantly reducing missed brand detections.",
+            "Significant increase in platform reliability",
+            "Established a foundation for continuous AI improvement and scalability"
+          ],
+          tags: ["Computer Vision", "Human-on-the-Loop", "Machine Learning"],
+          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
+        },
+        {
           id: "hfts-1",
           title: "Evals and Grounding for an AI Meal Planner",
           company: "Hot for the Summer",
@@ -490,23 +506,6 @@ export const portfolioData: PortfolioData = {
           ],
           imageUrl: "/cases/hot-for-the-summer.png",
           link: {"href": "https://www.hotforthesummer.com/", "label": "Visit the product"}
-        },
-        {
-          id: "relo-3",
-          title: "Computer Vision Model Optimization with Human-on-the-Loop",
-          company: "Relo Metrics",
-          role: "Senior Product Manager",
-          period: "2025 - 2026",
-          about: { company: "US adtech company (Santa Monica, CA) selling AI-powered sports sponsorship data as a service.", product: "Computer vision models that detect sponsor brands in sports media, the company's core product." },
-          problem: "The model had recurring errors, reducing data reliability and limiting the solution's scalability.",
-          solution: "Implemented a human-on-the-loop QA framework: the model runs on its own, and people supervise its outputs and correct errors, which feed continuous retraining cycles. Built structured feedback loops and prioritized critical error categories for progressive model improvement. To measure progress, we defined quality metrics (precision, recall, F1) and dashboards that separate model errors from human errors.",
-          impact: [
-            "Increased model recall from 62% to 89%, significantly reducing missed brand detections.",
-            "Significant increase in platform reliability",
-            "Established a foundation for continuous AI improvement and scalability"
-          ],
-          tags: ["Computer Vision", "Human-on-the-Loop", "Machine Learning"],
-          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
           id: "blu-1",
@@ -561,10 +560,10 @@ export const portfolioData: PortfolioData = {
           company: "Blu",
           role: "Product Manager",
           period: "2023 - 2025",
-          about: { company: "Brazilian fintech (Rio de Janeiro) building payment solutions between retailers and their distributors.", product: "Retailers pay their distributors with their future receivables, and BLU advances that payment to the distributor.", team: "Up to 7 engineers, a tech lead, a designer, 2 data people and a technical writer, in 2-week Scrum sprints." },
-          problem: "Sales, Support, Marketing and leadership all competed for the same engineering team. Work sometimes stalled in code review, and there was no dashboard for financial-loss risks, so the team only saw them when alarms fired.",
+          about: { company: "Brazilian fintech (Rio de Janeiro) building payment solutions between retailers and their distributors.", product: "Retailers pay their distributors with their future receivables, and BLU advances that payment to the distributor." },
+          problem: "Sales, Support, Marketing and leadership all competed for the same team: up to 7 engineers, a tech lead, design, data and a technical writer. Work sometimes stalled in code review, and there was no dashboard for financial-loss risks, so the team only saw them when alarms fired.",
           keyDecision: "Protect the team's focus. Be the single entry point for requests, filter and diagnose issues before they reach engineering, and give the team visibility instead of more noise.",
-          solution: "Introduced PRDs with the why and success metrics defined upfront. Brought tickets with acceptance criteria to refinement, already aligned with the tech lead, and planned sprints by capacity. Ran a weekly bug triage with Support, diagnosing many issues myself before escalating. Set up alarms with engineering and SRE and organized who responded. When a retro showed work stalling in code review, I added a Jira automation that notified reviewers the moment a card was ready. Released in phases behind feature flags, with AI-generated test scenarios before sign-off.",
+          solution: "Introduced PRDs with the why and success metrics defined upfront. Brought tickets with acceptance criteria to refinement, already aligned with the tech lead, and planned 2-week sprints by capacity. Ran a weekly bug triage with Support, diagnosing many issues myself before escalating. Set up alarms with engineering and SRE and organized who responded. When a retro showed work stalling in code review, I added a Jira automation that notified reviewers the moment a card was ready. Released in phases behind feature flags, with AI-generated test scenarios before sign-off.",
           impact: [
             "Financial-loss alarms down by over 58% after the monitoring dashboard I built",
             "Code review bottleneck removed",
@@ -820,7 +819,6 @@ export const portfolioData: PortfolioData = {
         keyDecision: "Key Decision",
         aboutCompany: "Company",
         aboutProduct: "Product",
-        aboutTeam: "Team",
         solution: "The Solution",
         impact: "Impact",
         careerTitle: "Career Path",
@@ -880,6 +878,23 @@ export const portfolioData: PortfolioData = {
           ]
         },
         {
+          id: "relo-3",
+          title: "Optimización de Modelo de Computer Vision con Human-on-the-Loop",
+          company: "Relo Metrics",
+          role: "Senior Product Manager",
+          period: "2025 - 2026",
+          about: { company: "Adtech de EE. UU. (Santa Mónica, California) que vende datos de patrocinio deportivo como servicio, con IA en el centro.", product: "Modelos de visión por computadora que detectan marcas patrocinadoras en medios deportivos, el producto central de la empresa." },
+          problem: "El modelo presentaba errores recurrentes, comprometiendo la confiabilidad de los datos y limitando la escalabilidad de la solución.",
+          solution: "Implementé un framework de Quality Assurance con human-on-the-loop: el modelo funciona solo, y personas supervisan sus outputs y corrigen los errores, que alimentan ciclos continuos de retraining. Creé procesos estructurados de feedback y priorización de errores críticos para una mejora progresiva del modelo. Para medir la evolución, definimos métricas de calidad (precision, recall, F1) y dashboards que separan el error del modelo del error humano.",
+          impact: [
+            "Aumenté el recall del modelo de 62% a 89%, reduciendo significativamente las marcas no detectadas.",
+            "Aumento significativo de la confiabilidad de la plataforma",
+            "Base estructurada para mejora continua y escalabilidad de IA"
+          ],
+          tags: ["Computer Vision", "Human-on-the-Loop", "Machine Learning"],
+          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
+        },
+        {
           id: "hfts-1",
           title: "Evals y Grounding en un Planificador de Menús con IA",
           company: "Hot for the Summer",
@@ -902,23 +917,6 @@ export const portfolioData: PortfolioData = {
           ],
           imageUrl: "/cases/hot-for-the-summer.png",
           link: {"href": "https://www.hotforthesummer.com/", "label": "Conocer el producto"}
-        },
-        {
-          id: "relo-3",
-          title: "Optimización de Modelo de Computer Vision con Human-on-the-Loop",
-          company: "Relo Metrics",
-          role: "Senior Product Manager",
-          period: "2025 - 2026",
-          about: { company: "Adtech de EE. UU. (Santa Mónica, California) que vende datos de patrocinio deportivo como servicio, con IA en el centro.", product: "Modelos de visión por computadora que detectan marcas patrocinadoras en medios deportivos, el producto central de la empresa." },
-          problem: "El modelo presentaba errores recurrentes, comprometiendo la confiabilidad de los datos y limitando la escalabilidad de la solución.",
-          solution: "Implementé un framework de Quality Assurance con human-on-the-loop: el modelo funciona solo, y personas supervisan sus outputs y corrigen los errores, que alimentan ciclos continuos de retraining. Creé procesos estructurados de feedback y priorización de errores críticos para una mejora progresiva del modelo. Para medir la evolución, definimos métricas de calidad (precision, recall, F1) y dashboards que separan el error del modelo del error humano.",
-          impact: [
-            "Aumenté el recall del modelo de 62% a 89%, reduciendo significativamente las marcas no detectadas.",
-            "Aumento significativo de la confiabilidad de la plataforma",
-            "Base estructurada para mejora continua y escalabilidad de IA"
-          ],
-          tags: ["Computer Vision", "Human-on-the-Loop", "Machine Learning"],
-          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
           id: "blu-1",
@@ -973,10 +971,10 @@ export const portfolioData: PortfolioData = {
           company: "Blu",
           role: "Product Manager",
           period: "2023 - 2025",
-          about: { company: "Fintech brasileña (Río de Janeiro) de soluciones de pago entre minoristas y sus distribuidores.", product: "El minorista paga al distribuidor con sus cobros futuros, y BLU le anticipa ese pago al distribuidor.", team: "Hasta 7 ingenieros, un tech lead, una persona de diseño, 2 de datos y un technical writer, en sprints Scrum de 2 semanas." },
-          problem: "Ventas, Soporte, Marketing y dirección competían por el mismo equipo de ingeniería. A veces el trabajo se trababa en code review, y no había dashboard para los riesgos de pérdida financiera, así que el equipo solo los veía cuando saltaban las alarmas.",
+          about: { company: "Fintech brasileña (Río de Janeiro) de soluciones de pago entre minoristas y sus distribuidores.", product: "El minorista paga al distribuidor con sus cobros futuros, y BLU le anticipa ese pago al distribuidor." },
+          problem: "Ventas, Soporte, Marketing y dirección competían por el mismo equipo: hasta 7 ingenieros, tech lead, diseño, datos y un technical writer. A veces el trabajo se trababa en code review, y no había dashboard para los riesgos de pérdida financiera, así que el equipo solo los veía cuando saltaban las alarmas.",
           keyDecision: "Proteger el foco del equipo. Ser la puerta de entrada única de las demandas, filtrar y diagnosticar problemas antes de que lleguen a ingeniería, y dar visibilidad al equipo en lugar de más ruido.",
-          solution: "Implementé PRDs con el porqué y las métricas de éxito definidos de antemano. Llevaba al refinamiento tickets con criterios de aceptación, ya alineados con el tech lead, y planificaba los sprints según la capacidad. Conducía un triage semanal de bugs con Soporte, diagnosticando muchos problemas yo misma antes de escalar. Configuré alarmas con ingeniería y SRE y organicé quién respondía. Cuando una retro mostró trabajo trabado en code review, creé una automatización en Jira que avisaba a los revisores apenas una tarjeta estaba lista. Releases por fases con feature flags, con escenarios de prueba generados con IA antes de la aprobación.",
+          solution: "Implementé PRDs con el porqué y las métricas de éxito definidos de antemano. Llevaba al refinamiento tickets con criterios de aceptación, ya alineados con el tech lead, y planificaba los sprints de 2 semanas según la capacidad. Conducía un triage semanal de bugs con Soporte, diagnosticando muchos problemas yo misma antes de escalar. Configuré alarmas con ingeniería y SRE y organicé quién respondía. Cuando una retro mostró trabajo trabado en code review, creé una automatización en Jira que avisaba a los revisores apenas una tarjeta estaba lista. Releases por fases con feature flags, con escenarios de prueba generados con IA antes de la aprobación.",
           impact: [
             "Las alarmas de pérdida financiera bajaron más del 58% después del dashboard de monitoreo que construí",
             "Cuello de botella de code review eliminado",
@@ -1232,7 +1230,6 @@ export const portfolioData: PortfolioData = {
         keyDecision: "Decisión clave",
         aboutCompany: "Empresa",
         aboutProduct: "Producto",
-        aboutTeam: "Equipo",
         solution: "La Solución",
         impact: "Impacto",
         careerTitle: "Trayectoria",

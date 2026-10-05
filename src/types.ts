@@ -5,7 +5,7 @@ export interface CaseStudy {
   role: string;
   period: string;
   /** Context block: who the company is and what the product does */
-  about?: { company: string; product: string; team?: string };
+  about?: { company: string; product: string };
   problem: string;
   /** The main product decision and its trade-off */
   keyDecision?: string;
@@ -110,7 +110,6 @@ export interface PortfolioContent {
     keyDecision: string;
     aboutCompany: string;
     aboutProduct: string;
-    aboutTeam: string;
     solution: string;
     impact: string;
     careerTitle: string;
