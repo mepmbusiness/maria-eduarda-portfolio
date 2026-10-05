@@ -119,7 +119,7 @@ const CaseStudyCard = ({ study, index, lang }: { study: CaseStudy; index: number
           >
             <source src={study.videoUrl} type="video/mp4" />
           </video>
-        ) : study.id.startsWith('relo-2') ? (
+        ) : study.id === 'relo-2' ? (
           <GlobalExpansionGlobe />
         ) : (
           <img
@@ -138,20 +138,10 @@ const CaseStudyCard = ({ study, index, lang }: { study: CaseStudy; index: number
         </div>
       </div>
       <div className="p-8">
-        {study.legacy && (
-          <span className="inline-block mb-3 px-3 py-1 bg-amber-200 rounded-full text-[10px] font-bold uppercase tracking-wider text-amber-900">
-            {content.ui.previousVersion}
-          </span>
-        )}
-        {!study.legacy && (
-          <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-400 mb-3">
-            {study.company} · {study.role} · {study.period}
-          </p>
-        )}
+        <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-400 mb-3">
+          {study.company} · {study.role} · {study.period}
+        </p>
         <h3 className="text-2xl font-bold text-zinc-900 mb-4">{study.title}</h3>
-        {study.description && (
-          <p className="text-base text-zinc-600 leading-relaxed mb-8">{study.description}</p>
-        )}
         {study.about && (
           <dl className="mb-8 rounded-2xl bg-zinc-50 px-5 py-4 space-y-2 text-sm leading-relaxed">
             {[

@@ -56,24 +56,6 @@ export const portfolioData: PortfolioData = {
           ]
         },
         {
-          id: "relo-2-v1",
-          legacy: true,
-          title: "Expansão Global com Framework Multilíngue de IA",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - AI & Internationalization",
-          period: "2025 - 2026",
-          description: "Liderei a globalização de produtos de IA, viabilizando expansão para mercados não anglófonos, com foco no Japão.",
-          problem: "Os produtos eram limitados ao idioma inglês, impedindo a entrada em mercados internacionais estratégicos como o japonês. A ausência de suporte multilíngue restringia crescimento e geração de receita.",
-          solution: "Desenvolvi um framework de IA multilíngue capaz de suportar japonês e qualquer outro idioma. Implementei estratégias de processamento e padronização de linguagem para garantir consistência dos dados e outputs.",
-          impact: [
-            "Expansão para mercados internacionais, incluindo Japão",
-            "Aumento de 120% no potencial de receita",
-            "Plataforma preparada para operar globalmente, independente de idioma"
-          ],
-          tags: ["AI", "Internationalization", "Multilingual"],
-          imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
-        },
-        {
           id: "hfts-1",
           title: "Evals e Grounding num Gerador de Cardápio com IA",
           company: "Hot for the Summer",
@@ -99,42 +81,19 @@ export const portfolioData: PortfolioData = {
         },
         {
           id: "relo-3",
-          title: "Tornando Mensurável a Qualidade de Visão Computacional",
+          title: "Otimização de Modelo de Computer Vision com Human-on-the-Loop",
           company: "Relo Metrics",
           role: "Senior Product Manager",
           period: "2025 - 2026",
           about: { company: "Adtech dos EUA (Santa Monica, Califórnia) que vende dados de patrocínio esportivo como serviço, com IA no centro.", product: "Modelos de visão computacional que detectam marcas patrocinadoras em mídia esportiva, o produto central da empresa." },
-          problem: "Os modelos tinham erros recorrentes, o que reduzia a confiabilidade dos dados. Não havia como ver de onde vinham os erros, nem se um resultado errado era erro do modelo ou erro humano.",
-          keyDecision: "Medir antes de consertar. Antes de mexer nos modelos, tornei os erros visíveis e separei erro do modelo de erro humano, para o esforço de melhoria ir para onde os erros realmente estavam.",
-          solution: "Defini as métricas de qualidade dos modelos (precision, recall, F1 score, accuracy) e entreguei um dashboard executivo que separa erro do modelo de erro humano e afunila até onde é preciso agir. Implementei uma camada de QA com human-in-the-loop, em que pessoas validam as saídas do modelo e as correções alimentam o retreinamento contínuo.",
-          impact: [
-            "Primeira visão da qualidade do modelo por origem do erro, modelo vs. humano",
-            "Dashboard executivo que não existia antes",
-            "Ciclo de retreinamento contínuo alimentado por revisão humana"
-          ],
-          tags: [
-            "Computer Vision",
-            "Human-in-the-Loop",
-            "Avaliação de Modelos"
-          ],
-          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
-        },
-        {
-          id: "relo-3-v1",
-          legacy: true,
-          title: "Otimização de Modelo de Computer Vision com Human-in-the-Loop",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - Machine Learning & QA",
-          period: "2025 - 2026",
-          description: "Liderei a melhoria de performance de um modelo de visão computacional para detecção de marcas em mídia esportiva.",
           problem: "O modelo apresentava erros recorrentes, comprometendo a confiabilidade dos dados e limitando a escalabilidade da solução.",
-          solution: "Implementei um framework de Quality Assurance com human-in-the-loop, onde outputs do modelo eram validados por humanos e utilizados em ciclos contínuos de retraining. Criei processos estruturados de feedback e priorização de erros críticos para melhoria progressiva do modelo.",
+          solution: "Implementei um framework de Quality Assurance com human-on-the-loop: o modelo roda sozinho, e pessoas supervisionam os outputs e corrigem os erros, que alimentam ciclos contínuos de retraining. Criei processos estruturados de feedback e priorização de erros críticos para melhoria progressiva do modelo. Para medir a evolução, definimos métricas de qualidade (precision, recall, F1) e dashboards que separam erro do modelo de erro humano.",
           impact: [
             "Aumentei o recall do modelo de 62% para 89%, reduzindo significativamente as marcas não detectadas.",
             "Aumento significativo da confiabilidade da plataforma",
             "Base estruturada para melhoria contínua e escalabilidade de IA"
           ],
-          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
+          tags: ["Computer Vision", "Human-on-the-Loop", "Machine Learning"],
           videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
@@ -161,25 +120,6 @@ export const portfolioData: PortfolioData = {
           videoUrl: "/cases/case-monetizacao.mp4"
         },
         {
-          id: "blu-1-v1",
-          legacy: true,
-          title: "Da diferenciação de mercado ao risco de rentabilidade: um redesenho de monetização",
-          company: "Blu",
-          role: "Product Manager - Payments & Financial Products",
-          period: "2023 - 2025",
-          description: "Redesenhei a estratégia de monetização diante de um modelo assimétrico que gerava adoção, mas distorcia incentivos e ameaçava a sustentabilidade.",
-          problem: "O produto operava sob um modelo de monetização assimétrico (taxa zero para pagadores), o que impulsionou a adoção, mas criou incentivos distorcidos ao longo do tempo. Os usuários passaram a estender planos de parcelamento além do perfil de recebíveis esperado, levando a: descompasso de fluxo de caixa, deterioração da economia unitária e uma lacuna de rentabilidade crescente que ameaçava a sustentabilidade de longo prazo.",
-          solution: "Redesenhei a estratégia de monetização com um framework dinâmico de precificação baseado em risco. Introduzi taxas condicionais acionadas apenas quando a economia unitária estava em risco. Construí lógica para comparar maturidade dos recebíveis (WAT) versus cronograma de pagamentos. Apliquei monetização de precisão sem comprometer a proposta de valor central. Aproveitei a infraestrutura existente para um rollout enxuto e escalável.",
-          impact: [
-            "+43,5% de aumento na rentabilidade baseline (piloto)",
-            "~R$ 329 mil de receita mensal incremental a partir de 3,4% dos clientes",
-            "Projeção de +R$ 2 mi/mês de upside com ~20% de adoção",
-            "Convertemos um risco estrutural em um motor de monetização escalável"
-          ],
-          tags: ["Fintech", "Monetization", "Payments"],
-          videoUrl: "/cases/case-monetizacao.mp4"
-        },
-        {
           id: "relo-1",
           title: "Escalabilidade de Produto e Redução de Custo Operacional",
           company: "Relo Metrics",
@@ -201,24 +141,6 @@ export const portfolioData: PortfolioData = {
             "Expansão de Mercado",
             "Escala de Produto"
           ],
-          videoUrl: "/cases/case-escalabilidade.mp4"
-        },
-        {
-          id: "relo-1-v1",
-          legacy: true,
-          title: "Escalabilidade de Produto e Redução de Custo Operacional",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - ML & Global Expansion",
-          period: "2025 - 2026",
-          description: "Liderei a reestruturação de um produto com alta complexidade operacional, tornando-o escalável e viável comercialmente para expansão global.",
-          problem: "O produto apresentava alto custo e tempo de implementação, o que bloqueava sua venda e limitava a aquisição de novos clientes. A operação dependia de processos manuais intensivos e não era escalável para múltiplos mercados.",
-          solution: "Redesenhei a arquitetura do produto com foco em escalabilidade e redução de fricção operacional. Simplifiquei requisitos de entrada de dados, padronizei fluxos e eliminei dependências manuais.",
-          impact: [
-            "Redução de 69% nos custos operacionais",
-            "Produto desbloqueado para vendas e expansão",
-            "Aumento significativo na capacidade de aquisição de novos clientes"
-          ],
-          tags: ["Market Expansion", "Product Scaling"],
           videoUrl: "/cases/case-escalabilidade.mp4"
         },
         {
@@ -487,7 +409,6 @@ export const portfolioData: PortfolioData = {
         aboutCompany: "Empresa",
         aboutProduct: "Produto",
         aboutTeam: "Time",
-        previousVersion: "Versão anterior",
         solution: "A Solução",
         impact: "Impacto",
         careerTitle: "Trajetória",
@@ -547,24 +468,6 @@ export const portfolioData: PortfolioData = {
           ]
         },
         {
-          id: "relo-2-v1",
-          legacy: true,
-          title: "Global Expansion with a Multilingual AI Framework",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - AI & Internationalization",
-          period: "2025 - 2026",
-          description: "Led the globalization of AI products, enabling expansion into non-English markets, with a focus on Japan.",
-          problem: "Products were limited to English, preventing entry into strategic international markets such as Japan. Lack of multilingual support constrained growth and revenue generation.",
-          solution: "Developed a multilingual AI framework capable of supporting Japanese and any other language. Implemented language processing and standardization strategies to ensure consistent data and outputs.",
-          impact: [
-            "Expanded into international markets, including Japan",
-            "120% increase in revenue potential",
-            "Platform ready to operate globally, regardless of language"
-          ],
-          tags: ["AI", "Internationalization", "Multilingual"],
-          imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
-        },
-        {
           id: "hfts-1",
           title: "Evals and Grounding for an AI Meal Planner",
           company: "Hot for the Summer",
@@ -590,42 +493,19 @@ export const portfolioData: PortfolioData = {
         },
         {
           id: "relo-3",
-          title: "Making Computer Vision Quality Measurable",
+          title: "Computer Vision Model Optimization with Human-on-the-Loop",
           company: "Relo Metrics",
           role: "Senior Product Manager",
           period: "2025 - 2026",
           about: { company: "US adtech company (Santa Monica, CA) selling AI-powered sports sponsorship data as a service.", product: "Computer vision models that detect sponsor brands in sports media, the company's core product." },
-          problem: "The models had recurring errors, reducing data reliability. There was no way to see where errors came from, or whether a wrong result was a model error or a human error.",
-          keyDecision: "Measure before fixing. Before changing the models, I made errors visible and separated model errors from human errors, so improvement effort went where the errors actually were.",
-          solution: "Defined the quality metrics for the models (precision, recall, F1 score, accuracy) and delivered an executive dashboard that splits model error from human error and drills down to where action is needed. Implemented a human-in-the-loop QA layer where people validate model outputs and their corrections feed continuous retraining.",
-          impact: [
-            "First view of model quality by error source, model vs. human",
-            "Executive dashboard that did not exist before",
-            "Continuous retraining loop fed by human review"
-          ],
-          tags: [
-            "Computer Vision",
-            "Human-in-the-Loop",
-            "Model Evaluation"
-          ],
-          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
-        },
-        {
-          id: "relo-3-v1",
-          legacy: true,
-          title: "Computer Vision Model Optimization with Human-in-the-Loop",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - Machine Learning & QA",
-          period: "2025 - 2026",
-          description: "Led performance improvements for a computer vision model used to detect sponsor brands in sports media.",
           problem: "The model had recurring errors, reducing data reliability and limiting the solution's scalability.",
-          solution: "Implemented a human-in-the-loop QA framework where model outputs were validated by humans and used in continuous retraining cycles. Built structured feedback loops and prioritized critical error categories for progressive model improvement.",
+          solution: "Implemented a human-on-the-loop QA framework: the model runs on its own, and people supervise its outputs and correct errors, which feed continuous retraining cycles. Built structured feedback loops and prioritized critical error categories for progressive model improvement. To measure progress, we defined quality metrics (precision, recall, F1) and dashboards that separate model errors from human errors.",
           impact: [
             "Increased model recall from 62% to 89%, significantly reducing missed brand detections.",
             "Significant increase in platform reliability",
             "Established a foundation for continuous AI improvement and scalability"
           ],
-          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
+          tags: ["Computer Vision", "Human-on-the-Loop", "Machine Learning"],
           videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
@@ -652,25 +532,6 @@ export const portfolioData: PortfolioData = {
           videoUrl: "/cases/case-monetizacao.mp4"
         },
         {
-          id: "blu-1-v1",
-          legacy: true,
-          title: "From Market Differentiation to Profitability Risk: A Monetization Redesign",
-          company: "Blu",
-          role: "Product Manager - Payments & Financial Products",
-          period: "2023 - 2025",
-          description: "Led a monetization redesign addressing asymmetric pricing, distorted incentives, and long-term profitability risk.",
-          problem: "The product operated under an asymmetric monetization model (zero-fee for payers), which successfully drove adoption but created distorted incentives over time. Users began extending installment plans beyond the expected receivables profile, leading to: cash flow mismatch, deterioration of unit economics, and a growing profitability gap that threatened long-term sustainability.",
-          solution: "Redesigned the monetization strategy by implementing a dynamic, risk-based pricing framework. Introduced conditional fees triggered only when unit economics were at risk. Built logic to compare receivables maturity (WAT) vs. payout schedule. Applied precision monetization without compromising the core value proposition. Leveraged existing infrastructure for a lean and scalable rollout.",
-          impact: [
-            "+43.5% uplift in baseline profitability (pilot)",
-            "~R$329K incremental monthly revenue from 3.4% of clients",
-            "Projected +R$2M/month upside at ~20% adoption",
-            "Converted a structural risk into a scalable monetization engine"
-          ],
-          tags: ["Fintech", "Monetization", "Payments"],
-          videoUrl: "/cases/case-monetizacao.mp4"
-        },
-        {
           id: "relo-1",
           title: "Product Scalability and Operational Cost Reduction",
           company: "Relo Metrics",
@@ -692,24 +553,6 @@ export const portfolioData: PortfolioData = {
             "Market Expansion",
             "Product Scaling"
           ],
-          videoUrl: "/cases/case-escalabilidade.mp4"
-        },
-        {
-          id: "relo-1-v1",
-          legacy: true,
-          title: "Product Scalability and Operational Cost Reduction",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - ML & Global Expansion",
-          period: "2025 - 2026",
-          description: "Led the restructuring of a product with high operational complexity, making it scalable and commercially viable for global expansion.",
-          problem: "The product had high implementation cost and long lead times, which blocked sales and limited new customer acquisition. Operations relied heavily on manual processes and could not scale across multiple markets.",
-          solution: "Redesigned the product architecture to improve scalability and reduce operational friction. Simplified input data requirements, standardized workflows, and removed manual dependencies.",
-          impact: [
-            "69% reduction in operational costs",
-            "Unblocked the product for sales and expansion",
-            "Significantly increased capacity to acquire new customers"
-          ],
-          tags: ["Market Expansion", "Product Scaling"],
           videoUrl: "/cases/case-escalabilidade.mp4"
         },
         {
@@ -978,7 +821,6 @@ export const portfolioData: PortfolioData = {
         aboutCompany: "Company",
         aboutProduct: "Product",
         aboutTeam: "Team",
-        previousVersion: "Previous version",
         solution: "The Solution",
         impact: "Impact",
         careerTitle: "Career Path",
@@ -1038,24 +880,6 @@ export const portfolioData: PortfolioData = {
           ]
         },
         {
-          id: "relo-2-v1",
-          legacy: true,
-          title: "Expansión Global con un Framework Multilingüe de IA",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - AI & Internationalization",
-          period: "2025 - 2026",
-          description: "Lideré la globalización de productos de IA, habilitando la expansión a mercados no anglófonos, con foco en Japón.",
-          problem: "Los productos estaban limitados al inglés, lo que impedía la entrada a mercados internacionales estratégicos como Japón. La falta de soporte multilingüe restringía el crecimiento y la generación de ingresos.",
-          solution: "Desarrollé un framework de IA multilingüe capaz de soportar japonés y cualquier otro idioma. Implementé estrategias de procesamiento y estandarización de lenguaje para asegurar consistencia de datos y outputs.",
-          impact: [
-            "Expansión a mercados internacionales, incluyendo Japón",
-            "Aumento de 120% en el potencial de ingresos",
-            "Plataforma lista para operar globalmente, independientemente del idioma"
-          ],
-          tags: ["AI", "Internationalization", "Multilingual"],
-          imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
-        },
-        {
           id: "hfts-1",
           title: "Evals y Grounding en un Planificador de Menús con IA",
           company: "Hot for the Summer",
@@ -1081,42 +905,19 @@ export const portfolioData: PortfolioData = {
         },
         {
           id: "relo-3",
-          title: "Haciendo Medible la Calidad de Visión por Computadora",
+          title: "Optimización de Modelo de Computer Vision con Human-on-the-Loop",
           company: "Relo Metrics",
           role: "Senior Product Manager",
           period: "2025 - 2026",
           about: { company: "Adtech de EE. UU. (Santa Mónica, California) que vende datos de patrocinio deportivo como servicio, con IA en el centro.", product: "Modelos de visión por computadora que detectan marcas patrocinadoras en medios deportivos, el producto central de la empresa." },
-          problem: "Los modelos tenían errores recurrentes, lo que reducía la confiabilidad de los datos. No había forma de ver de dónde venían los errores, ni si un resultado incorrecto era un error del modelo o un error humano.",
-          keyDecision: "Medir antes de corregir. Antes de cambiar los modelos, hice visibles los errores y separé el error del modelo del error humano, para que el esfuerzo de mejora fuera a donde realmente estaban los errores.",
-          solution: "Definí las métricas de calidad de los modelos (precision, recall, F1 score, accuracy) y entregué un dashboard ejecutivo que separa el error del modelo del error humano y profundiza hasta donde hay que actuar. Implementé una capa de QA con human-in-the-loop, donde personas validan las salidas del modelo y sus correcciones alimentan el reentrenamiento continuo.",
-          impact: [
-            "Primera visión de la calidad del modelo por origen del error, modelo vs. humano",
-            "Dashboard ejecutivo que no existía antes",
-            "Ciclo de reentrenamiento continuo alimentado por revisión humana"
-          ],
-          tags: [
-            "Computer Vision",
-            "Human-in-the-Loop",
-            "Evaluación de Modelos"
-          ],
-          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
-        },
-        {
-          id: "relo-3-v1",
-          legacy: true,
-          title: "Optimización de Modelo de Computer Vision con Human-in-the-Loop",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - Machine Learning & QA",
-          period: "2025 - 2026",
-          description: "Lideré mejoras de performance de un modelo de visión computacional para la detección de marcas en medios deportivos.",
           problem: "El modelo presentaba errores recurrentes, comprometiendo la confiabilidad de los datos y limitando la escalabilidad de la solución.",
-          solution: "Implementé un framework de Quality Assurance con human-in-the-loop, donde los outputs del modelo eran validados por humanos y usados en ciclos continuos de retraining. Creé procesos estructurados de feedback y priorización de errores críticos para una mejora progresiva del modelo.",
+          solution: "Implementé un framework de Quality Assurance con human-on-the-loop: el modelo funciona solo, y personas supervisan sus outputs y corrigen los errores, que alimentan ciclos continuos de retraining. Creé procesos estructurados de feedback y priorización de errores críticos para una mejora progresiva del modelo. Para medir la evolución, definimos métricas de calidad (precision, recall, F1) y dashboards que separan el error del modelo del error humano.",
           impact: [
             "Aumenté el recall del modelo de 62% a 89%, reduciendo significativamente las marcas no detectadas.",
             "Aumento significativo de la confiabilidad de la plataforma",
             "Base estructurada para mejora continua y escalabilidad de IA"
           ],
-          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
+          tags: ["Computer Vision", "Human-on-the-Loop", "Machine Learning"],
           videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
@@ -1143,25 +944,6 @@ export const portfolioData: PortfolioData = {
           videoUrl: "/cases/case-monetizacao.mp4"
         },
         {
-          id: "blu-1-v1",
-          legacy: true,
-          title: "De la diferenciación de mercado al riesgo de rentabilidad: un rediseño de monetización",
-          company: "Blu",
-          role: "Product Manager - Payments & Financial Products",
-          period: "2023 - 2025",
-          description: "Rediseñé la estrategia de monetización frente a un modelo asimétrico que generaba adopción pero distorsionaba incentivos y amenazaba la sostenibilidad.",
-          problem: "El producto operaba bajo un modelo de monetización asimétrico (cero comisión para quienes pagan), lo que impulsó la adopción pero creó incentivos distorsionados con el tiempo. Los usuarios extendieron planes de cuotas más allá del perfil de cobros esperado, generando: desajuste de flujo de caja, deterioro de la economía unitaria y una brecha de rentabilidad creciente que amenazaba la sostenibilidad a largo plazo.",
-          solution: "Rediseñé la estrategia de monetización con un marco dinámico de precios basado en riesgo. Introduje comisiones condicionales activadas solo cuando la economía unitaria estaba en riesgo. Construí lógica para comparar madurez de cobros (WAT) versus calendario de pagos. Apliqué monetización de precisión sin comprometer la propuesta de valor central. Aproveché la infraestructura existente para un despliegue ágil y escalable.",
-          impact: [
-            "+43,5% de aumento en la rentabilidad baseline (piloto)",
-            "~R$ 329 mil de ingresos mensuales incrementales del 3,4% de los clientes",
-            "Proyección de +R$ 2M/mes de upside con ~20% de adopción",
-            "Convertimos un riesgo estructural en un motor de monetización escalable"
-          ],
-          tags: ["Fintech", "Monetization", "Payments"],
-          videoUrl: "/cases/case-monetizacao.mp4"
-        },
-        {
           id: "relo-1",
           title: "Escalabilidad de Producto y Reducción de Costos Operativos",
           company: "Relo Metrics",
@@ -1183,24 +965,6 @@ export const portfolioData: PortfolioData = {
             "Expansión de Mercado",
             "Escala de Producto"
           ],
-          videoUrl: "/cases/case-escalabilidade.mp4"
-        },
-        {
-          id: "relo-1-v1",
-          legacy: true,
-          title: "Escalabilidad de Producto y Reducción de Costo Operativo",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - ML & Global Expansion",
-          period: "2025 - 2026",
-          description: "Lideré la reestructuración de un producto con alta complejidad operativa, haciéndolo escalable y comercialmente viable para expansión global.",
-          problem: "El producto tenía alto costo y tiempo de implementación, lo que bloqueaba su venta y limitaba la adquisición de nuevos clientes. La operación dependía de procesos manuales intensivos y no era escalable para múltiples mercados.",
-          solution: "Rediseñé la arquitectura del producto con foco en escalabilidad y reducción de fricción operativa. Simplifiqué requisitos de entrada de datos, estandaricé flujos y eliminé dependencias manuales.",
-          impact: [
-            "Reducción de 69% en los costos operativos",
-            "Producto desbloqueado para ventas y expansión",
-            "Aumento significativo en la capacidad de adquisición de nuevos clientes"
-          ],
-          tags: ["Market Expansion", "Product Scaling"],
           videoUrl: "/cases/case-escalabilidade.mp4"
         },
         {
@@ -1469,7 +1233,6 @@ export const portfolioData: PortfolioData = {
         aboutCompany: "Empresa",
         aboutProduct: "Producto",
         aboutTeam: "Equipo",
-        previousVersion: "Versión anterior",
         solution: "La Solución",
         impact: "Impacto",
         careerTitle: "Trayectoria",
