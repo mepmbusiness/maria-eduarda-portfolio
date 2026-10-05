@@ -5,7 +5,11 @@ export interface CaseStudy {
   role: string;
   period: string;
   description: string;
+  /** One line under the title: sector, company type, team */
+  context?: string;
   problem: string;
+  /** The main product decision and its trade-off */
+  keyDecision?: string;
   solution: string;
   impact: string[];
   tags: string[];
@@ -13,6 +17,8 @@ export interface CaseStudy {
   imageUrl?: string;
   /** When set, shown instead of the cover image (e.g. hero loop) */
   videoUrl?: string;
+  /** Optional external link shown at the end of the card */
+  link?: { href: string; label: string };
 }
 
 export interface Skill {
@@ -102,6 +108,7 @@ export interface PortfolioContent {
     testimonialsTitle: string;
     testimonialsDesc: string;
     problem: string;
+    keyDecision: string;
     solution: string;
     impact: string;
     careerTitle: string;

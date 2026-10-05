@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail, Linkedin, Github, ChevronRight, ChevronLeft, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench, Download } from 'lucide-react';
+import { Mail, Linkedin, Github, ChevronRight, ChevronLeft, BarChart3, Users, Lightbulb, Target, GraduationCap, Award, Briefcase, Sparkles, Cpu, Quote, Wrench, Download, Compass, ExternalLink } from 'lucide-react';
 import { AIToolkit } from './components/PRDGenerator';
 import GlobalExpansionGlobe from './components/GlobalExpansionGlobe';
 import { portfolioData } from './constants';
@@ -141,6 +141,9 @@ const CaseStudyCard = ({ study, index, lang }: { study: CaseStudy; index: number
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="text-2xl font-bold text-zinc-900 mb-1">{study.title}</h3>
+            {study.context && (
+              <p className="text-xs font-medium text-zinc-400 mt-2">{study.context}</p>
+            )}
           </div>
         </div>
         <p className="text-base text-zinc-600 leading-relaxed mb-8">
@@ -154,6 +157,14 @@ const CaseStudyCard = ({ study, index, lang }: { study: CaseStudy; index: number
             </h4>
             <p className="text-sm text-zinc-500 leading-relaxed">{study.problem}</p>
           </div>
+          {study.keyDecision && (
+            <div>
+              <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <Compass size={14} className="text-sky-500" /> {content.ui.keyDecision}
+              </h4>
+              <p className="text-sm text-zinc-500 leading-relaxed">{study.keyDecision}</p>
+            </div>
+          )}
           <div>
             <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-widest mb-3 flex items-center gap-2">
               <Lightbulb size={14} className="text-amber-500" /> {content.ui.solution}
@@ -173,6 +184,16 @@ const CaseStudyCard = ({ study, index, lang }: { study: CaseStudy; index: number
               ))}
             </ul>
           </div>
+          {study.link && (
+            <a
+              href={study.link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors"
+            >
+              {study.link.label} <ExternalLink size={14} />
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
@@ -604,6 +625,17 @@ export default function Portfolio({ page }: { page: 'home' | 'about' | 'cases' |
 
   const content = portfolioData.languages[lang];
   const caseStudies = content.caseStudies ?? [];
+
+  useEffect(() => {
+    const labels: Record<string, string | undefined> = {
+      about: content.ui.about,
+      cases: content.ui.work,
+      recommendations: content.ui.testimonialsTitle,
+      contact: content.ui.contact,
+    };
+    const label = labels[page];
+    document.title = label ? `${label} | ${portfolioData.name}` : portfolioData.name;
+  }, [page, content]);
 
   const scrollCaseStudies = (direction: 'left' | 'right') => {
     const el = caseStudiesScrollRef.current;

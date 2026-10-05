@@ -34,38 +34,99 @@ export const portfolioData: PortfolioData = {
       ],
       caseStudies: [
         {
-          id: "relo-3",
-          title: "Otimização de Modelo de Computer Vision com Human-in-the-Loop",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - Machine Learning & QA",
-          period: "2025 - 2026",
-          description: "Liderei a melhoria de performance de um modelo de visão computacional para detecção de marcas em mídia esportiva.",
-          problem: "O modelo apresentava erros recorrentes, comprometendo a confiabilidade dos dados e limitando a escalabilidade da solução.",
-          solution: "Implementei um framework de Quality Assurance com human-in-the-loop, onde outputs do modelo eram validados por humanos e utilizados em ciclos contínuos de retraining. Criei processos estruturados de feedback e priorização de erros críticos para melhoria progressiva do modelo.",
-          impact: [
-            "Aumentei o recall do modelo de 62% para 89%, reduzindo significativamente as marcas não detectadas.",
-            "Aumento significativo da confiabilidade da plataforma",
-            "Base estruturada para melhoria contínua e escalabilidade de IA"
-          ],
-          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
-          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
-        },
-        {
           id: "relo-2",
-          title: "Expansão Global com Framework Multilíngue de IA",
+          title: "Expansão Global com uma Camada de IA Independente de Idioma",
           company: "Relo Metrics",
           role: "Senior Product Manager - AI & Internationalization",
           period: "2025 - 2026",
-          description: "Liderei a globalização de produtos de IA, viabilizando expansão para mercados não anglófonos, com foco no Japão.",
-          problem: "Os produtos eram limitados ao idioma inglês, impedindo a entrada em mercados internacionais estratégicos como o japonês. A ausência de suporte multilíngue restringia crescimento e geração de receita.",
-          solution: "Desenvolvi um framework de IA multilíngue capaz de suportar japonês e qualquer outro idioma. Implementei estratégias de processamento e padronização de linguagem para garantir consistência dos dados e outputs.",
+          description: "Levei um produto de detecção de marcas que só funcionava em inglês para o Japão, e para qualquer outro idioma.",
+          context: "Adtech, empresa dos EUA. Produto que detecta menções a marcas patrocinadoras em transmissões esportivas.",
+          problem: "A detecção de menções dependia de palavras-chave fixas em inglês. Cada idioma novo era um projeto de engenharia de 6 a 8 semanas, e contratos japoneses estavam em risco. Nas transmissões em japonês, 34% das menções eram variações semânticas que palavras-chave fixas não capturavam.",
+          keyDecision: "Comparei quatro abordagens com trade-offs explícitos: palavras-chave fixas (perdiam 34% das menções), tradução automática (perdia contexto em nomes de marca), fine-tuning por idioma (caro demais) e uma camada de IA baseada em instruções. Escolhi a camada de IA porque o problema era de interpretação e de generalização para idiomas que ainda não tínhamos, com custo marginal baixo por idioma novo.",
+          solution: "Construí uma camada de IA baseada em instruções que interpreta significado em vez de buscar palavras-chave, fundamentada em contexto de domínio criado com uma analista nativa japonesa. Validei vários modelos de speech-to-text e estratégias de prompt contra um golden set que comparava modelos por custo e qualidade. Quando nenhum modelo atingiu a meta de acurácia em nomes de marcas estrangeiras, sinalizei o risco cedo e resolvi com normalização via prompt.",
           impact: [
-            "Expansão para mercados internacionais, incluindo Japão",
+            "85% menos tempo para habilitar um idioma novo",
             "Aumento de 120% no potencial de receita",
-            "Plataforma preparada para operar globalmente, independente de idioma"
+            "US$ 15,3 milhões em valor de mídia revelados na exposição em áudio em japonês",
+            "Framework de avaliação reutilizado por outros times"
           ],
-          tags: ["AI", "Internationalization", "Multilingual"],
-          imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
+          tags: [
+            "IA",
+            "Evals",
+            "Internacionalização"
+          ]
+        },
+        {
+          id: "hfts-1",
+          title: "Evals e Grounding num Gerador de Cardápio com IA",
+          company: "Hot for the Summer",
+          role: "Product builder",
+          period: "2026",
+          description: "Medi uma funcionalidade de LLM antes de consertar, e descobri que a métrica dela estava errada.",
+          context: "Um produto de IA no ar que construí e opero: um app de dieta e treino.",
+          problem: "Um LLM montava o cardápio do dia e calculava os macros. Só 58% dos pedidos viravam cardápio, e ninguém conferia se os números nutricionais do modelo eram verdadeiros. Recalculados com a tabela oficial brasileira (TACO), cardápios que estavam 97% \"na meta\" pela conta do próprio app ficavam só 6% na meta com números reais.",
+          keyDecision: "O modelo decide o quê, o código decide quanto. O LLM escolhe os alimentos, onde o julgamento cultural importa. Os valores nutricionais vêm da TACO, não do modelo, e um solver em código ajusta as porções para bater as metas com exatidão.",
+          solution: "Criei um placar de evals com graders em código, várias rodadas e intervalo de confiança, além de tracing no Langfuse. Casei os nomes dos alimentos com a TACO usando busca por palavras e embeddings em cascata (a fusão híbrida foi testada e piorou o resultado), medi o recall@3 e adicionei um LLM verificador que pode responder \"nenhum\", com votação por self-consistency e cache. Separei um conjunto de teste nunca usado no ajuste para pegar overfitting. Tudo sobe com chave para desligar, e cada decisão fica registrada com a métrica e o custo aceito.",
+          impact: [
+            "Na meta com dados nutricionais reais: 6% → 97%",
+            "Dentro da faixa de segurança real: 42% → 100%",
+            "Pedidos que viram cardápio: 58% → 75 a 100%",
+            "37% menos chamadas ao modelo por geração"
+          ],
+          tags: [
+            "LLM Evals",
+            "Grounding",
+            "Retrieval"
+          ],
+          imageUrl: "/cases/hot-for-the-summer.png",
+          link: {"href": "https://www.hotforthesummer.com/", "label": "Conhecer o produto"}
+        },
+        {
+          id: "relo-3",
+          title: "Tornando Mensurável a Qualidade de Visão Computacional",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - Machine Learning & QA",
+          period: "2025 - 2026",
+          description: "Construí as métricas de qualidade e o ciclo de revisão humana dos modelos centrais de detecção de marcas.",
+          context: "Adtech, empresa dos EUA. Produto central: modelos de visão computacional que detectam marcas patrocinadoras em mídia esportiva.",
+          problem: "Os modelos tinham erros recorrentes, o que reduzia a confiabilidade dos dados. Não havia como ver de onde vinham os erros, nem se um resultado errado era erro do modelo ou erro humano.",
+          keyDecision: "Medir antes de consertar. Antes de mexer nos modelos, tornei os erros visíveis e separei erro do modelo de erro humano, para o esforço de melhoria ir para onde os erros realmente estavam.",
+          solution: "Defini as métricas de qualidade dos modelos (precision, recall, F1 score, accuracy) e entreguei um dashboard executivo que separa erro do modelo de erro humano e afunila até onde é preciso agir. Implementei uma camada de QA com human-in-the-loop, em que pessoas validam as saídas do modelo e as correções alimentam o retreinamento contínuo.",
+          impact: [
+            "Primeira visão da qualidade do modelo por origem do erro, modelo vs. humano",
+            "Dashboard executivo que não existia antes",
+            "Ciclo de retreinamento contínuo alimentado por revisão humana"
+          ],
+          tags: [
+            "Computer Vision",
+            "Human-in-the-Loop",
+            "Avaliação de Modelos"
+          ],
+          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
+        },
+        {
+          id: "blu-1",
+          title: "Da Diferenciação de Mercado ao Risco de Rentabilidade: um Redesenho de Monetização",
+          company: "Blu",
+          role: "Product Manager - Payments & Financial Products",
+          period: "2023 - 2025",
+          description: "Corrigi uma lacuna de rentabilidade sem abrir mão da promessa de taxa zero.",
+          context: "Fintech, Brasil. Antecipação de recebíveis para varejistas, time de até 7 engenheiros.",
+          problem: "Varejistas pagavam taxa zero, o que impulsionou a adoção, mas distorceu incentivos. Eles passaram a esticar parcelamentos além do perfil de recebíveis esperado, aumentando o prazo médio de recebíveis e abrindo uma lacuna de rentabilidade que ameaçava a sustentabilidade do produto.",
+          keyDecision: "Cobrar só quando a rentabilidade está de fato em risco. Manter taxa zero para o varejista e não aumentar a taxa do distribuidor, que financiava o modelo. E provar num grupo pequeno antes de escalar.",
+          solution: "Mapeei todos os parâmetros da transação e criei a lógica que compara o prazo de recebíveis do varejista com o prazo de repasse esperado pelo distribuidor, aplicando uma taxa de correção só quando ele é ultrapassado. No refinamento, os engenheiros e eu encontramos um jeito de construir sobre a infraestrutura existente, com uma solução enxuta e de baixo risco. Liberei com feature flag para 99 clientes (3,4% da base) para observar a reação antes de expandir.",
+          impact: [
+            "+43,5% de rentabilidade mensal no grupo piloto",
+            "~R$ 329 mil de rentabilidade mensal adicional a partir de 3,4% dos clientes",
+            "Projeção de ~R$ 2 mi/mês de upside com ~20% de adoção",
+            "Transformamos um risco estrutural em um motor de monetização escalável"
+          ],
+          tags: [
+            "Fintech",
+            "Monetização",
+            "Pagamentos"
+          ],
+          videoUrl: "/cases/case-monetizacao.mp4"
         },
         {
           id: "relo-1",
@@ -73,34 +134,47 @@ export const portfolioData: PortfolioData = {
           company: "Relo Metrics",
           role: "Senior Product Manager - ML & Global Expansion",
           period: "2025 - 2026",
-          description: "Liderei a reestruturação de um produto com alta complexidade operacional, tornando-o escalável e viável comercialmente para expansão global.",
-          problem: "O produto apresentava alto custo e tempo de implementação, o que bloqueava sua venda e limitava a aquisição de novos clientes. A operação dependia de processos manuais intensivos e não era escalável para múltiplos mercados.",
-          solution: "Redesenhei a arquitetura do produto com foco em escalabilidade e redução de fricção operacional. Simplifiquei requisitos de entrada de dados, padronizei fluxos e eliminei dependências manuais.",
+          description: "Transformei um projeto de engenharia sob medida em um produto replicável.",
+          context: "Adtech, empresa dos EUA. Produto que mede a exposição de patrocinadores dentro de estádios.",
+          problem: "Cada nova implementação era um projeto dedicado de engenharia de 10 a 12 semanas, incluindo duas semanas de normalização manual de dados. O tempo e o custo de setup afastavam clientes: 4 negócios foram perdidos em um trimestre.",
+          keyDecision: "Schema antes de self-service. A pressão era construir o self-service primeiro, mas sem um schema de dados consistente qualquer interface quebraria. Priorizada com RICE, a padronização do schema teve a maior nota e era pré-requisito para todo o resto. Quando a engenharia argumentou que \"cada estádio é diferente\", os dados de projetos anteriores mostraram que 80% dos campos eram iguais, e a objeção virou co-design dos 20% restantes.",
+          solution: "Padronizei o schema de dados, eliminei etapas manuais de engenharia no deploy e criei um playbook de onboarding que qualquer pessoa do time conseguia executar. Adicionei uma validação de schema antes do setup, que reduziu as idas e vindas com o cliente de 5 para 1.",
           impact: [
-            "Redução de 69% nos custos operacionais",
-            "Produto desbloqueado para vendas e expansão",
-            "Aumento significativo na capacidade de aquisição de novos clientes"
+            "Redução de 69,5% nos custos operacionais",
+            "Onboarding de 10 a 12 semanas para 1,5 semana",
+            "O mesmo time entregando 3x mais implementações no mesmo tempo",
+            "Zero negócios perdidos por complexidade de setup no trimestre seguinte",
+            "US$ 26 milhões em valor de mídia no estádio medidos com o novo framework",
+            "A mesma arquitetura virou base para a expansão para o Japão"
           ],
-          tags: ["Market Expansion", "Product Scaling"],
-          imageUrl: "https://picsum.photos/seed/relo-case-3/800/600"
+          tags: [
+            "Expansão de Mercado",
+            "Escala de Produto"
+          ],
+          videoUrl: "/cases/case-escalabilidade.mp4"
         },
         {
-          id: "blu-1",
-          title: "Da diferenciação de mercado ao risco de rentabilidade: um redesenho de monetização",
+          id: "blu-2",
+          title: "Mantendo a Entrega em Movimento com a Engenharia",
           company: "Blu",
-          role: "Product Manager - Payments & Financial Products",
+          role: "Product Manager",
           period: "2023 - 2025",
-          description: "Redesenhei a estratégia de monetização diante de um modelo assimétrico que gerava adoção, mas distorcia incentivos e ameaçava a sustentabilidade.",
-          problem: "O produto operava sob um modelo de monetização assimétrico (taxa zero para pagadores), o que impulsionou a adoção, mas criou incentivos distorcidos ao longo do tempo. Os usuários passaram a estender planos de parcelamento além do perfil de recebíveis esperado, levando a: descompasso de fluxo de caixa, deterioração da economia unitária e uma lacuna de rentabilidade crescente que ameaçava a sustentabilidade de longo prazo.",
-          solution: "Redesenhei a estratégia de monetização com um framework dinâmico de precificação baseado em risco. Introduzi taxas condicionais acionadas apenas quando a economia unitária estava em risco. Construí lógica para comparar maturidade dos recebíveis (WAT) versus cronograma de pagamentos. Apliquei monetização de precisão sem comprometer a proposta de valor central. Aproveitei a infraestrutura existente para um rollout enxuto e escalável.",
+          description: "Gestão de produto no dia a dia que protegia o foco do time.",
+          context: "Fintech, Brasil. Até 7 engenheiros, um tech lead, uma pessoa de design, 2 de dados e um technical writer, em sprints Scrum de 2 semanas.",
+          problem: "Vendas, Suporte, Marketing e diretoria disputavam o mesmo time de engenharia. Às vezes o trabalho travava em code review, e não havia dashboard para os riscos de perda financeira, então o time só os via quando os alarmes disparavam.",
+          keyDecision: "Proteger o foco do time. Ser a porta de entrada única das demandas, filtrar e diagnosticar problemas antes de chegarem à engenharia, e dar visibilidade ao time em vez de mais ruído.",
+          solution: "Implementei PRDs com o porquê e as métricas de sucesso definidos de antemão. Levava ao refinamento tickets com critérios de aceite, já alinhados com o tech lead, e planejava as sprints pela capacidade. Conduzia uma triagem semanal de bugs com o Suporte, diagnosticando muitos problemas eu mesma antes de escalar. Montei alarmes com a engenharia e o SRE e organizei quem respondia. Quando uma retro mostrou trabalho travando em code review, criei uma automação no Jira que avisava os revisores assim que um card ficava pronto. Releases faseadas com feature flags, com cenários de teste gerados com IA antes da aprovação.",
           impact: [
-            "+43,5% de aumento na rentabilidade baseline (piloto)",
-            "~R$ 329 mil de receita mensal incremental a partir de 3,4% dos clientes",
-            "Projeção de +R$ 2 mi/mês de upside com ~20% de adoção",
-            "Convertemos um risco estrutural em um motor de monetização escalável"
+            "Alarmes de perda financeira caíram mais de 58% depois do dashboard de monitoramento que construí",
+            "Gargalo de code review eliminado",
+            "PRDs adotados pelo time para alinhar escopo e métricas"
           ],
-          tags: ["Fintech", "Monetization", "Payments"],
-          imageUrl: "https://picsum.photos/seed/blu-case-1/800/600"
+          tags: [
+            "Agile",
+            "Entrega",
+            "Cross-functional"
+          ],
+          imageUrl: "https://picsum.photos/seed/blu-case-2/800/600"
         }
       ],
       companyClients: {
@@ -336,12 +410,13 @@ export const portfolioData: PortfolioData = {
         contact: "Contato",
         viewProjects: "Ver Projetos",
         caseStudiesTitle: "Cases",
-        caseStudiesDesc: "Uma seleção de projetos onde liderei a estratégia e execução, focando em métricas reais e satisfação do usuário.",
+        caseStudiesDesc: "Uma seleção de projetos em que liderei estratégia e execução, medidos por resultados reais.",
         clientsTitle: "Clientes",
         testimonialsTitle: "Recomendações",
         testimonialsDesc:
           "Recomendação no LinkedIn e depoimentos de colegas, lideranças e parceiros.",
         problem: "O Problema",
+        keyDecision: "Decisão-chave",
         solution: "A Solução",
         impact: "Impacto",
         careerTitle: "Trajetória",
@@ -379,55 +454,75 @@ export const portfolioData: PortfolioData = {
       ],
       caseStudies: [
         {
-          id: "relo-3",
-          title: "Computer Vision Model Optimization with Human-in-the-Loop",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - Machine Learning & QA",
-          period: "2025 - 2026",
-          description: "Led performance improvements for a computer vision model used to detect sponsor brands in sports media.",
-          problem: "The model had recurring errors, reducing data reliability and limiting the solution's scalability.",
-          solution: "Implemented a human-in-the-loop QA framework where model outputs were validated by humans and used in continuous retraining cycles. Built structured feedback loops and prioritized critical error categories for progressive model improvement.",
-          impact: [
-            "Increased model recall from 62% to 89%, significantly reducing missed brand detections.",
-            "Significant increase in platform reliability",
-            "Established a foundation for continuous AI improvement and scalability"
-          ],
-          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
-          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
-        },
-        {
           id: "relo-2",
-          title: "Global Expansion with a Multilingual AI Framework",
+          title: "Global Expansion with a Language-Agnostic AI Layer",
           company: "Relo Metrics",
           role: "Senior Product Manager - AI & Internationalization",
           period: "2025 - 2026",
-          description: "Led the globalization of AI products, enabling expansion into non-English markets, with a focus on Japan.",
-          problem: "Products were limited to English, preventing entry into strategic international markets such as Japan. Lack of multilingual support constrained growth and revenue generation.",
-          solution: "Developed a multilingual AI framework capable of supporting Japanese and any other language. Implemented language processing and standardization strategies to ensure consistent data and outputs.",
+          description: "Took an English-only brand detection product to Japan, and to any other language.",
+          context: "Adtech, US company. Product that detects sponsor brand mentions in sports broadcasts.",
+          problem: "Brand mention detection relied on hardcoded English keywords. Every new language was a 6 to 8 week engineering project, and Japanese contracts were at risk. In Japanese broadcasts, 34% of brand mentions were semantic variations that fixed keywords could not catch.",
+          keyDecision: "I compared four approaches with explicit trade-offs: hardcoded keywords (missed 34% of mentions), machine translation (lost context in brand names), fine-tuning per language (too costly) and an instruction-based AI layer. I chose the AI layer because the problem was interpretation and generalization to languages we didn't have yet, with low marginal cost per new language.",
+          solution: "Built an instruction-based AI layer that reasons about meaning instead of matching keywords, grounded in domain context created with a native Japanese analyst. Validated several speech-to-text models and prompt strategies against a golden set that compared models on cost and quality. When no model reached the accuracy target on foreign brand names, I flagged the risk early and solved it with prompt-based normalization.",
           impact: [
-            "Expanded into international markets, including Japan",
+            "85% less time to enable a new language",
             "120% increase in revenue potential",
-            "Platform ready to operate globally, regardless of language"
+            "US$15.3M in media value revealed from Japanese audio exposure",
+            "Evaluation framework reused by other teams"
           ],
-          tags: ["AI", "Internationalization", "Multilingual"],
-          imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
+          tags: [
+            "AI",
+            "Evals",
+            "Internationalization"
+          ]
         },
         {
-          id: "relo-1",
-          title: "Product Scalability and Operational Cost Reduction",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - ML & Global Expansion",
-          period: "2025 - 2026",
-          description: "Led the restructuring of a product with high operational complexity, making it scalable and commercially viable for global expansion.",
-          problem: "The product had high implementation cost and long lead times, which blocked sales and limited new customer acquisition. Operations relied heavily on manual processes and could not scale across multiple markets.",
-          solution: "Redesigned the product architecture to improve scalability and reduce operational friction. Simplified input data requirements, standardized workflows, and removed manual dependencies.",
+          id: "hfts-1",
+          title: "Evals and Grounding for an AI Meal Planner",
+          company: "Hot for the Summer",
+          role: "Product builder",
+          period: "2026",
+          description: "Measured an LLM feature before fixing it, and found its own metric was wrong.",
+          context: "A live AI product I built and run: a diet and training app.",
+          problem: "An LLM generated daily meal plans and their macros. Only 58% of requests produced a plan, and nobody checked whether the model's nutrition numbers were true. Rechecked against Brazil's official food composition table (TACO), plans that were 97% \"on target\" by the app's own math were only 6% on target with real numbers.",
+          keyDecision: "The model decides what, the code decides how much. The LLM picks the foods, where cultural judgment matters. Nutrition values come from TACO, not from the model, and a code solver adjusts portions to hit the targets exactly.",
+          solution: "Built an eval harness with code-based graders, repeated runs and confidence intervals, plus tracing in Langfuse. Matched food names to TACO with keyword search and embeddings in a cascade (hybrid fusion was tested and made results worse), measured recall@3, and added an LLM verifier that can answer \"none\", with self-consistency voting and caching. Kept a held-out test set to catch overfitting. Everything ships behind a switch, and each decision is logged with its metric and accepted cost.",
           impact: [
-            "69% reduction in operational costs",
-            "Unblocked the product for sales and expansion",
-            "Significantly increased capacity to acquire new customers"
+            "On target with real nutrition data: 6% → 97%",
+            "Within the real safety range: 42% → 100%",
+            "Requests that produce a plan: 58% → 75 to 100%",
+            "37% fewer model calls per generation"
           ],
-          tags: ["Market Expansion", "Product Scaling"],
-          imageUrl: "https://picsum.photos/seed/relo-case-3/800/600"
+          tags: [
+            "LLM Evals",
+            "Grounding",
+            "Retrieval"
+          ],
+          imageUrl: "/cases/hot-for-the-summer.png",
+          link: {"href": "https://www.hotforthesummer.com/", "label": "Visit the product"}
+        },
+        {
+          id: "relo-3",
+          title: "Making Computer Vision Quality Measurable",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - Machine Learning & QA",
+          period: "2025 - 2026",
+          description: "Built the quality metrics and human review loop for the core brand detection models.",
+          context: "Adtech, US company. Core product: computer vision models that detect sponsor brands in sports media.",
+          problem: "The models had recurring errors, reducing data reliability. There was no way to see where errors came from, or whether a wrong result was a model error or a human error.",
+          keyDecision: "Measure before fixing. Before changing the models, I made errors visible and separated model errors from human errors, so improvement effort went where the errors actually were.",
+          solution: "Defined the quality metrics for the models (precision, recall, F1 score, accuracy) and delivered an executive dashboard that splits model error from human error and drills down to where action is needed. Implemented a human-in-the-loop QA layer where people validate model outputs and their corrections feed continuous retraining.",
+          impact: [
+            "First view of model quality by error source, model vs. human",
+            "Executive dashboard that did not exist before",
+            "Continuous retraining loop fed by human review"
+          ],
+          tags: [
+            "Computer Vision",
+            "Human-in-the-Loop",
+            "Model Evaluation"
+          ],
+          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
           id: "blu-1",
@@ -435,17 +530,71 @@ export const portfolioData: PortfolioData = {
           company: "Blu",
           role: "Product Manager - Payments & Financial Products",
           period: "2023 - 2025",
-          description: "Led a monetization redesign addressing asymmetric pricing, distorted incentives, and long-term profitability risk.",
-          problem: "The product operated under an asymmetric monetization model (zero-fee for payers), which successfully drove adoption but created distorted incentives over time. Users began extending installment plans beyond the expected receivables profile, leading to: cash flow mismatch, deterioration of unit economics, and a growing profitability gap that threatened long-term sustainability.",
-          solution: "Redesigned the monetization strategy by implementing a dynamic, risk-based pricing framework. Introduced conditional fees triggered only when unit economics were at risk. Built logic to compare receivables maturity (WAT) vs. payout schedule. Applied precision monetization without compromising the core value proposition. Leveraged existing infrastructure for a lean and scalable rollout.",
+          description: "Fixed a profitability gap without giving up the zero-fee promise.",
+          context: "Fintech, Brazil. Receivables financing for retailers, team of up to 7 engineers.",
+          problem: "Retailers paid zero fees, which drove adoption but distorted incentives. They started stretching installment plans beyond the expected receivables profile, extending the average receivables term and opening a profitability gap that threatened the product's sustainability.",
+          keyDecision: "Charge only when profitability is actually at risk. Keep zero fees for retailers and don't raise the fee for distributors, who funded the model. Then prove it on a small group before scaling.",
+          solution: "Mapped every transaction parameter and built logic that compares the retailer's receivables term with the distributor's expected payout term, applying a correction fee only when it is exceeded. In refinement, the engineers and I found a way to build it on existing infrastructure, keeping it lean and low risk. Released it behind a feature flag to 99 customers (3.4% of the base) to watch customer reaction before going wider.",
           impact: [
-            "+43.5% uplift in baseline profitability (pilot)",
-            "~R$329K incremental monthly revenue from 3.4% of clients",
-            "Projected +R$2M/month upside at ~20% adoption",
-            "Converted a structural risk into a scalable monetization engine"
+            "+43.5% monthly profitability in the pilot group",
+            "~BRL 329K in additional monthly profitability from 3.4% of customers",
+            "Projected ~BRL 2M/month upside at ~20% adoption",
+            "Turned a structural risk into a scalable monetization engine"
           ],
-          tags: ["Fintech", "Monetization", "Payments"],
-          imageUrl: "https://picsum.photos/seed/blu-case-1/800/600"
+          tags: [
+            "Fintech",
+            "Monetization",
+            "Payments"
+          ],
+          videoUrl: "/cases/case-monetizacao.mp4"
+        },
+        {
+          id: "relo-1",
+          title: "Product Scalability and Operational Cost Reduction",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - ML & Global Expansion",
+          period: "2025 - 2026",
+          description: "Turned a custom engineering project into a repeatable product.",
+          context: "Adtech, US company. Product that measures sponsor exposure inside stadiums.",
+          problem: "Each new implementation was a dedicated 10 to 12 week engineering project, including two weeks of manual data normalization. Setup time and cost scared prospects away: 4 deals were lost in one quarter.",
+          keyDecision: "Schema before self-service. The pressure was to build self-service first, but without a consistent data schema any interface would break. Prioritized with RICE, schema standardization scored highest and was the prerequisite for everything else. When engineering pushed back that \"every stadium is different\", data from past projects showed 80% of fields were identical, which turned the objection into co-design of the remaining 20%.",
+          solution: "Standardized the data schema, removed manual engineering steps from deployment and created an onboarding playbook anyone on the team could run. Added a schema validation step before setup, which cut back-and-forth with clients from 5 rounds to 1.",
+          impact: [
+            "69.5% reduction in operational costs",
+            "Onboarding from 10 to 12 weeks down to 1.5 weeks",
+            "Same team delivering 3x more implementations in the same time",
+            "Zero deals lost to setup complexity the following quarter",
+            "US$26M in on-site media value measured with the new framework",
+            "Same architecture became the base for the Japan expansion"
+          ],
+          tags: [
+            "Market Expansion",
+            "Product Scaling"
+          ],
+          videoUrl: "/cases/case-escalabilidade.mp4"
+        },
+        {
+          id: "blu-2",
+          title: "Keeping Delivery Moving with Engineering",
+          company: "Blu",
+          role: "Product Manager",
+          period: "2023 - 2025",
+          description: "Day-to-day product ownership that protected the team's focus.",
+          context: "Fintech, Brazil. Up to 7 engineers, a tech lead, a designer, 2 data people and a technical writer, in 2-week Scrum sprints.",
+          problem: "Sales, Support, Marketing and leadership all competed for the same engineering team. Work sometimes stalled in code review, and there was no dashboard for financial-loss risks, so the team only saw them when alarms fired.",
+          keyDecision: "Protect the team's focus. Be the single entry point for requests, filter and diagnose issues before they reach engineering, and give the team visibility instead of more noise.",
+          solution: "Introduced PRDs with the why and success metrics defined upfront. Brought tickets with acceptance criteria to refinement, already aligned with the tech lead, and planned sprints by capacity. Ran a weekly bug triage with Support, diagnosing many issues myself before escalating. Set up alarms with engineering and SRE and organized who responded. When a retro showed work stalling in code review, I added a Jira automation that notified reviewers the moment a card was ready. Released in phases behind feature flags, with AI-generated test scenarios before sign-off.",
+          impact: [
+            "Financial-loss alarms down by over 58% after the monitoring dashboard I built",
+            "Code review bottleneck removed",
+            "PRDs introduced as the team's way to align on scope and metrics"
+          ],
+          tags: [
+            "Agile",
+            "Delivery",
+            "Cross-functional"
+          ],
+          imageUrl: "https://picsum.photos/seed/blu-case-2/800/600"
         }
       ],
       companyClients: {
@@ -681,12 +830,13 @@ export const portfolioData: PortfolioData = {
         contact: "Contact",
         viewProjects: "View Projects",
         caseStudiesTitle: "Cases",
-        caseStudiesDesc: "A selection of projects where I led strategy and execution, focusing on real metrics and user satisfaction.",
+        caseStudiesDesc: "A selection of projects where I led strategy and execution, measured by real results.",
         clientsTitle: "Clients",
         testimonialsTitle: "Recommendations",
         testimonialsDesc:
           "LinkedIn recommendation and notes from colleagues, leaders, and partners.",
         problem: "The Problem",
+        keyDecision: "Key Decision",
         solution: "The Solution",
         impact: "Impact",
         careerTitle: "Career Path",
@@ -724,73 +874,147 @@ export const portfolioData: PortfolioData = {
       ],
       caseStudies: [
         {
-          id: "relo-3",
-          title: "Optimización de Modelo de Computer Vision con Human-in-the-Loop",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - Machine Learning & QA",
-          period: "2025 - 2026",
-          description: "Lideré mejoras de performance de un modelo de visión computacional para la detección de marcas en medios deportivos.",
-          problem: "El modelo presentaba errores recurrentes, comprometiendo la confiabilidad de los datos y limitando la escalabilidad de la solución.",
-          solution: "Implementé un framework de Quality Assurance con human-in-the-loop, donde los outputs del modelo eran validados por humanos y usados en ciclos continuos de retraining. Creé procesos estructurados de feedback y priorización de errores críticos para una mejora progresiva del modelo.",
-          impact: [
-            "Aumenté el recall del modelo de 62% a 89%, reduciendo significativamente las marcas no detectadas.",
-            "Aumento significativo de la confiabilidad de la plataforma",
-            "Base estructurada para mejora continua y escalabilidad de IA"
-          ],
-          tags: ["Computer Vision", "Human-in-the-Loop", "Machine Learning"],
-          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
-        },
-        {
           id: "relo-2",
-          title: "Expansión Global con un Framework Multilingüe de IA",
+          title: "Expansión Global con una Capa de IA Independiente del Idioma",
           company: "Relo Metrics",
           role: "Senior Product Manager - AI & Internationalization",
           period: "2025 - 2026",
-          description: "Lideré la globalización de productos de IA, habilitando la expansión a mercados no anglófonos, con foco en Japón.",
-          problem: "Los productos estaban limitados al inglés, lo que impedía la entrada a mercados internacionales estratégicos como Japón. La falta de soporte multilingüe restringía el crecimiento y la generación de ingresos.",
-          solution: "Desarrollé un framework de IA multilingüe capaz de soportar japonés y cualquier otro idioma. Implementé estrategias de procesamiento y estandarización de lenguaje para asegurar consistencia de datos y outputs.",
+          description: "Llevé un producto de detección de marcas que solo funcionaba en inglés a Japón, y a cualquier otro idioma.",
+          context: "Adtech, empresa de EE. UU. Producto que detecta menciones de marcas patrocinadoras en transmisiones deportivas.",
+          problem: "La detección de menciones dependía de palabras clave fijas en inglés. Cada idioma nuevo era un proyecto de ingeniería de 6 a 8 semanas, y había contratos japoneses en riesgo. En las transmisiones en japonés, el 34% de las menciones eran variaciones semánticas que las palabras clave fijas no captaban.",
+          keyDecision: "Comparé cuatro enfoques con trade-offs explícitos: palabras clave fijas (perdían el 34% de las menciones), traducción automática (perdía contexto en nombres de marca), fine-tuning por idioma (demasiado costoso) y una capa de IA basada en instrucciones. Elegí la capa de IA porque el problema era de interpretación y de generalización a idiomas que aún no teníamos, con bajo costo marginal por idioma nuevo.",
+          solution: "Construí una capa de IA basada en instrucciones que interpreta el significado en lugar de buscar palabras clave, fundamentada en contexto de dominio creado con una analista nativa japonesa. Validé varios modelos de speech-to-text y estrategias de prompt contra un golden set que comparaba modelos por costo y calidad. Cuando ningún modelo alcanzó la meta de precisión en nombres de marcas extranjeras, señalé el riesgo temprano y lo resolví con normalización vía prompt.",
           impact: [
-            "Expansión a mercados internacionales, incluyendo Japón",
-            "Aumento de 120% en el potencial de ingresos",
-            "Plataforma lista para operar globalmente, independientemente del idioma"
+            "85% menos tiempo para habilitar un idioma nuevo",
+            "Aumento del 120% en el potencial de ingresos",
+            "US$ 15,3 millones en valor de medios revelados en la exposición en audio en japonés",
+            "Framework de evaluación reutilizado por otros equipos"
           ],
-          tags: ["AI", "Internationalization", "Multilingual"],
-          imageUrl: "https://picsum.photos/seed/relo-case-2/800/600"
+          tags: [
+            "IA",
+            "Evals",
+            "Internacionalización"
+          ]
         },
         {
-          id: "relo-1",
-          title: "Escalabilidad de Producto y Reducción de Costo Operativo",
-          company: "Relo Metrics",
-          role: "Senior Product Manager - ML & Global Expansion",
-          period: "2025 - 2026",
-          description: "Lideré la reestructuración de un producto con alta complejidad operativa, haciéndolo escalable y comercialmente viable para expansión global.",
-          problem: "El producto tenía alto costo y tiempo de implementación, lo que bloqueaba su venta y limitaba la adquisición de nuevos clientes. La operación dependía de procesos manuales intensivos y no era escalable para múltiples mercados.",
-          solution: "Rediseñé la arquitectura del producto con foco en escalabilidad y reducción de fricción operativa. Simplifiqué requisitos de entrada de datos, estandaricé flujos y eliminé dependencias manuales.",
+          id: "hfts-1",
+          title: "Evals y Grounding en un Planificador de Menús con IA",
+          company: "Hot for the Summer",
+          role: "Product builder",
+          period: "2026",
+          description: "Medí una funcionalidad de LLM antes de corregirla, y descubrí que su propia métrica estaba equivocada.",
+          context: "Un producto de IA en producción que construí y opero: una app de dieta y entrenamiento.",
+          problem: "Un LLM armaba el menú del día y calculaba sus macros. Solo el 58% de las solicitudes generaba un menú, y nadie verificaba si los números nutricionales del modelo eran verdaderos. Recalculados con la tabla oficial brasileña de composición de alimentos (TACO), menús que estaban 97% \"en la meta\" según la propia app quedaban solo 6% en la meta con números reales.",
+          keyDecision: "El modelo decide qué, el código decide cuánto. El LLM elige los alimentos, donde importa el criterio cultural. Los valores nutricionales vienen de la TACO, no del modelo, y un solver en código ajusta las porciones para cumplir las metas con exactitud.",
+          solution: "Construí un sistema de evals con graders en código, varias rondas e intervalos de confianza, además de tracing en Langfuse. Emparejé los nombres de alimentos con la TACO usando búsqueda por palabras y embeddings en cascada (la fusión híbrida se probó y empeoró el resultado), medí el recall@3 y agregué un LLM verificador que puede responder \"ninguno\", con votación por self-consistency y caché. Reservé un conjunto de prueba nunca usado en el ajuste para detectar overfitting. Todo sale con un interruptor para apagarlo, y cada decisión queda registrada con su métrica y el costo aceptado.",
           impact: [
-            "Reducción de 69% en los costos operativos",
-            "Producto desbloqueado para ventas y expansión",
-            "Aumento significativo en la capacidad de adquisición de nuevos clientes"
+            "En la meta con datos nutricionales reales: 6% → 97%",
+            "Dentro del rango de seguridad real: 42% → 100%",
+            "Solicitudes que generan un menú: 58% → 75 a 100%",
+            "37% menos llamadas al modelo por generación"
           ],
-          tags: ["Market Expansion", "Product Scaling"],
-          imageUrl: "https://picsum.photos/seed/relo-case-3/800/600"
+          tags: [
+            "LLM Evals",
+            "Grounding",
+            "Retrieval"
+          ],
+          imageUrl: "/cases/hot-for-the-summer.png",
+          link: {"href": "https://www.hotforthesummer.com/", "label": "Conocer el producto"}
+        },
+        {
+          id: "relo-3",
+          title: "Haciendo Medible la Calidad de Visión por Computadora",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - Machine Learning & QA",
+          period: "2025 - 2026",
+          description: "Construí las métricas de calidad y el ciclo de revisión humana de los modelos centrales de detección de marcas.",
+          context: "Adtech, empresa de EE. UU. Producto central: modelos de visión por computadora que detectan marcas patrocinadoras en medios deportivos.",
+          problem: "Los modelos tenían errores recurrentes, lo que reducía la confiabilidad de los datos. No había forma de ver de dónde venían los errores, ni si un resultado incorrecto era un error del modelo o un error humano.",
+          keyDecision: "Medir antes de corregir. Antes de cambiar los modelos, hice visibles los errores y separé el error del modelo del error humano, para que el esfuerzo de mejora fuera a donde realmente estaban los errores.",
+          solution: "Definí las métricas de calidad de los modelos (precision, recall, F1 score, accuracy) y entregué un dashboard ejecutivo que separa el error del modelo del error humano y profundiza hasta donde hay que actuar. Implementé una capa de QA con human-in-the-loop, donde personas validan las salidas del modelo y sus correcciones alimentan el reentrenamiento continuo.",
+          impact: [
+            "Primera visión de la calidad del modelo por origen del error, modelo vs. humano",
+            "Dashboard ejecutivo que no existía antes",
+            "Ciclo de reentrenamiento continuo alimentado por revisión humana"
+          ],
+          tags: [
+            "Computer Vision",
+            "Human-in-the-Loop",
+            "Evaluación de Modelos"
+          ],
+          videoUrl: "https://relometrics.com/hubfs/Relo_Metrics_Homepage_Video_v1.mp4"
         },
         {
           id: "blu-1",
-          title: "De la diferenciación de mercado al riesgo de rentabilidad: un rediseño de monetización",
+          title: "De la Diferenciación de Mercado al Riesgo de Rentabilidad: un Rediseño de Monetización",
           company: "Blu",
           role: "Product Manager - Payments & Financial Products",
           period: "2023 - 2025",
-          description: "Rediseñé la estrategia de monetización frente a un modelo asimétrico que generaba adopción pero distorsionaba incentivos y amenazaba la sostenibilidad.",
-          problem: "El producto operaba bajo un modelo de monetización asimétrico (cero comisión para quienes pagan), lo que impulsó la adopción pero creó incentivos distorsionados con el tiempo. Los usuarios extendieron planes de cuotas más allá del perfil de cobros esperado, generando: desajuste de flujo de caja, deterioro de la economía unitaria y una brecha de rentabilidad creciente que amenazaba la sostenibilidad a largo plazo.",
-          solution: "Rediseñé la estrategia de monetización con un marco dinámico de precios basado en riesgo. Introduje comisiones condicionales activadas solo cuando la economía unitaria estaba en riesgo. Construí lógica para comparar madurez de cobros (WAT) versus calendario de pagos. Apliqué monetización de precisión sin comprometer la propuesta de valor central. Aproveché la infraestructura existente para un despliegue ágil y escalable.",
+          description: "Corregí una brecha de rentabilidad sin renunciar a la promesa de comisión cero.",
+          context: "Fintech, Brasil. Anticipo de cobros para minoristas, equipo de hasta 7 ingenieros.",
+          problem: "Los minoristas pagaban comisión cero, lo que impulsó la adopción pero distorsionó los incentivos. Empezaron a extender los planes de cuotas más allá del perfil de cobros esperado, alargando el plazo promedio de cobro y abriendo una brecha de rentabilidad que amenazaba la sostenibilidad del producto.",
+          keyDecision: "Cobrar solo cuando la rentabilidad está realmente en riesgo. Mantener la comisión cero para el minorista y no subir la comisión del distribuidor, que financiaba el modelo. Y probarlo en un grupo pequeño antes de escalar.",
+          solution: "Mapeé todos los parámetros de la transacción y creé la lógica que compara el plazo de cobro del minorista con el plazo de pago esperado por el distribuidor, aplicando una comisión de corrección solo cuando se supera. En el refinamiento, los ingenieros y yo encontramos la forma de construirlo sobre la infraestructura existente, con una solución liviana y de bajo riesgo. Lo lancé con feature flag a 99 clientes (3,4% de la base) para observar la reacción antes de ampliar.",
           impact: [
-            "+43,5% de aumento en la rentabilidad baseline (piloto)",
-            "~R$ 329 mil de ingresos mensuales incrementales del 3,4% de los clientes",
-            "Proyección de +R$ 2M/mes de upside con ~20% de adopción",
+            "+43,5% de rentabilidad mensual en el grupo piloto",
+            "~R$ 329 mil de rentabilidad mensual adicional a partir del 3,4% de los clientes",
+            "Proyección de ~R$ 2 M/mes de upside con ~20% de adopción",
             "Convertimos un riesgo estructural en un motor de monetización escalable"
           ],
-          tags: ["Fintech", "Monetization", "Payments"],
-          imageUrl: "https://picsum.photos/seed/blu-case-1/800/600"
+          tags: [
+            "Fintech",
+            "Monetización",
+            "Pagos"
+          ],
+          videoUrl: "/cases/case-monetizacao.mp4"
+        },
+        {
+          id: "relo-1",
+          title: "Escalabilidad de Producto y Reducción de Costos Operativos",
+          company: "Relo Metrics",
+          role: "Senior Product Manager - ML & Global Expansion",
+          period: "2025 - 2026",
+          description: "Convertí un proyecto de ingeniería a medida en un producto replicable.",
+          context: "Adtech, empresa de EE. UU. Producto que mide la exposición de patrocinadores dentro de estadios.",
+          problem: "Cada nueva implementación era un proyecto dedicado de ingeniería de 10 a 12 semanas, incluidas dos semanas de normalización manual de datos. El tiempo y el costo de configuración alejaban a los clientes: se perdieron 4 negocios en un trimestre.",
+          keyDecision: "Schema antes que self-service. La presión era construir el self-service primero, pero sin un schema de datos consistente cualquier interfaz se rompería. Priorizada con RICE, la estandarización del schema obtuvo la mayor puntuación y era requisito para todo lo demás. Cuando ingeniería argumentó que \"cada estadio es diferente\", los datos de proyectos anteriores mostraron que el 80% de los campos eran iguales, y la objeción se convirtió en co-diseño del 20% restante.",
+          solution: "Estandaricé el schema de datos, eliminé pasos manuales de ingeniería en el despliegue y creé un playbook de onboarding que cualquier persona del equipo podía ejecutar. Agregué una validación de schema antes de la configuración, que redujo las idas y vueltas con el cliente de 5 a 1.",
+          impact: [
+            "Reducción del 69,5% en costos operativos",
+            "Onboarding de 10 a 12 semanas a 1,5 semanas",
+            "El mismo equipo entregando 3x más implementaciones en el mismo tiempo",
+            "Cero negocios perdidos por complejidad de configuración en el trimestre siguiente",
+            "US$ 26 millones en valor de medios en estadio medidos con el nuevo framework",
+            "La misma arquitectura fue la base para la expansión a Japón"
+          ],
+          tags: [
+            "Expansión de Mercado",
+            "Escala de Producto"
+          ],
+          videoUrl: "/cases/case-escalabilidade.mp4"
+        },
+        {
+          id: "blu-2",
+          title: "Manteniendo la Entrega en Movimiento con Ingeniería",
+          company: "Blu",
+          role: "Product Manager",
+          period: "2023 - 2025",
+          description: "Gestión de producto en el día a día que protegía el foco del equipo.",
+          context: "Fintech, Brasil. Hasta 7 ingenieros, un tech lead, una persona de diseño, 2 de datos y un technical writer, en sprints Scrum de 2 semanas.",
+          problem: "Ventas, Soporte, Marketing y dirección competían por el mismo equipo de ingeniería. A veces el trabajo se trababa en code review, y no había dashboard para los riesgos de pérdida financiera, así que el equipo solo los veía cuando saltaban las alarmas.",
+          keyDecision: "Proteger el foco del equipo. Ser la puerta de entrada única de las demandas, filtrar y diagnosticar problemas antes de que lleguen a ingeniería, y dar visibilidad al equipo en lugar de más ruido.",
+          solution: "Implementé PRDs con el porqué y las métricas de éxito definidos de antemano. Llevaba al refinamiento tickets con criterios de aceptación, ya alineados con el tech lead, y planificaba los sprints según la capacidad. Conducía un triage semanal de bugs con Soporte, diagnosticando muchos problemas yo misma antes de escalar. Configuré alarmas con ingeniería y SRE y organicé quién respondía. Cuando una retro mostró trabajo trabado en code review, creé una automatización en Jira que avisaba a los revisores apenas una tarjeta estaba lista. Releases por fases con feature flags, con escenarios de prueba generados con IA antes de la aprobación.",
+          impact: [
+            "Las alarmas de pérdida financiera bajaron más del 58% después del dashboard de monitoreo que construí",
+            "Cuello de botella de code review eliminado",
+            "PRDs adoptados por el equipo para alinear alcance y métricas"
+          ],
+          tags: [
+            "Agile",
+            "Entrega",
+            "Cross-functional"
+          ],
+          imageUrl: "https://picsum.photos/seed/blu-case-2/800/600"
         }
       ],
       companyClients: {
@@ -1026,12 +1250,13 @@ export const portfolioData: PortfolioData = {
         contact: "Contacto",
         viewProjects: "Ver Proyectos",
         caseStudiesTitle: "Cases",
-        caseStudiesDesc: "Una selección de proyectos donde lideré la estrategia y ejecución, enfocándome en métricas reales y satisfacción del usuario.",
+        caseStudiesDesc: "Una selección de proyectos en los que lideré estrategia y ejecución, medidos por resultados reales.",
         clientsTitle: "Clientes",
         testimonialsTitle: "Recomendaciones",
         testimonialsDesc:
           "Recomendación en LinkedIn y mensajes de colegas, liderazgos y socios.",
         problem: "El Problema",
+        keyDecision: "Decisión clave",
         solution: "La Solución",
         impact: "Impacto",
         careerTitle: "Trayectoria",
