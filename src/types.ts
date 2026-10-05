@@ -4,9 +4,12 @@ export interface CaseStudy {
   company: string;
   role: string;
   period: string;
-  description: string;
-  /** One line under the title: sector, company type, team */
-  context?: string;
+  /** Short intro under the title; kept only on previous-version cards */
+  description?: string;
+  /** Context block: who the company is and what the product does */
+  about?: { company: string; product: string; team?: string };
+  /** Previous version of a case, kept side by side for comparison */
+  legacy?: boolean;
   problem: string;
   /** The main product decision and its trade-off */
   keyDecision?: string;
@@ -109,6 +112,10 @@ export interface PortfolioContent {
     testimonialsDesc: string;
     problem: string;
     keyDecision: string;
+    aboutCompany: string;
+    aboutProduct: string;
+    aboutTeam: string;
+    previousVersion: string;
     solution: string;
     impact: string;
     careerTitle: string;
